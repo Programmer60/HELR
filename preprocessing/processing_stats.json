@@ -1,0 +1,39 @@
+{
+    "total_rows_read": 358566538,
+    "removed_by_itemid": 314582174,
+    "removed_by_missing_valuenum": 43070,
+    "removed_by_time_window": 36631985,
+    "removed_by_plausibility": 49192,
+    "feature_plausibility_drops": {
+        "Hemoglobin": 11,
+        "Platelets": 0,
+        "WBC": 0,
+        "Creatinine": 0,
+        "Glucose": 0,
+        "Potassium": 7,
+        "Sodium": 2,
+        "Diastolic BP": 2504,
+        "Mean Arterial Pressure": 1327,
+        "Respiratory Rate": 41252,
+        "Heart Rate": 513,
+        "Systolic BP": 2591,
+        "Oxygen Saturation": 402,
+        "Temperature": 583
+    },
+    "feature_total_counts": {
+        "Hemoglobin": 112623,
+        "Platelets": 85337,
+        "WBC": 79985,
+        "Creatinine": 86651,
+        "Glucose": 133996,
+        "Potassium": 140175,
+        "Sodium": 111163,
+        "Diastolic BP": 1017831,
+        "Mean Arterial Pressure": 1010904,
+        "Respiratory Rate": 1131747,
+        "Heart Rate": 1057737,
+        "Systolic BP": 1018430,
+        "Oxygen Saturation": 1022102,
+        "Temperature": 300628
+    }
+}

@@ -1,0 +1,19 @@
+{
+    "n_features": 10,
+    "features": [
+        "AGE",
+        "Systolic BP",
+        "Mean Arterial Pressure",
+        "Diastolic BP",
+        "GENDER",
+        "Potassium",
+        "Heart Rate",
+        "Hemoglobin",
+        "Glucose",
+        "Oxygen Saturation"
+    ],
+    "n_train": 39360,
+    "n_test": 9943,
+    "accuracy": 0.6855073921351704,
+    "roc_auc": 0.7256630573366853
+}

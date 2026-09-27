@@ -1,0 +1,15 @@
+{
+    "accuracy": 0.6850045257970432,
+    "precision": 0.553478712357217,
+    "recall": 0.31935290593169563,
+    "f1": 0.40501519756838905,
+    "roc_auc": 0.7262052959316457,
+    "train_subjects": 30791,
+    "test_subjects": 7698,
+    "train_admissions": 39360,
+    "test_admissions": 9943,
+    "train_pos": 13117,
+    "train_neg": 26243,
+    "test_pos": 3338,
+    "test_neg": 6605
+}
