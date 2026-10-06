@@ -117,7 +117,7 @@ def load_and_preprocess(path, target_col=None, test_size=0.2, seed=42):
     (important: keeps sigmoid polynomial approximation in its valid
     range and keeps CKKS ciphertext magnitudes well-scaled).
     """
-    df = pd.read_csv(path)
+    df = pd.read_csv()
     if target_col is None:
         for cand in ["target", "HeartDisease", "num", "condition"]:
             if cand in df.columns:
