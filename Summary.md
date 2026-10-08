@@ -1,4 +1,4 @@
-Research Paper 1: Homomorphic Encryption for Machine Learning Applications with CKKS Algorithms: A Survey of Developments and Applications
+## Research Paper 1: Homomorphic Encryption for Machine Learning Applications with CKKS Algorithms: A Survey of Developments and Applications
 
 This paper, Homomorphic Encryption for Machine Learning Applications with CKKS Algorithms: A Survey of Developments and Applications, reviews the integration of Homomorphic Encryption (HE) into Privacy-Preserving Machine Learning (PPML). It focuses specifically on the advantages of the Cheon-Kim-Kim-Song (CKKS) algorithm [cite: 1.1.10]. The paper highlights how CKKS is uniquely suited for machine learning because it supports approximate floating-point computations, making it possible to run algorithms like K-nearest neighbors (KNN), K-means clustering, and face recognition on encrypted data [cite: 1.1.10]. However, the authors note that integrating HE and ML creates significant bottlenecks: encrypted computations can extend processing times from hours to days, and cryptographic noise can reduce the final model's accuracy [cite: 1.1.10].
 
@@ -21,7 +21,7 @@ Optimize KNN for Patient Similarity: The paper discusses integrating CKKS with K
 Manage Noise in Deep Predictive Models: If you are building complex predictive models on MIMIC (like predicting mortality or sepsis onset), the multiplicative depth (the number of consecutive multiplications in the algorithm) will be high. Because CKKS is an approximate scheme, each multiplication adds noise. You must implement strict systematic noise management (such as periodic bootstrapping or ciphertext rescaling) to ensure the accumulated noise does not flip a binary clinical prediction (e.g., accidentally changing a "high risk" output to "low risk" due to encryption artifacts).
 
 
-Research Paper 2:A comprehensive survey on secure healthcare data processing
+## Research Paper 2:A comprehensive survey on secure healthcare data processing
 with homomorphic encryption: attacks and defenses
 
 This comprehensive survey by Lee, Lim, and Eswaran (2025) systematically reviews the theoretical foundations, implementation schemes, and healthcare applications of Homomorphic Encryption (HE). Unlike other papers that solely focus on performance, this survey uniquely bridges the gap between HE's privacy-preserving capabilities (for EHRs, medical imaging, and machine learning) and its systemic vulnerabilities, detailing attack vectors like side-channel, chosen ciphertext, and fault injection attacks alongside their mitigation strategies.
@@ -52,7 +52,7 @@ Defense Against Side-Channel Attacks in the ICU: If you are deploying an HE-driv
 Targeted Use of PHE for Cohort Discovery: If the goal is not complex prediction but rather querying the MIMIC database for cohort statistics (e.g., "How many patients in the ICU had a specific dosage of Vasopressin?"), avoid FHE entirely. Use the Paillier algorithm (PHE) to perform additive counts on the encrypted database, drastically reducing query latency.
 
 
-Research Paper 3:  Homomorphic encryption for secure and scalable predictive
+## Research Paper 3:  Homomorphic encryption for secure and scalable predictive
 healthcare analytics: a review and case study
 
 This paper by Gogoi and Valan (2026) reviews the application of Homomorphic Encryption (HE) to protect patient confidentiality in predictive healthcare analytics, specifically in multi-institutional settings. It explores how integrating HE with decentralized technologies like federated learning and blockchain can enhance transparency and scalability. To prove its practical feasibility, the authors conducted a case study using Paillier encryption on a logistic regression model to predict heart disease.
@@ -71,8 +71,23 @@ Simulate Federated Learning (FL): The authors highlight the integration of HE an
 Benchmark the Privacy-Performance Trade-off: Align your project's results with the paper's findings. Your goal shouldn't be real-time speed, but rather proving accuracy parity. Structure your final project report to show that your encrypted MIMIC model achieves the exact same Area Under the Curve (AUC) / Accuracy as the plaintext baseline, while explicitly measuring and visualizing the added latency (CPU time and memory usage).
 
 
-Research Paper 4: Homomorphic encryption for secure healthcare
+## Research Paper 4: Homomorphic encryption for secure healthcare
 artificial intelligence
 
 Based on the active document, Homomorphic encryption for secure healthcare artificial intelligence by Yanez and Yadav, this paper presents a Systematization of Knowledge (SoK) that maps Homomorphic Encryption (HE) schemes to specific healthcare threat models, AI pipeline stages, and deployment architectures (edge vs. cloud). It concludes with a structured decision matrix to help practitioners balance security with latency and accuracy constraints.For a minor project utilizing large datasets like MIMIC-III and MIMIC-IV, the goal is to build a functional proof-of-concept without getting bottlenecked by the massive computational overhead of HE. Here are the key strategies for your implementation:Target the Inference Phase, Not Training: The paper highlights that training models entirely on encrypted data remains heavily resource-prohibitive. For a minor project, train your predictive model (e.g., predicting ICU mortality or sepsis) using plaintext MIMIC data. Apply HE exclusively during the inference phase—encrypting only the final test patient records to demonstrate a secure prediction pipeline.Simulate Edge-to-Cloud Telemetry: The authors emphasize securing data generated by distributed, resource-constrained edge devices. Structure your project into two distinct scripts: an "Edge Client" (simulating a local ICU monitor that extracts and encrypts a MIMIC patient's vitals) and a "Cloud Server" (which receives the ciphertext, runs the prediction, and returns an encrypted risk score). This directly addresses the paper's data-in-transit and data-in-use threat models.Utilize Lightweight HE Schemes (PHE/SHE): The paper classifies schemes by their suitability for specific constraints. Avoid the extreme complexity and latency of Fully Homomorphic Encryption (FHE) and bootstrapping. Instead, build a Logistic Regression model and use Partially Homomorphic Encryption (PHE, like Paillier) or Somewhat Homomorphic Encryption (SHE, like CKKS via the TenSEAL library) to handle the required arithmetic efficiently.Apply the Decision Matrix: Use the paper's proposed decision matrix as the architectural blueprint for your project. Explicitly document your chosen pathway (e.g., Tabular EHR Data $\rightarrow$ Cloud Inference $\rightarrow$ Linear Model $\rightarrow$ SHE) in your project report to justify your design choices.Focus on Benchmarking Trade-offs: The paper centers on the friction between latency, accuracy, and computational cost. Your minor project’s primary deliverable should be a benchmark evaluation proving that your encrypted MIMIC pipeline achieves the exact same diagnostic accuracy (e.g., AUC/ROC) as a plaintext baseline, while actively measuring and graphing the added CPU time and memory overhead.
 
+## Research Paper 5- Privacy-Preserving Breast Cancer Prediction Based on Logistic Regression
+
+The article Privacy-Preserving Breast Cancer Prediction Based on Logistic Regression addresses the privacy risks that occur when multiple medical institutions collaborate to train machine learning models on an untrusted cloud server.
+
+To prevent private medical data leakage during collaborative training, the authors propose a highly optimized Two-Party Logistic Regression (TPLR) algorithm built on the CKKS fully homomorphic encryption scheme.
+
+The proposed solution introduces three key optimizations:
+
+Ciphertext Segmentation: Instead of packing the dataset row-by-row or column-by-column, the matrix is divided into sub-matrices to enable parallel bootstrapping, which significantly reduces computational overhead and saves time.
+
+Sigmoid Approximation: Because homomorphic encryption only supports basic addition and multiplication, the algorithm uses the least squares method to approximate the non-linear sigmoid function with polynomials within specific intervals.
+
+Minimizing Multiplication Depth: The algorithm is structured to reduce nested multiplication operations, which speeds up training and limits computational costs.
+
+When evaluated on a breast cancer dataset, this optimized encrypted training process maintained high data utility, achieving a prediction accuracy of over 96% for two-sided encrypted data.

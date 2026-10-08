@@ -1,0 +1,92 @@
+{
+    "dataset": "MHEALTH",
+    "sigmoid_degree": 3,
+    "epochs": 10,
+    "lr": 0.05,
+    "l2": 0.01,
+    "train_samples": 1645,
+    "test_samples": 705,
+    "num_features": 92,
+    "ckks_context": "[60,40,40,40,40,40,40,60]",
+    "scale": "2^40",
+    "feature_ciphertexts": 92,
+    "label_ciphertext": 1,
+    "encryption_time_s": 1.686,
+    "total_train_time_s": 189.27,
+    "mean_epoch_time_s": 18.926,
+    "std_epoch_time_s": 1.417,
+    "serialized_X_ct_MB": 133.34,
+    "final_levels_remaining_after_err": 3,
+    "final_levels_remaining_after_grad": 2,
+    "gradient_max_abs_error": 1.1265130115067912e-05,
+    "gradient_mean_abs_error": 6.234301823673804e-06,
+    "test_metrics": {
+        "accuracy": 0.8581560283687943,
+        "precision": 1.0,
+        "recall": 0.7635933806146572,
+        "f1": 0.8659517426273459,
+        "roc_auc": 1.0
+    },
+    "weight_history": [
+        {
+            "epoch": 1,
+            "norm_w": 0.05,
+            "train_acc": 0.8778115501519757,
+            "epoch_time_s": 19.848796899896115
+        },
+        {
+            "epoch": 2,
+            "norm_w": 0.09999576232241451,
+            "train_acc": 0.8808510638297873,
+            "epoch_time_s": 17.72419790015556
+        },
+        {
+            "epoch": 3,
+            "norm_w": 0.1499781568502677,
+            "train_acc": 0.8857142857142857,
+            "epoch_time_s": 17.803120200056583
+        },
+        {
+            "epoch": 4,
+            "norm_w": 0.19992817129520235,
+            "train_acc": 0.896048632218845,
+            "epoch_time_s": 17.5598623000551
+        },
+        {
+            "epoch": 5,
+            "norm_w": 0.24980635464579565,
+            "train_acc": 0.9075987841945289,
+            "epoch_time_s": 17.654403500026092
+        },
+        {
+            "epoch": 6,
+            "norm_w": 0.29952980087124675,
+            "train_acc": 0.9191489361702128,
+            "epoch_time_s": 17.54044480016455
+        },
+        {
+            "epoch": 7,
+            "norm_w": 0.34892106232678144,
+            "train_acc": 0.9300911854103343,
+            "epoch_time_s": 21.289102799957618
+        },
+        {
+            "epoch": 8,
+            "norm_w": 0.3890513648462434,
+            "train_acc": 0.9404255319148936,
+            "epoch_time_s": 21.172684299992397
+        },
+        {
+            "epoch": 9,
+            "norm_w": 0.42041550668959377,
+            "train_acc": 0.9501519756838905,
+            "epoch_time_s": 19.053449400002137
+        },
+        {
+            "epoch": 10,
+            "norm_w": 0.44582180020112894,
+            "train_acc": 0.9580547112462006,
+            "epoch_time_s": 19.615225799847394
+        }
+    ]
+}

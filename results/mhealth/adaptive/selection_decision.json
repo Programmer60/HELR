@@ -1,0 +1,44 @@
+{
+    "selected_degree": 5,
+    "reason": "Degree 5 minimizes T_HE (11.69s) while satisfying all constraints.",
+    "candidates": {
+        "1": {
+            "degree": 1,
+            "e_poly": 0.6844726231566347,
+            "e_grad": 6.042055844535099e-06,
+            "d_circuit": 3,
+            "t_he": 39.222000900190324,
+            "grad_start_level": 5,
+            "fits_poly": false,
+            "fits_grad": true,
+            "fits_depth": true
+        },
+        "3": {
+            "degree": 3,
+            "e_poly": 0.09837412985278093,
+            "e_grad": 1.4376901701917966e-05,
+            "d_circuit": 5,
+            "t_he": 18.765942899975926,
+            "grad_start_level": 3,
+            "fits_poly": false,
+            "fits_grad": true,
+            "fits_depth": true
+        },
+        "5": {
+            "degree": 5,
+            "e_poly": 0.03287862315663471,
+            "e_grad": 1.9128787348887677e-05,
+            "d_circuit": 6,
+            "t_he": 11.69337740004994,
+            "grad_start_level": 2,
+            "fits_poly": true,
+            "fits_grad": true,
+            "fits_depth": true
+        }
+    },
+    "constraints": {
+        "epsilon_poly": 0.05,
+        "epsilon_grad": 0.0001,
+        "available_depth": 7
+    }
+}

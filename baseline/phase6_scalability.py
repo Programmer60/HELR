@@ -2,7 +2,7 @@ import numpy as np
 import tenseal as ts
 import time
 import os
-import tracemalloc
+import tracemalloc      # This library is used to track memory usage during HE inference
 import pandas as pd
 import json
 import matplotlib.pyplot as plt
@@ -80,7 +80,7 @@ def run_he_inference(X_batch, w, b, track_levels=False):
         
         # 2. Degree 5 Sigmoid
         z2 = z * z
-        z3 = z2 * burn_levels(z, 1)
+        z3 = z2 * burn_levels(z, 1)     # Align z for multiplication with z2
         z5 = z3 * burn_levels(z2, 1)
         
         term5 = z5 * c5_5
@@ -90,15 +90,15 @@ def run_he_inference(X_batch, w, b, track_levels=False):
         p = term5 + term3 + term1 + c0
         res_batches.append(p)
         
-        if track_levels and i == 0:
+        if track_levels and i == 0:         # Track levels only for the first batch
             final_levels = get_levels(p)
             
     t_comp = time.time() - t_comp_start
     
     t_dec_start = time.time()
-    preds = []
+    preds = []          # Decrypt and collect predictions from all batches
     for p in res_batches:
-        preds.extend(p.decrypt())
+        preds.extend(p.decrypt())           # Decrypt the CKKS vector and extend the list
     t_dec = time.time() - t_dec_start
     
     # Calculate ciphertexts used (features * batches)

@@ -12,7 +12,7 @@ c3_5 = -0.007823
 c5_5 = 0.000118
 
 def get_levels(enc):
-    return enc.ciphertext()[0].coeff_modulus_size()
+    return enc.ciphertext()[0].coeff_modulus_size()     # Returns the remaining modulus size (levels remaining).
 
 def get_scale(enc):
     import math
@@ -85,14 +85,17 @@ def track_full_circuit(degree):
 
     log_state("1. Fresh encrypted feature", enc_X[0], "start")
     
-    # 3. feature * weight
-    z = enc_X[0] * w[0]
-    log_state("3. feature * weight", z, "intrinsic")
+    # Simulate Hospital encrypting weights (like HELR3.py)
+    enc_w = [ts.ckks_vector(ctx, [w[j]] * BATCH_SIZE) for j in range(10)]
+    
+    # 3. feature * weight (Ciphertext x Ciphertext)
+    z = enc_X[0] * enc_w[0]
+    log_state("3. feature * weight (Ct x Ct)", z, "intrinsic")
     
     for j in range(1, 10):
-        z = z + (enc_X[j] * w[j])
+        z = z + (enc_X[j] * enc_w[j])
         
-    z = z + b # add bias
+    z = z + b # add bias (Ct + Pt scalar)
     log_state("4. accumulated z (inc. bias)", z, "intrinsic")
     
     z_start_level = get_levels(z)
@@ -179,7 +182,7 @@ def track_full_circuit(degree):
     err_times_x0 = err * enc_X_aligned[0]
     log_state("8. error * X_0", err_times_x0, "intrinsic")
     
-    bwd_intrinsic = 1
+    bwd_intrinsic = 1       # The multiplication of err * X_0 is the first intrinsic operation in the backward pass
     
     for j in range(10):
         grad_sum = (err * enc_X_aligned[j]).sum()
@@ -222,6 +225,44 @@ for deg in [1, 3, 5]:
         print(f"\n[ERROR] Degree-{deg} tracking failed:", e)
 
 print("\n--- TASK 4: COMPARISON TABLE ---")
-print(f"{'Degree':<8} | {'Fwd Depth':<10} | {'Bwd Depth':<10} | {'Align Levels':<14} | {'Total Consumed':<15} | {'Final Remaining':<16} | {'Max Err':<10} | {'Runtime (s)':<10}")
+headers = [
+    "Degree", "Fwd Depth", "Bwd Depth", "Align Levels", "Total Consumed",
+    "Final Remaining", "Max Err", "Runtime (s)"
+]
+table_rows = [
+    [
+        str(r["degree"]),
+        str(r["fwd_depth"]),
+        str(r["bwd_depth"]),
+        str(r["align_levels"]),
+        str(r["total_consumed"]),
+        str(r["final_remaining"]),
+        f"{r['max_err']:.6f}",
+        f"{r['runtime']:.2f}",
+    ]
+    for r in results
+]
+column_widths = [
+    max(len(header), *(len(row[index]) for row in table_rows))
+    for index, header in enumerate(headers)
+]
+
+header_row = " | ".join(
+    header.ljust(column_widths[index])
+    for index, header in enumerate(headers)
+)
+separator = "-+-".join("-" * width for width in column_widths)
+print(header_row)
+print(separator)
 for r in results:
-    print(f"{r['degree']:<8} | {r['fwd_depth']:<10} | {r['bwd_depth']:<10} | {r['align_levels']:<14} | {r['total_consumed']:<15} | {r['final_remaining']:<16} | {r['max_err']:<10.6f} | {r['runtime']:<10.2f}")
+    values = [
+        str(r["degree"]),
+        str(r["fwd_depth"]),
+        str(r["bwd_depth"]),
+        str(r["align_levels"]),
+        str(r["total_consumed"]),
+        str(r["final_remaining"]),
+        f"{r['max_err']:.6f}",
+        f"{r['runtime']:.2f}",
+    ]
+    print(" | ".join(value.ljust(column_widths[index]) for index, value in enumerate(values)))

@@ -63,13 +63,13 @@ def track_degree3_forward():
     for j in range(1, 10):
         z = z + (enc_X[j] * w[j])
     
-    start_level = get_levels(z)
+    start_level = get_levels(z)     # Track the starting level before any multiplications
     print(f"1. Accumulated z           | Depth (remaining): {start_level} | Scale: 2^{get_scale(z):.1f}")
     
     z2 = z * z
     print(f"2. z2 = z * z              | Depth (remaining): {get_levels(z2)} | Scale: 2^{get_scale(z2):.1f}")
     
-    z_match1 = burn_levels(z, 1)
+    z_match1 = burn_levels(z, 1)        # Burn 1 level to align with z2 for multiplication
     z3 = z2 * z_match1
     print(f"3. z3 = z2 * z             | Depth (remaining): {get_levels(z3)} | Scale: 2^{get_scale(z3):.1f}")
     
@@ -79,7 +79,7 @@ def track_degree3_forward():
     term1 = burn_levels(z, 2) * c1_3
     print(f"5. term1 = z * c1 (aligned)| Depth (remaining): {get_levels(term1)} | Scale: 2^{get_scale(term1):.1f}")
     
-    p = term3 + term1 + c0
+    p = term3 + term1 + c0          # Final polynomial evaluation
     print(f"6. Final p (deg-3 approx)  | Depth (remaining): {get_levels(p)} | Scale: 2^{get_scale(p):.1f}")
     print(f"-> Levels consumed: {start_level - get_levels(p)}")
 
@@ -89,17 +89,17 @@ def track_degree5_forward():
     
     z = enc_X[0] * w[0]
     for j in range(1, 10):
-        z = z + (enc_X[j] * w[j])
+        z = z + (enc_X[j] * w[j])           # Accumulate weighted sum of features
         
     start_level = get_levels(z)
     print(f"1. Accumulated z           | Depth (remaining): {start_level} | Scale: 2^{get_scale(z):.1f}")
     
-    z2 = z * z
-    z_match1 = burn_levels(z, 1)
-    z3 = z2 * z_match1
+    z2 = z * z      
+    z_match1 = burn_levels(z, 1)        # Burn 1 level to align with z2 for multiplication
+    z3 = z2 * z_match1          
     print(f"2. z3 = z2 * z             | Depth (remaining): {get_levels(z3)} | Scale: 2^{get_scale(z3):.1f}")
     
-    z_match2 = burn_levels(z2, 1)
+    z_match2 = burn_levels(z2, 1)   # Burn 1 level to align with z3 for multiplication
     z5 = z3 * z_match2
     print(f"3. z5 = z3 * z2            | Depth (remaining): {get_levels(z5)} | Scale: 2^{get_scale(z5):.1f}")
     

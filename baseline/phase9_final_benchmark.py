@@ -102,7 +102,7 @@ expected_ct      = 10 * expected_batches
 print(f"N={N_FULL}, slots={SLOTS}, batches={expected_batches}, "
       f"feature CTs={expected_ct}")
 
-REPS = 3
+REPS = 3            # To get a sense of variability, repeat the full inference 3 times
 enc_times, comp_times, dec_times, tot_times, ct_mb_list = [], [], [], [], []
 he_preds_full = None
 final_lvl_full = None

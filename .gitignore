@@ -4,7 +4,10 @@ mimic-iii-clinical-database-1.4/
 *.csv.gz
 *.csv
 *.csv.gz
+*.csv
 ppg+dalia
+MHEALTHDATASET
+mit-bih-arrhythmia-database-1.0.0.zip
 
 # Generated MIMIC-derived datasets
 data/processed/

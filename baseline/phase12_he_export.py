@@ -47,10 +47,10 @@ Xte = imp.transform(X_test_raw)
 
 sc = StandardScaler()
 Xtr_sc = sc.fit_transform(Xtr)
-Xte_sc = sc.transform(Xte)
+Xte_sc = sc.transform(Xte)      # Scale test set using training set parameters
 
 print("Training Logistic Regression...")
-lr = LogisticRegression(max_iter=1000, solver="lbfgs", C=1.0, random_state=SEED)
+lr = LogisticRegression(max_iter=1000, solver="lbfgs", C=1.0, random_state=SEED)    # Use L-BFGS solver for better convergence
 lr.fit(Xtr_sc, y_train)
 
 y_pred = lr.predict(Xte_sc)
@@ -59,7 +59,11 @@ logits = Xte_sc @ lr.coef_[0] + lr.intercept_[0]
 
 print("\n--- Model Verification ---")
 print(f"Accuracy: {accuracy_score(y_test, y_pred):.4f}")
+print(f"Precision: {precision_score(y_test, y_pred):.4f}")
+print(f"Recall: {recall_score(y_test, y_pred):.4f}")
+print(f"F1-Score: {f1_score(y_test, y_pred):.4f}")
 print(f"ROC-AUC:  {roc_auc_score(y_test, y_proba):.4f}")
+print(f"Logits - Min: {logits.min():.4f}, Max: {logits.max():.4f}, Mean: {logits.mean():.4f}")
 assert not np.isnan(Xtr_sc).any(), "NaN in X_train"
 assert not np.isnan(Xte_sc).any(), "NaN in X_test"
 assert not np.isinf(Xtr_sc).any(), "Inf in X_train"
