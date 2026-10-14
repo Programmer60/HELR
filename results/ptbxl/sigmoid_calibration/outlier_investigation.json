@@ -1,0 +1,488 @@
+{
+  "timestamp": "2026-10-14T23:13:30",
+  "outlier_record": {
+    "array_row_in_validation": 779,
+    "ecg_id": 6816,
+    "patient_id": "20055.0",
+    "strat_fold": 9,
+    "label": 1,
+    "label_name": "abnormal",
+    "metadata": {
+      "ecg_id": 6816,
+      "patient_id": "20055.0",
+      "strat_fold": 9,
+      "age": 300.0,
+      "sex": 1,
+      "device": "AT-6 C",
+      "recording_date": "1991-08-20 18:48:59",
+      "report": "sinusrytm v\u00c4nster el-axel t-f\u00d6r\u00c4ndring, s\u00c5som vid    anterior myokardaffektion    h\u00d6g lateral myokardaffektion qt f\u00d6rl\u00c4ngd",
+      "scp_codes": "{'ISCAS': 100.0, 'SR': 0.0}",
+      "filename_lr": "records100/06000/06816_lr"
+    },
+    "reproduced_logit_with_intercept": 112.09911786266254,
+    "reproduced_logit_without_intercept": 111.51451190014723
+  },
+  "top_feature_contributions": [
+    {
+      "feature": "V4_mean",
+      "lead": "V4",
+      "statistic": "mean",
+      "raw_val_mV": -9.869941,
+      "scaler_mean_mV": -0.0013563100600510745,
+      "scaler_scale_mV": 0.011792118458626044,
+      "standardized_val": -836.8796997070312,
+      "weight": -0.1296461661314401,
+      "contribution": 108.49824458024747,
+      "pct_of_unintercepted_logit": 97.29517955241504,
+      "train_min_norm": -66.56816864013672,
+      "train_max_norm": 54.25261688232422,
+      "train_p01_norm": -1.3340207513570785,
+      "train_p999_norm": 1.4023002333641421,
+      "abs_contribution": 108.49824458024747,
+      "rank": 1
+    },
+    {
+      "feature": "V4_max",
+      "lead": "V4",
+      "statistic": "max",
+      "raw_val_mV": -8.973,
+      "scaler_mean_mV": 1.4195557831226384,
+      "scaler_scale_mV": 0.7396792895627765,
+      "standardized_val": -14.05008316040039,
+      "weight": -0.20350442245550007,
+      "contribution": 2.8592540590090287,
+      "pct_of_unintercepted_logit": 2.564019704959363,
+      "train_min_norm": -1.874536395072937,
+      "train_max_norm": 9.414140701293945,
+      "train_p01_norm": -1.7432863351106644,
+      "train_p999_norm": 5.955686574459183,
+      "abs_contribution": 2.8592540590090287,
+      "rank": 2
+    },
+    {
+      "feature": "I_std",
+      "lead": "I",
+      "statistic": "std",
+      "raw_val_mV": 0.19749676,
+      "scaler_mean_mV": 0.14031386623063977,
+      "scaler_scale_mV": 0.06116089340498826,
+      "standardized_val": 0.9349583983421326,
+      "weight": 1.0531696096339007,
+      "contribution": 0.9846697714059208,
+      "pct_of_unintercepted_logit": 0.8829969791623334,
+      "train_min_norm": -1.9617398977279663,
+      "train_max_norm": 16.0147762298584,
+      "train_p01_norm": -1.7063853977918624,
+      "train_p999_norm": 6.302851731777233,
+      "abs_contribution": 0.9846697714059208,
+      "rank": 3
+    },
+    {
+      "feature": "AVR_std",
+      "lead": "AVR",
+      "statistic": "std",
+      "raw_val_mV": 0.14956813,
+      "scaler_mean_mV": 0.12730221822966886,
+      "scaler_scale_mV": 0.04536200101840489,
+      "standardized_val": 0.4908493161201477,
+      "weight": -1.3263680229761083,
+      "contribution": -0.6510468370014552,
+      "pct_of_unintercepted_logit": -0.5838225231030183,
+      "train_min_norm": -2.093071699142456,
+      "train_max_norm": 21.52752113342285,
+      "train_p01_norm": -1.9383139048814773,
+      "train_p999_norm": 6.379459060192343,
+      "abs_contribution": 0.6510468370014552,
+      "rank": 4
+    },
+    {
+      "feature": "AVF_max",
+      "lead": "AVF",
+      "statistic": "max",
+      "raw_val_mV": 0.203,
+      "scaler_mean_mV": 0.5370409156562592,
+      "scaler_scale_mV": 0.3758638157693157,
+      "standardized_val": -0.8887286186218262,
+      "weight": 0.45582823936180306,
+      "contribution": -0.40510760149683434,
+      "pct_of_unintercepted_logit": -0.36327792194398645,
+      "train_min_norm": -2.3254191875457764,
+      "train_max_norm": 13.345149993896484,
+      "train_p01_norm": -1.237259030342102,
+      "train_p999_norm": 6.09609922504436,
+      "abs_contribution": 0.40510760149683434,
+      "rank": 5
+    },
+    {
+      "feature": "AVR_max",
+      "lead": "AVR",
+      "statistic": "max",
+      "raw_val_mV": 0.407,
+      "scaler_mean_mV": 0.24938498003274426,
+      "scaler_scale_mV": 0.16360598837313892,
+      "standardized_val": 0.9633817672729492,
+      "weight": 0.2836790635624226,
+      "contribution": 0.273291237593102,
+      "pct_of_unintercepted_logit": 0.24507235241079073,
+      "train_min_norm": -5.093853950500488,
+      "train_max_norm": 34.660194396972656,
+      "train_p01_norm": -1.0837133238315582,
+      "train_p999_norm": 8.43561385631566,
+      "abs_contribution": 0.273291237593102,
+      "rank": 6
+    },
+    {
+      "feature": "AVR_min",
+      "lead": "AVR",
+      "statistic": "min",
+      "raw_val_mV": -0.65,
+      "scaler_mean_mV": -0.7336249707809215,
+      "scaler_scale_mV": 0.2744665579754272,
+      "standardized_val": 0.3046818971633911,
+      "weight": 0.8696702227529671,
+      "contribution": 0.26497277337488295,
+      "pct_of_unintercepted_logit": 0.23761281725570024,
+      "train_min_norm": -8.155364990234375,
+      "train_max_norm": 10.160162925720215,
+      "train_p01_norm": -4.904834862232208,
+      "train_p999_norm": 2.2463282570838974,
+      "abs_contribution": 0.26497277337488295,
+      "rank": 7
+    },
+    {
+      "feature": "II_std",
+      "lead": "II",
+      "statistic": "std",
+      "raw_val_mV": 0.10802081,
+      "scaler_mean_mV": 0.14402407548418458,
+      "scaler_scale_mV": 0.06263684068010034,
+      "standardized_val": -0.5747937560081482,
+      "weight": 0.4596414559635509,
+      "contribution": -0.26419903889034324,
+      "pct_of_unintercepted_logit": -0.23691897528719258,
+      "train_min_norm": -1.8228461742401123,
+      "train_max_norm": 15.165559768676758,
+      "train_p01_norm": -1.6558160047531127,
+      "train_p999_norm": 6.41844122552878,
+      "abs_contribution": 0.26419903889034324,
+      "rank": 8
+    },
+    {
+      "feature": "V3_min",
+      "lead": "V3",
+      "statistic": "min",
+      "raw_val_mV": -1.576,
+      "scaler_mean_mV": -1.2227504094571984,
+      "scaler_scale_mV": 0.7522666377358798,
+      "standardized_val": -0.4695802628993988,
+      "weight": -0.5376206716600027,
+      "contribution": 0.25245605633825546,
+      "pct_of_unintercepted_logit": 0.22638852292543835,
+      "train_min_norm": -20.069013595581055,
+      "train_max_norm": 1.4911606311798096,
+      "train_p01_norm": -6.789106596469879,
+      "train_p999_norm": 1.4245845636129397,
+      "abs_contribution": 0.25245605633825546,
+      "rank": 9
+    },
+    {
+      "feature": "V6_max",
+      "lead": "V6",
+      "statistic": "max",
+      "raw_val_mV": 0.731,
+      "scaler_mean_mV": 1.1677390538957175,
+      "scaler_scale_mV": 0.5581625438595379,
+      "standardized_val": -0.7824585437774658,
+      "weight": -0.2165619897913978,
+      "contribution": 0.16945077916972753,
+      "pct_of_unintercepted_logit": 0.1519540159234682,
+      "train_min_norm": -6.540637969970703,
+      "train_max_norm": 14.171966552734375,
+      "train_p01_norm": -1.8447243682146073,
+      "train_p999_norm": 7.010821423053744,
+      "abs_contribution": 0.16945077916972753,
+      "rank": 10
+    }
+  ],
+  "root_cause_analysis": {
+    "primary_lead": "V4",
+    "primary_statistic": "mean",
+    "raw_V4_mean_mV": -9.869941,
+    "training_scaler_mean_mV": -0.0013563100600510745,
+    "training_scaler_scale_mV": 0.011792118458626044,
+    "outlier_standardized_value": -836.8796997070312,
+    "feature_weight": -0.1296461661314401,
+    "logit_contribution": 108.49824458024747,
+    "pct_of_unintercepted_logit": 97.29517955241504,
+    "classification": "ELECTRODE_DC_BASELINE_OFFSET_ARTIFACT",
+    "explanation": "Lead V4 in record 06816 exhibits a persistent hardware DC offset of -9.87 mV, while standard ECG baseline is 0 mV. Because window means across training records have a very small standard deviation (scale = 0.0118 mV), standardizing -9.87 mV yields z = -836.88 standard deviations. Multiplied by negative weight -0.1296, this single feature generates +108.50 of the +111.51 unintercepted logit."
+  },
+  "polynomial_evaluations_on_outlier": [
+    {
+      "polynomial": "deg1_mhealth",
+      "domain": [
+        -20,
+        20
+      ],
+      "with_intercept": {
+        "logit": 112.09911786266254,
+        "distance_from_domain": 92.09911786266254,
+        "exact_sigmoid": 1.0,
+        "poly_output": 22.58352621894452,
+        "abs_error": 21.58352621894452,
+        "is_outside_01": true
+      },
+      "without_intercept": {
+        "logit": 111.51451190014723,
+        "distance_from_domain": 91.51451190014723,
+        "exact_sigmoid": 1.0,
+        "poly_output": 22.468358844329003,
+        "abs_error": 21.468358844329003,
+        "is_outside_01": true
+      }
+    },
+    {
+      "polynomial": "deg3_mhealth",
+      "domain": [
+        -8,
+        8
+      ],
+      "with_intercept": {
+        "logit": 112.09911786266254,
+        "distance_from_domain": 104.09911786266254,
+        "exact_sigmoid": 1.0,
+        "poly_output": -2226.669139870226,
+        "abs_error": 2227.669139870226,
+        "is_outside_01": true
+      },
+      "without_intercept": {
+        "logit": 111.51451190014723,
+        "distance_from_domain": 103.51451190014723,
+        "exact_sigmoid": 1.0,
+        "poly_output": -2191.8317885828083,
+        "abs_error": 2192.8317885828083,
+        "is_outside_01": true
+      }
+    },
+    {
+      "polynomial": "deg5_mhealth",
+      "domain": [
+        -6,
+        6
+      ],
+      "with_intercept": {
+        "logit": 112.09911786266254,
+        "distance_from_domain": 106.09911786266254,
+        "exact_sigmoid": 1.0,
+        "poly_output": 2077786.2356645593,
+        "abs_error": 2077785.2356645593,
+        "is_outside_01": true
+      },
+      "without_intercept": {
+        "logit": 111.51451190014723,
+        "distance_from_domain": 105.51451190014723,
+        "exact_sigmoid": 1.0,
+        "poly_output": 2024056.9352497442,
+        "abs_error": 2024055.9352497442,
+        "is_outside_01": true
+      }
+    },
+    {
+      "polynomial": "deg1_ptbxl",
+      "domain": [
+        -2.8,
+        9.69
+      ],
+      "with_intercept": {
+        "logit": 112.09911786266254,
+        "distance_from_domain": 102.40911786266254,
+        "exact_sigmoid": 1.0,
+        "poly_output": 9.1638045222516,
+        "abs_error": 8.1638045222516,
+        "is_outside_01": true
+      },
+      "without_intercept": {
+        "logit": 111.51451190014723,
+        "distance_from_domain": 101.82451190014723,
+        "exact_sigmoid": 1.0,
+        "poly_output": 9.118622081226679,
+        "abs_error": 8.118622081226679,
+        "is_outside_01": true
+      }
+    },
+    {
+      "polynomial": "deg3_ptbxl",
+      "domain": [
+        -2.8,
+        9.69
+      ],
+      "with_intercept": {
+        "logit": 112.09911786266254,
+        "distance_from_domain": 102.40911786266254,
+        "exact_sigmoid": 1.0,
+        "poly_output": -1522.3442925523937,
+        "abs_error": 1523.3442925523937,
+        "is_outside_01": true
+      },
+      "without_intercept": {
+        "logit": 111.51451190014723,
+        "distance_from_domain": 101.82451190014723,
+        "exact_sigmoid": 1.0,
+        "poly_output": -1498.4835454223144,
+        "abs_error": 1499.4835454223144,
+        "is_outside_01": true
+      }
+    },
+    {
+      "polynomial": "deg5_ptbxl",
+      "domain": [
+        -2.8,
+        9.69
+      ],
+      "with_intercept": {
+        "logit": 112.09911786266254,
+        "distance_from_domain": 102.40911786266254,
+        "exact_sigmoid": 1.0,
+        "poly_output": 384731.2313987649,
+        "abs_error": 384730.2313987649,
+        "is_outside_01": true
+      },
+      "without_intercept": {
+        "logit": 111.51451190014723,
+        "distance_from_domain": 101.82451190014723,
+        "exact_sigmoid": 1.0,
+        "poly_output": 374755.3574015899,
+        "abs_error": 374754.3574015899,
+        "is_outside_01": true
+      }
+    }
+  ],
+  "in_domain_validation_evaluations": [
+    {
+      "polynomial": "deg1_mhealth",
+      "max_ae": 1.0312601224351305,
+      "mean_ae": 0.04578881891222498,
+      "out_of_01_count": 189,
+      "out_of_01_fraction": 0.08852459016393442
+    },
+    {
+      "polynomial": "deg3_mhealth",
+      "max_ae": 0.09837375186288455,
+      "mean_ae": 0.05333459160504943,
+      "out_of_01_count": 56,
+      "out_of_01_fraction": 0.02622950819672131
+    },
+    {
+      "polynomial": "deg5_mhealth",
+      "max_ae": 0.8601148050921864,
+      "mean_ae": 0.015087871725965363,
+      "out_of_01_count": 20,
+      "out_of_01_fraction": 0.00936768149882904
+    },
+    {
+      "polynomial": "deg1_ptbxl",
+      "max_ae": 0.23134684055430277,
+      "mean_ae": 0.1123743877373516,
+      "out_of_01_count": 9,
+      "out_of_01_fraction": 0.004215456674473068
+    },
+    {
+      "polynomial": "deg3_ptbxl",
+      "max_ae": 0.11718778936887086,
+      "mean_ae": 0.06278887822365099,
+      "out_of_01_count": 49,
+      "out_of_01_fraction": 0.022950819672131147
+    },
+    {
+      "polynomial": "deg5_ptbxl",
+      "max_ae": 0.05950697542820693,
+      "mean_ae": 0.03412533291835874,
+      "out_of_01_count": 78,
+      "out_of_01_fraction": 0.03653395784543326
+    }
+  ],
+  "strategy_A_feature_bounding_results": [
+    {
+      "policy": "Policy_A0_unbounded",
+      "z_min": -2.3559932817217497,
+      "z_max": 112.09911786266254,
+      "outlier_z": 112.09911786266254,
+      "accuracy": 0.7041006523765144,
+      "roc_auc": 0.7711216573360994,
+      "f1_score": 0.7396473964739647,
+      "deg3_mhealth_max_ae": 2227.669139870226,
+      "deg3_mhealth_mean_ae": 1.0954519903813829,
+      "deg3_mhealth_out_of_01": 60
+    },
+    {
+      "policy": "Policy_A1_train_minmax",
+      "z_min": -2.3559932817217497,
+      "z_max": 15.40115468724721,
+      "outlier_z": 9.753403520442074,
+      "accuracy": 0.7041006523765144,
+      "roc_auc": 0.7711740529710989,
+      "f1_score": 0.7396473964739647,
+      "deg3_mhealth_max_ae": 4.007343811917715,
+      "deg3_mhealth_mean_ae": 0.057629612253495825,
+      "deg3_mhealth_out_of_01": 59
+    },
+    {
+      "policy": "Policy_A2_clip_pm10",
+      "z_min": -2.4718674689743403,
+      "z_max": 15.055772018185014,
+      "outlier_z": 4.020949893807024,
+      "accuracy": 0.7045666356011183,
+      "roc_auc": 0.7719182486004149,
+      "f1_score": 0.7401639344262295,
+      "deg3_mhealth_max_ae": 3.676395726012624,
+      "deg3_mhealth_mean_ae": 0.05704249590586166,
+      "deg3_mhealth_out_of_01": 61
+    },
+    {
+      "policy": "Policy_A3_clip_pm5",
+      "z_min": -3.780721613887863,
+      "z_max": 13.692301689949755,
+      "outlier_z": 2.3225508201000054,
+      "accuracy": 0.7041006523765144,
+      "roc_auc": 0.7720203756855836,
+      "f1_score": 0.7400736799017601,
+      "deg3_mhealth_max_ae": 2.533774590515609,
+      "deg3_mhealth_mean_ae": 0.05565599048307993,
+      "deg3_mhealth_out_of_01": 58
+    },
+    {
+      "policy": "Policy_A4_train_quantiles",
+      "z_min": -3.441089575111995,
+      "z_max": 15.005151627986837,
+      "outlier_z": 1.3252551543427948,
+      "accuracy": 0.7050326188257223,
+      "roc_auc": 0.7725825186848163,
+      "f1_score": 0.7406800491601803,
+      "deg3_mhealth_max_ae": 3.6293426527452084,
+      "deg3_mhealth_mean_ae": 0.05738464775098961,
+      "deg3_mhealth_out_of_01": 60
+    }
+  ],
+  "strategy_B_bounded_domain_analysis": {
+    "domain_threshold": 8.0,
+    "in_domain_sample_count": 2135,
+    "total_val_sample_count": 2146,
+    "in_domain_percentage": 99.4874184529357,
+    "deg3_kim_in_domain_max_ae": 0.09837375186288455,
+    "deg3_kim_in_domain_mean_ae": 0.05333459160504943,
+    "deg3_kim_in_domain_out_of_01": 56,
+    "ckks_multiplicative_depth": {
+      "forward_linear_dot": 1,
+      "deg3_polynomial": 3,
+      "backward_gradient_dot": 1,
+      "total_consumed": 5,
+      "usable_levels": 7,
+      "margin": 2,
+      "feasible": true
+    }
+  },
+  "recommendation": {
+    "recommended_policy": "POLICY_A1_PRE_ENCRYPTION_TRAIN_BOUNDS_WITH_DEG3",
+    "action": "Apply training-derived min/max feature bounds in plaintext at the trusted Hospital prior to encryption (zero HE overhead). This caps validation logits to [-2.36, +15.40] without altering classification accuracy (0.7041) or AUC (0.7712), and brings Deg-3 polynomial approximation within stable limits."
+  }
+}

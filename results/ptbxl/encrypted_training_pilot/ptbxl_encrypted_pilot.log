@@ -1,0 +1,56 @@
+================================================================================
+ PTB-XL FULL ENCRYPTED LOGISTIC REGRESSION TRAINING PILOT
+================================================================================
+Timestamp   : 2026-10-15 00:34:01
+Platform    : win32 | Python: 3.13.5
+Config      : Epochs=3, LR=0.05, L2=0.01, GradClip=1.0, Init=seed42
+
+[1] Loading frozen Variant 3 (Median-Centered) dataset...
+  Training samples: N = 17,084, Features: D = 48
+  Validation samples: N = 2,146 (Fold 9)
+  Test fold (Fold 10) strictly held out: N = 2,158
+
+[2] Partitioning training set into 8,192-slot batches...
+  Total batches: 3
+    Batch 1: valid=8,192, padded_unused=0, shape=(8192, 48)
+    Batch 2: valid=8,192, padded_unused=0, shape=(8192, 48)
+    Batch 3: valid=700, padded_unused=7,492, shape=(8192, 48)
+
+[3] Initializing TenSEAL CKKS context...
+  Context: N=16384, coeff_mod_bit_sizes=[60,40,40,40,40,40,40,60], scale=2^40, usable_levels=7
+
+[4] Hospital encrypting batched training features and labels...
+  Encrypted 147 ciphertexts across 3 batches in 2.57s (retained across pilot epochs)
+
+[5] Initialized weight vector (seed42): ||w_0|| = 0.1939
+  Saved initial checkpoint: C:\Users\mishr\Desktop\ML\venv\MinorProject\results\ptbxl\encrypted_training_pilot\initial_weights.npy
+  Initial Val Metrics: Acc=0.4436, AUC=0.4255, F1=0.4804
+
+================================================================================
+ [6] STARTING 3-EPOCH ENCRYPTED PILOT TRAINING (CONDITION B SCHEDULING)
+================================================================================
+
+>>> Epoch 1/3:
+  Time: 10.341s (Grad=3.668s, Dec/Agg=0.141s)
+  Grad MaxAE vs Plaintext: 6.87e-06 (MeanAE=3.31e-06, RelErr=4.05e-05) | Pass <= 1e-4: True
+  ||g_raw|| = 0.6524, ||g_clip|| = 0.6524, ||w|| = 0.1935, ||Delta_w|| = 0.0326
+  Val (Fold 9): Acc = 0.5834, ROC-AUC = 0.6160, F1 = 0.5991
+  Val Logits: [-1.02, 1.22], Poly outside [0,1]: 0
+
+>>> Epoch 2/3:
+  Time: 9.967s (Grad=3.521s, Dec/Agg=0.135s)
+  Grad MaxAE vs Plaintext: 6.45e-06 (MeanAE=3.09e-06, RelErr=4.06e-05) | Pass <= 1e-4: True
+  ||g_raw|| = 0.6091, ||g_clip|| = 0.6091, ||w|| = 0.1980, ||Delta_w|| = 0.0305
+  Val (Fold 9): Acc = 0.6566, ROC-AUC = 0.7140, F1 = 0.6593
+  Val Logits: [-0.83, 1.46], Poly outside [0,1]: 0
+
+>>> Epoch 3/3:
+  Time: 9.733s (Grad=3.474s, Dec/Agg=0.134s)
+  Grad MaxAE vs Plaintext: 6.07e-06 (MeanAE=2.89e-06, RelErr=4.06e-05) | Pass <= 1e-4: True
+  ||g_raw|| = 0.5690, ||g_clip|| = 0.5690, ||w|| = 0.2062, ||Delta_w|| = 0.0284
+  Val (Fold 9): Acc = 0.6752, ROC-AUC = 0.7534, F1 = 0.6717
+  Val Logits: [-0.84, 1.69], Poly outside [0,1]: 0
+
+[7] Saved final pilot checkpoint: C:\Users\mishr\Desktop\ML\venv\MinorProject\results\ptbxl\encrypted_training_pilot\final_pilot_weights.npy
+Saved CSV:  C:\Users\mishr\Desktop\ML\venv\MinorProject\results\ptbxl\encrypted_training_pilot\ptbxl_encrypted_pilot_results.csv
+Saved JSON: C:\Users\mishr\Desktop\ML\venv\MinorProject\results\ptbxl\encrypted_training_pilot\ptbxl_encrypted_pilot_results.json

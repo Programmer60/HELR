@@ -1,0 +1,175 @@
+{
+  "environment": {
+    "python_version": "3.13.5",
+    "platform": "win32",
+    "numpy_version": "2.3.4",
+    "pandas_version": "2.3.3",
+    "tenseal_version": "0.3.17",
+    "ckks_poly_modulus_degree": 16384,
+    "ckks_coeff_mod_bit_sizes": [
+      60,
+      40,
+      40,
+      40,
+      40,
+      40,
+      40,
+      60
+    ],
+    "ckks_scale": "2^40",
+    "simd_slot_capacity": 8192
+  },
+  "dataset": {
+    "name": "PTB-XL v1.0.3",
+    "split": "Folds 1-8 (Training only)",
+    "total_records": 17084,
+    "feature_dimension": 48,
+    "batch_count": 3,
+    "batches": [
+      {
+        "batch": 1,
+        "valid_records": 8192,
+        "unused_slots": 0
+      },
+      {
+        "batch": 2,
+        "valid_records": 8192,
+        "unused_slots": 0
+      },
+      {
+        "batch": 3,
+        "valid_records": 700,
+        "unused_slots": 7492
+      }
+    ],
+    "total_ciphertexts": 147
+  },
+  "assertions": {
+    "plaintext_batch_equivalence_all_cases": true,
+    "ckks_encryption_error_within_tolerance": true,
+    "partial_batch_masking_invariance_passed": true,
+    "synthetic_batch_edge_test_passed": true
+  },
+  "metrics_summary": {
+    "max_batching_error_ae": 2.7755575615628914e-17,
+    "max_ckks_encryption_error_ae": 6.062270435869266e-06,
+    "mean_ckks_encryption_error_ae": 1.6765723944087836e-06,
+    "tolerance_batching": 1e-10,
+    "tolerance_ckks": 0.0001,
+    "all_tests_passed": true
+  },
+  "test_cases": [
+    {
+      "test_case": "case_1_w_zero",
+      "weight_norm": 0.0,
+      "batch_diff_max_ae": 0.0,
+      "batch_diff_mean_ae": 0.0,
+      "approx_err_max_ae": 0.0,
+      "approx_err_mean_ae": 0.0,
+      "ckks_err_max_ae": 4.911248967703896e-06,
+      "ckks_err_mean_ae": 1.598052019348056e-06,
+      "ckks_err_mean_re": 3.0545152176128415e-05,
+      "ckks_grad_norm": 0.48233160471800146,
+      "compute_time_s": 11.34650660000625,
+      "is_finite": true,
+      "batching_pass": true,
+      "ckks_pass": true
+    },
+    {
+      "test_case": "case_2_w_rand1",
+      "weight_norm": 0.4066415781995179,
+      "batch_diff_max_ae": 2.7755575615628914e-17,
+      "batch_diff_mean_ae": 2.4033148156762016e-18,
+      "approx_err_max_ae": 0.02679551505982527,
+      "approx_err_mean_ae": 0.009733054934020584,
+      "ckks_err_max_ae": 3.941901466075759e-06,
+      "ckks_err_mean_ae": 1.4940027033678873e-06,
+      "ckks_err_mean_re": 3.9653177185338085e-05,
+      "ckks_grad_norm": 0.42780491331284254,
+      "compute_time_s": 11.470789200000581,
+      "is_finite": true,
+      "batching_pass": true,
+      "ckks_pass": true
+    },
+    {
+      "test_case": "case_3_w_rand2",
+      "weight_norm": 0.41625647246152253,
+      "batch_diff_max_ae": 2.7755575615628914e-17,
+      "batch_diff_mean_ae": 3.654664823086555e-18,
+      "approx_err_max_ae": 0.056973503397646695,
+      "approx_err_mean_ae": 0.00928003576442703,
+      "ckks_err_max_ae": 4.9504128679656034e-06,
+      "ckks_err_mean_ae": 1.8336072101816433e-06,
+      "ckks_err_mean_re": 3.1916508002103495e-05,
+      "ckks_grad_norm": 0.5059938531972072,
+      "compute_time_s": 12.800542400000268,
+      "is_finite": true,
+      "batching_pass": true,
+      "ckks_pass": true
+    },
+    {
+      "test_case": "case_4_w_rand3",
+      "weight_norm": 0.4110130154242856,
+      "batch_diff_max_ae": 2.7755575615628914e-17,
+      "batch_diff_mean_ae": 3.2480890084044902e-18,
+      "approx_err_max_ae": 0.01982095168179053,
+      "approx_err_mean_ae": 0.005359836206139748,
+      "ckks_err_max_ae": 5.129888292237927e-06,
+      "ckks_err_mean_ae": 1.7542883321449092e-06,
+      "ckks_err_mean_re": 4.500369097890287e-05,
+      "ckks_grad_norm": 0.5174164519463128,
+      "compute_time_s": 12.975407999998424,
+      "is_finite": true,
+      "batching_pass": true,
+      "ckks_pass": true
+    },
+    {
+      "test_case": "case_5_w_rand4",
+      "weight_norm": 0.4001903945096547,
+      "batch_diff_max_ae": 2.7755575615628914e-17,
+      "batch_diff_mean_ae": 4.401747882564848e-18,
+      "approx_err_max_ae": 0.024768276078349416,
+      "approx_err_mean_ae": 0.011760406232533415,
+      "ckks_err_max_ae": 5.849636495358634e-06,
+      "ckks_err_mean_ae": 2.134217992175485e-06,
+      "ckks_err_mean_re": 3.175325381963706e-05,
+      "ckks_grad_norm": 0.6417895073095659,
+      "compute_time_s": 11.75237709999783,
+      "is_finite": true,
+      "batching_pass": true,
+      "ckks_pass": true
+    },
+    {
+      "test_case": "case_6_w_rand5",
+      "weight_norm": 0.38934189423084625,
+      "batch_diff_max_ae": 2.7755575615628914e-17,
+      "batch_diff_mean_ae": 3.808260130855334e-18,
+      "approx_err_max_ae": 0.014524256223148097,
+      "approx_err_mean_ae": 0.0054780896405526545,
+      "ckks_err_max_ae": 5.5264197700577444e-06,
+      "ckks_err_mean_ae": 1.83093453199102e-06,
+      "ckks_err_mean_re": 9.149778689127151e-05,
+      "ckks_grad_norm": 0.5547712061249261,
+      "compute_time_s": 13.175639299995964,
+      "is_finite": true,
+      "batching_pass": true,
+      "ckks_pass": true
+    },
+    {
+      "test_case": "case_7_w_baseline",
+      "weight_norm": 2.575387064588496,
+      "batch_diff_max_ae": 6.938893903907228e-18,
+      "batch_diff_mean_ae": 7.736234251589277e-19,
+      "approx_err_max_ae": 0.16108554980428957,
+      "approx_err_mean_ae": 0.03385863741856948,
+      "ckks_err_max_ae": 6.062270435869266e-06,
+      "ckks_err_mean_ae": 1.0909039716524848e-06,
+      "ckks_err_mean_re": 6.636576863804425e-05,
+      "ckks_grad_norm": 0.3476699163524418,
+      "compute_time_s": 12.297132499996223,
+      "is_finite": true,
+      "batching_pass": true,
+      "ckks_pass": true
+    }
+  ]
+}

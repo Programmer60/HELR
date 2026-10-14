@@ -16,3 +16,9 @@ data/intermediate/
 # Local secrets
 .env
 *.key
+
+# PTB-XL datasets and preprocessed artifacts
+ptb-xl-*/
+*.zip
+data/ptbxl_smoke/
+data/ptbxl_processed/

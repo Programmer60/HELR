@@ -1,0 +1,201 @@
+{
+  "audit_A_timing": {
+    "status": "PASS",
+    "recomputed_gradient_speedup_pct": 46.33766327927633,
+    "recomputed_total_speedup_pct": 22.31873467963834,
+    "per_condition": {
+      "A": {
+        "total_epoch_mean_s": 12.40117016667015,
+        "total_epoch_std_s": 0.19396243233167376,
+        "gradient_comp_mean_s": 6.4831882333237445,
+        "gradient_comp_std_s": 0.10241172279180927,
+        "consistent_with_json": true
+      },
+      "B": {
+        "total_epoch_mean_s": 9.633385900000576,
+        "total_epoch_std_s": 0.0838758373328444,
+        "gradient_comp_mean_s": 3.479030300004524,
+        "gradient_comp_std_s": 0.02944489472773651,
+        "consistent_with_json": true
+      },
+      "C": {
+        "total_epoch_mean_s": 9.745973766669826,
+        "total_epoch_std_s": 0.06661063722487276,
+        "gradient_comp_mean_s": 3.4864374666649383,
+        "gradient_comp_std_s": 0.051159573809456745,
+        "consistent_with_json": true
+      }
+    },
+    "note": "All per-rep rows in JSON exactly reproduce the summary statistics (ddof=1 std)."
+  },
+  "audit_B_metrics": {
+    "status": "EXPLAINED",
+    "root_cause": "Phase 4 evaluates val_acc/auc/f1 on w_init (the initial Seed-42 random weights before any gradient step), not on a trained model. The reported values (acc=0.443616, auc=0.425541) are therefore correct for the initial-weight evaluation and identical across A/B/C because all conditions share the same w_init. The Variant-3 baseline (acc=0.7321, auc=0.8247) reflects a fully converged sklearn LogisticRegression, which is a different model entirely.",
+    "initial_weight_metrics": {
+      "acc": 0.44361602982292636,
+      "roc_auc": 0.4255413623575549,
+      "precision": 0.5178236397748592,
+      "recall": 0.44805194805194803,
+      "f1": 0.4804177545691906
+    },
+    "after_10_epochs_deg3": {
+      "acc": 0.7022367194780987,
+      "roc_auc": 0.7899485634715394,
+      "precision": 0.8261826182618262,
+      "recall": 0.609577922077922,
+      "f1": 0.7015413358243812
+    },
+    "after_10_epochs_deg5": {
+      "acc": 0.7045666356011183,
+      "roc_auc": 0.7909076700105145,
+      "precision": 0.8271334792122538,
+      "recall": 0.6136363636363636,
+      "f1": 0.7045666356011183
+    },
+    "metrics_identical_across_conditions_reason": "All three conditions (A, B, C) use the identical w_init and evaluate on the same X_val and y_val without any weight update, so they necessarily produce identical metrics."
+  },
+  "audit_C_seal_metadata": {
+    "status": "CORRECTED",
+    "key_correction": "The Phase 4 report states 'Fresh Ciphertexts: Level 7 (8 primes, 360 bits)'. The 8-prime count includes SEAL's special prime (60 bits) which is reserved for key-switching and never appears in data ciphertexts. Fresh ckks_vector has coeff_modulus_size=7 (7 data primes: 60+40+40+40+40+40+40 = 300 bits for data primes). The special prime is the 8th prime in the context definition but is not counted in coeff_modulus_size() for normal ciphertexts.",
+    "grad_start_levels_correct": {
+      "A": true,
+      "B": true,
+      "C": true
+    },
+    "grad_end_levels_correct": {
+      "A": true,
+      "B": true,
+      "C": true
+    },
+    "corrected_modulus_chain": {
+      "fresh_ciphertext": {
+        "coeff_modulus_size": 7,
+        "data_primes": 7,
+        "active_bits": 300
+      },
+      "after_fwd_linear": {
+        "coeff_modulus_size": 6,
+        "data_primes": 6,
+        "active_bits": 260
+      },
+      "deg3_poly_output": {
+        "coeff_modulus_size": 3,
+        "data_primes": 3,
+        "active_bits": 140
+      },
+      "deg5_poly_output": {
+        "coeff_modulus_size": 2,
+        "data_primes": 2,
+        "active_bits": 100
+      },
+      "enc_err_condA_condB": {
+        "coeff_modulus_size": 3,
+        "data_primes": 3,
+        "active_bits": 140
+      },
+      "enc_err_condC": {
+        "coeff_modulus_size": 2,
+        "data_primes": 2,
+        "active_bits": 100
+      },
+      "enc_err_adj_condB": {
+        "coeff_modulus_size": 2,
+        "data_primes": 2,
+        "active_bits": 100
+      },
+      "x_aligned_condA": {
+        "coeff_modulus_size": 3,
+        "data_primes": 3,
+        "active_bits": 140
+      },
+      "x_aligned_condB_condC": {
+        "coeff_modulus_size": 2,
+        "data_primes": 2,
+        "active_bits": 100
+      },
+      "gradient_output_condA": {
+        "coeff_modulus_size": 2,
+        "data_primes": 2,
+        "active_bits": 100
+      },
+      "gradient_output_condB": {
+        "coeff_modulus_size": 1,
+        "data_primes": 1,
+        "active_bits": 60
+      },
+      "gradient_output_condC": {
+        "coeff_modulus_size": 1,
+        "data_primes": 1,
+        "active_bits": 60
+      }
+    }
+  },
+  "audit_D_model_validation": {
+    "status": "COMPLETE",
+    "protocol": "10-epoch plaintext gradient descent, LR=0.05, L2=0.01, bias-free, Seed=42",
+    "evaluation": "true_sigmoid on Fold 9, threshold=0.5. Fold 10 not touched.",
+    "per_condition": {
+      "A": {
+        "acc": 0.7022367194780987,
+        "roc_auc": 0.7899485634715394,
+        "precision": 0.8261826182618262,
+        "recall": 0.609577922077922,
+        "f1": 0.7015413358243812,
+        "w_norm": 0.2980045414169394,
+        "train_time_s": 0.007175299993832596,
+        "deg": 3
+      },
+      "B": {
+        "acc": 0.7022367194780987,
+        "roc_auc": 0.7899485634715394,
+        "precision": 0.8261826182618262,
+        "recall": 0.609577922077922,
+        "f1": 0.7015413358243812,
+        "w_norm": 0.2980045414169394,
+        "train_time_s": 0.006952700001420453,
+        "deg": 3
+      },
+      "C": {
+        "acc": 0.7045666356011183,
+        "roc_auc": 0.7909076700105145,
+        "precision": 0.8271334792122538,
+        "recall": 0.6136363636363636,
+        "f1": 0.7045666356011183,
+        "w_norm": 0.2803708246998083,
+        "train_time_s": 0.00995189999230206,
+        "deg": 5
+      }
+    },
+    "note_on_AB_equivalence": "Conditions A and B share an identical Deg-3 polynomial gradient, so their plaintext 10-epoch models are mathematically identical. The Phase 4 timing experiment measures the wall-clock cost of the encrypted gradient computation; it does not change the learning update itself."
+  },
+  "timing_recomputed": {
+    "A": {
+      "total_epoch_mean_s": 12.40117016667015,
+      "total_epoch_std_s": 0.19396243233167376,
+      "gradient_comp_mean_s": 6.4831882333237445,
+      "gradient_comp_std_s": 0.10241172279180927,
+      "consistent_with_json": true
+    },
+    "B": {
+      "total_epoch_mean_s": 9.633385900000576,
+      "total_epoch_std_s": 0.0838758373328444,
+      "gradient_comp_mean_s": 3.479030300004524,
+      "gradient_comp_std_s": 0.02944489472773651,
+      "consistent_with_json": true
+    },
+    "C": {
+      "total_epoch_mean_s": 9.745973766669826,
+      "total_epoch_std_s": 0.06661063722487276,
+      "gradient_comp_mean_s": 3.4864374666649383,
+      "gradient_comp_std_s": 0.051159573809456745,
+      "consistent_with_json": true
+    }
+  },
+  "model_level_initial_weight_metrics": {
+    "acc": 0.44361602982292636,
+    "roc_auc": 0.4255413623575549,
+    "precision": 0.5178236397748592,
+    "recall": 0.44805194805194803,
+    "f1": 0.4804177545691906
+  }
+}

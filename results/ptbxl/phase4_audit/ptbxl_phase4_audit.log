@@ -1,0 +1,146 @@
+================================================================================
+ PTB-XL PHASE 4: FINAL CONSISTENCY AUDIT
+================================================================================
+Timestamp  : 2026-10-15 00:20:13
+Platform   : win32 | Python: 3.13.5
+
+[DATA] Loading Variant 3 Median-Centered dataset...
+  Train: N=17,084, D=48  |  Val (Fold 9): N=2,146
+  y_val positive rate: 0.5741
+  w_init ||w|| = 0.1939  (Seed 42, identical to Phase 4 run)
+
+================================================================================
+ AUDIT A — Verify Timing Results Against Saved JSON
+================================================================================
+
+  Cond | Metric                         |     JSON Value |     Recomputed |  Match
+  -----+--------------------------------+----------------+----------------+-------
+  A    | total_epoch_mean_s             |      12.401170 |      12.401170 |     OK
+  A    | total_epoch_std_s (ddof=1)     |       0.193962 |       0.193962 |     OK
+  A    | gradient_comp_mean_s           |       6.483188 |       6.483188 |     OK
+  A    | gradient_comp_std_s (ddof=1)   |       0.102412 |       0.102412 |     OK
+  B    | total_epoch_mean_s             |       9.633386 |       9.633386 |     OK
+  B    | total_epoch_std_s (ddof=1)     |       0.083876 |       0.083876 |     OK
+  B    | gradient_comp_mean_s           |       3.479030 |       3.479030 |     OK
+  B    | gradient_comp_std_s (ddof=1)   |       0.029445 |       0.029445 |     OK
+  C    | total_epoch_mean_s             |       9.745974 |       9.745974 |     OK
+  C    | total_epoch_std_s (ddof=1)     |       0.066611 |       0.066611 |     OK
+  C    | gradient_comp_mean_s           |       3.486437 |       3.486437 |     OK
+  C    | gradient_comp_std_s (ddof=1)   |       0.051160 |       0.051160 |     OK
+
+  Intervention Analysis (recomputed from per-rep rows):
+    Gradient speedup A->B : 46.3377%  (JSON: 46.3377%)
+    Total epoch speedup   : 22.3187%  (JSON: 22.3187%)
+
+  AUDIT A STATUS: PASS — all timing values reproduce exactly from saved per-rep JSON rows
+
+================================================================================
+ AUDIT B — Root-Cause Validation-Metric Inconsistency
+================================================================================
+
+  Phase 4 JSON: val_acc=0.443616, val_roc_auc=0.425541 (all conditions, all reps)
+  Variant-3 report: val_acc=0.7321, val_roc_auc=0.8247
+
+  [B1] Evaluation using w_init (Seed 42, ||w||=0.1939):
+       acc=0.443616, auc=0.425541, f1=0.480418
+       --> Matches Phase 4 JSON exactly: YES
+
+  ROOT CAUSE IDENTIFIED:
+  Phase 4 computes val_acc/auc/f1 using w_init (the INITIAL random weights),
+  NOT a trained weight vector. The evaluation call in run_ptbxl_phase4.py is:
+    z_val = X_val @ w_init  (line ~359-364)
+  This was intentional — Phase 4 is a timing benchmark, not a training experiment.
+  The initial weights have logits in [-1.23, +0.97] and produce near-random predictions.
+
+  The Variant-3 result (acc=0.7321, auc=0.8247) is from the sklearn plaintext
+  LogisticRegression model converged over 2000 iterations — a completely separate run.
+
+  [B2] After 10 plaintext gradient steps (LR=0.05, L2=0.01):
+       Deg-3: acc=0.7022, auc=0.7899
+       Deg-5: acc=0.7046, auc=0.7909
+
+  AUDIT B STATUS: EXPLAINED — no data error, behaviour is by design
+
+================================================================================
+ AUDIT C — Verify SEAL Ciphertext Modulus Chain States
+================================================================================
+
+  Context: coeff_mod_bit_sizes=[60,40,40,40,40,40,40,60]
+  SEAL convention: the LAST prime (60-bit) is a SPECIAL PRIME used only for key-switching.
+  Data ciphertexts at fresh encryption use the first 7 primes only.
+  coeff_modulus_size() returns the number of primes currently in the modulus chain.
+
+  Fresh ckks_vector (X, y, w)                            : coeff_modulus_size = 7
+  After fwd linear X*w (1 ct-ct mult)                    : coeff_modulus_size = 6
+  Deg-3 poly output P3(z)                                : coeff_modulus_size = 3
+  Deg-5 poly output P5(z)                                : coeff_modulus_size = 2
+  enc_err = P3 - burn(y,4)  [Cond A & B]                 : coeff_modulus_size = 3
+  enc_err = P5 - burn(y,5)  [Cond C]                     : coeff_modulus_size = 2
+  enc_err_adj = enc_err3 * 1.0  [Cond B only]            : coeff_modulus_size = 2
+  burn(X, 4) — feature aligned for Cond A                : coeff_modulus_size = 3
+  burn(X, 5) — feature aligned for Cond B & C            : coeff_modulus_size = 2
+  Gradient output Cond A (enc_err3 * x_b4)               : coeff_modulus_size = 2
+  Gradient output Cond B (enc_err3_adj * x_b5)           : coeff_modulus_size = 1
+  Gradient output Cond C (enc_err5 * x_b5)               : coeff_modulus_size = 1
+
+  Level summary (coeff_modulus_size corresponds to number of active primes):
+  Note: 8 total primes in context, but SEAL reserves last (special) prime for key-switching.
+  Fresh ciphertexts carry 7 data primes (coeff_modulus_size=7), NOT 8.
+
+  Corrections to Phase 4 report narrative:
+  REPORTED: 'Fresh Ciphertexts: Level 7 (8 primes, 360 bits)'
+  ACTUAL:    Fresh Ciphertexts coeff_modulus_size=7
+             => 7 active primes. The 8th is the special prime (60 bits) reserved
+             for key-switching only. Data ciphertexts never carry it.
+  Corrected: Fresh = coeff_modulus_size=7 (7 data primes + 1 special = 8 in context)
+             Each subsequent encryption level drop reduces coeff_modulus_size by 1.
+             'Level N' == coeff_modulus_size=N in TenSEAL/SEAL terminology.
+
+  grad_start_level verification:
+    Condition A gradient operates on enc_err (level 3) and x_b4 (level 3)
+    => effective start level = min(3,3) = 3
+    JSON reported grad_start_level=3: CORRECT
+    Condition B gradient operates on enc_err_adj (level 2) and x_b5 (level 2)
+    => effective start level = 2
+    JSON reported grad_start_level=2: CORRECT
+    Condition C gradient operates on enc_err5 (level 2) and x_b5 (level 2)
+    => effective start level = 2
+    JSON reported grad_start_level=2: CORRECT
+
+  grad_end_level verification:
+    Condition A: 2  (JSON reported: 2 => CORRECT)
+    Condition B: 1  (JSON reported: 1 => CORRECT)
+    Condition C: 1  (JSON reported: 1 => CORRECT)
+
+  AUDIT C STATUS: CORRECTED — grad_start_level/end_level are correct; fresh-ciphertext prime count corrected
+
+================================================================================
+ AUDIT D — Controlled Model-Level Validation (10-Epoch Plaintext GD)
+================================================================================
+
+  Protocol: identical LR=0.05, L2=0.01, 10 epochs, Seed=42 w_init for all conditions.
+  Conditions A & B use Degree-3 poly gradient; Condition C uses Degree-5 poly gradient.
+  Evaluation uses true_sigmoid, threshold 0.5, Fold 9 (val), Fold 10 NOT TOUCHED.
+
+  Condition A (Deg-3):
+    Val acc=0.7022, auc=0.7899, prec=0.8262
+    rec=0.6096, f1=0.7015, ||w||=0.2980
+    Train time (plaintext): 0.0072s
+  Condition B (Deg-3):
+    Val acc=0.7022, auc=0.7899, prec=0.8262
+    rec=0.6096, f1=0.7015, ||w||=0.2980
+    Train time (plaintext): 0.0070s
+  Condition C (Deg-5):
+    Val acc=0.7046, auc=0.7909, prec=0.8271
+    rec=0.6136, f1=0.7046, ||w||=0.2804
+    Train time (plaintext): 0.0100s
+
+  Note: Since Condition A and Condition B use the identical polynomial (Deg-3) and
+  identical learning protocol, their plaintext-trained models MUST be mathematically
+  identical. The only difference in the encrypted setting is the modulus level at which
+  the gradient is computed — a pure scheduling optimization, not a model change.
+
+  A vs B val acc identical: YES
+  Deg-3 vs Deg-5 val acc: 0.7022 vs 0.7046
+
+  AUDIT D STATUS: COMPLETE

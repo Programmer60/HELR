@@ -1,0 +1,154 @@
+{
+  "timestamp": "2026-10-15 01:03:37",
+  "protocol": "Strictly Locked Independent Test Evaluation \u2014 Fold 10",
+  "dataset": "PTB-XL v1.0.3",
+  "preprocessing_variant": "Variant 3 (per-lead, per-record median-centering)",
+  "feature_count": 48,
+  "test_fold": 10,
+  "test_sample_count": 2158,
+  "test_class_counts": {
+    "normal_0": 912,
+    "abnormal_1": 1246,
+    "abnormal_prevalence": 0.577386468952734
+  },
+  "checkpoint": {
+    "filepath": "C:\\Users\\mishr\\Desktop\\ML\\venv\\MinorProject\\results\\ptbxl\\encrypted_training_full10\\best_validation_weights.npy",
+    "sha256": "bc2a92fee0dc02b0f036ceb0ff9fafe44ca7587a54ca614f55f7cbd510878961",
+    "best_epoch": 10,
+    "selection_criterion": "Best validation ROC-AUC on Fold 9",
+    "weight_l2_norm": 0.29801021779678744,
+    "weight_l1_norm": 1.6393124228839562,
+    "weight_min": -0.10561115544199796,
+    "weight_max": 0.07938235994654623
+  },
+  "polynomial_coefficients": {
+    "c0": 0.5,
+    "c1": 0.15012,
+    "c3": -0.001593
+  },
+  "decision_threshold": 0.5,
+  "logit_statistics": {
+    "min": -1.6026838368760914,
+    "q05": -0.8112473998139522,
+    "q25": -0.41649716564902756,
+    "q50_median": -0.0919069376812395,
+    "q75": 0.35404378530306135,
+    "q95": 1.4049638797464403,
+    "max": 5.523031549295583
+  },
+  "logit_tail_fractions": {
+    "outside_abs_4_pct": 0.09267840593141798,
+    "outside_abs_6_pct": 0.0,
+    "outside_abs_8_pct": 0.0,
+    "outside_abs_4_count": 2,
+    "outside_abs_6_count": 0,
+    "outside_abs_8_count": 0
+  },
+  "circuit_safety_metrics": {
+    "max_abs_error_vs_true_sigmoid": 0.09837286391172395,
+    "mean_abs_error_vs_true_sigmoid": 0.0412674249872194,
+    "rmse_vs_true_sigmoid": 0.04924215007546842,
+    "poly_outputs_outside_0_1": 2,
+    "discrete_prediction_agreement_pct": 100.0,
+    "all_finite": true
+  },
+  "test_metrics": {
+    "exact_sigmoid": {
+      "accuracy": 0.6765523632993512,
+      "roc_auc": 0.7670105741882798,
+      "precision": 0.7896405919661733,
+      "recall": 0.5995184590690209,
+      "f1": 0.6815693430656934,
+      "specificity": 0.7817982456140351,
+      "confusion_matrix": [
+        [
+          713,
+          199
+        ],
+        [
+          499,
+          747
+        ]
+      ],
+      "tn": 713,
+      "fp": 199,
+      "fn": 499,
+      "tp": 747,
+      "total": 2158
+    },
+    "polynomial_sigmoid": {
+      "accuracy": 0.6765523632993512,
+      "roc_auc": 0.7670105741882798,
+      "precision": 0.7896405919661733,
+      "recall": 0.5995184590690209,
+      "f1": 0.6815693430656934,
+      "specificity": 0.7817982456140351,
+      "confusion_matrix": [
+        [
+          713,
+          199
+        ],
+        [
+          499,
+          747
+        ]
+      ],
+      "tn": 713,
+      "fp": 199,
+      "fn": 499,
+      "tp": 747,
+      "total": 2158
+    }
+  },
+  "validation_reproduction_metrics": {
+    "exact_sigmoid": {
+      "accuracy": 0.7022367194780987,
+      "roc_auc": 0.7899494515331495,
+      "precision": 0.8261826182618262,
+      "recall": 0.609577922077922,
+      "f1": 0.7015413358243812,
+      "specificity": 0.8271334792122538,
+      "confusion_matrix": [
+        [
+          756,
+          158
+        ],
+        [
+          481,
+          751
+        ]
+      ],
+      "tn": 756,
+      "fp": 158,
+      "fn": 481,
+      "tp": 751,
+      "total": 2146
+    }
+  },
+  "generalization_gap_val_to_test": {
+    "delta_accuracy": -0.025684356178747536,
+    "delta_roc_auc": -0.022938877344869768,
+    "delta_f1": -0.019971992758687773,
+    "delta_precision": -0.03654202629565284,
+    "delta_recall": -0.010059463008901148,
+    "delta_specificity": -0.04533523359821867
+  },
+  "baseline_contextual_metrics": {
+    "n": 2158,
+    "accuracy": 0.6941612604263206,
+    "precision_abnormal": 0.72890625,
+    "recall_abnormal": 0.7487961476725522,
+    "f1_abnormal": 0.7387173396674585,
+    "roc_auc": 0.7463453225761032,
+    "confusion_matrix_labels_0_normal_1_abnormal": [
+      [
+        565,
+        347
+      ],
+      [
+        313,
+        933
+      ]
+    ]
+  }
+}

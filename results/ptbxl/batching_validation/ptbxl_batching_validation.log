@@ -1,0 +1,95 @@
+================================================================================
+ PTB-XL SIMD BATCHING & CKKS GRADIENT VALIDATION HARNESS
+================================================================================
+Timestamp: 2026-10-14 22:14:57
+Python: 3.13.5 | Platform: win32
+
+[1] Loading PTB-XL Preprocessed Training Split...
+  Training matrix shape: N = 17,084, D = 48
+  Labels shape: (17084,) (Positive=9,841, Negative=7,243)
+
+[2] Partitioning into 8,192-Slot Batches...
+  Total Batches: 3
+  Batch 1: records [0 : 8,192], valid=8,192, padded_unused=0, padded_shape=(8192, 48)
+  Batch 2: records [8,192 : 16,384], valid=8,192, padded_unused=0, padded_shape=(8192, 48)
+  Batch 3: records [16,384 : 17,084], valid=700, padded_unused=7,492, padded_shape=(8192, 48)
+
+[3] Initializing CKKS Context...
+  Context: N=16384, coeff_mod_bit_sizes=[60,40,40,40,40,40,40,60], scale=2^40, slots=8192
+
+[4] Encrypting Feature Matrices and Labels (Column-Packed)...
+  Encrypted 147 ciphertexts (48 features x 3 + 3 labels) in 2.32s
+
+[5] Loading Plaintext Baseline Checkpoint Weights...
+  Loaded baseline model with 48 coefficients (||w|| = 2.5754)
+
+================================================================================
+ [6] RUNNING NUMERICAL GRADIENT VALIDATION SUITE
+================================================================================
+
+>>> Evaluating case_1_w_zero (||w|| = 0.0000)...
+  Plaintext Batch Equivalence Diff : MaxAE = 0.00e+00 (Pass=True)
+  Exact vs. Poly Approx Diff       : MaxAE = 0.00e+00, MeanAE = 0.00e+00
+  CKKS Encryption Error vs. Poly   : MaxAE = 4.91e-06, MeanAE = 1.60e-06, MeanRE = 3.05e-05 (Pass=True)
+  ||g_CKKS|| = 0.4823 | Compute Time = 11.35s | Finite = True
+
+>>> Evaluating case_2_w_rand1 (||w|| = 0.4066)...
+  Plaintext Batch Equivalence Diff : MaxAE = 2.78e-17 (Pass=True)
+  Exact vs. Poly Approx Diff       : MaxAE = 2.68e-02, MeanAE = 9.73e-03
+  CKKS Encryption Error vs. Poly   : MaxAE = 3.94e-06, MeanAE = 1.49e-06, MeanRE = 3.97e-05 (Pass=True)
+  ||g_CKKS|| = 0.4278 | Compute Time = 11.47s | Finite = True
+
+>>> Evaluating case_3_w_rand2 (||w|| = 0.4163)...
+  Plaintext Batch Equivalence Diff : MaxAE = 2.78e-17 (Pass=True)
+  Exact vs. Poly Approx Diff       : MaxAE = 5.70e-02, MeanAE = 9.28e-03
+  CKKS Encryption Error vs. Poly   : MaxAE = 4.95e-06, MeanAE = 1.83e-06, MeanRE = 3.19e-05 (Pass=True)
+  ||g_CKKS|| = 0.5060 | Compute Time = 12.80s | Finite = True
+
+>>> Evaluating case_4_w_rand3 (||w|| = 0.4110)...
+  Plaintext Batch Equivalence Diff : MaxAE = 2.78e-17 (Pass=True)
+  Exact vs. Poly Approx Diff       : MaxAE = 1.98e-02, MeanAE = 5.36e-03
+  CKKS Encryption Error vs. Poly   : MaxAE = 5.13e-06, MeanAE = 1.75e-06, MeanRE = 4.50e-05 (Pass=True)
+  ||g_CKKS|| = 0.5174 | Compute Time = 12.98s | Finite = True
+
+>>> Evaluating case_5_w_rand4 (||w|| = 0.4002)...
+  Plaintext Batch Equivalence Diff : MaxAE = 2.78e-17 (Pass=True)
+  Exact vs. Poly Approx Diff       : MaxAE = 2.48e-02, MeanAE = 1.18e-02
+  CKKS Encryption Error vs. Poly   : MaxAE = 5.85e-06, MeanAE = 2.13e-06, MeanRE = 3.18e-05 (Pass=True)
+  ||g_CKKS|| = 0.6418 | Compute Time = 11.75s | Finite = True
+
+>>> Evaluating case_6_w_rand5 (||w|| = 0.3893)...
+  Plaintext Batch Equivalence Diff : MaxAE = 2.78e-17 (Pass=True)
+  Exact vs. Poly Approx Diff       : MaxAE = 1.45e-02, MeanAE = 5.48e-03
+  CKKS Encryption Error vs. Poly   : MaxAE = 5.53e-06, MeanAE = 1.83e-06, MeanRE = 9.15e-05 (Pass=True)
+  ||g_CKKS|| = 0.5548 | Compute Time = 13.18s | Finite = True
+
+>>> Evaluating case_7_w_baseline (||w|| = 2.5754)...
+  Plaintext Batch Equivalence Diff : MaxAE = 6.94e-18 (Pass=True)
+  Exact vs. Poly Approx Diff       : MaxAE = 1.61e-01, MeanAE = 3.39e-02
+  CKKS Encryption Error vs. Poly   : MaxAE = 6.06e-06, MeanAE = 1.09e-06, MeanRE = 6.64e-05 (Pass=True)
+  ||g_CKKS|| = 0.3477 | Compute Time = 12.30s | Finite = True
+
+================================================================================
+ [7] SYNTHETIC BATCH-EDGE TEST (Arbitrary N not divisible by 8192)
+================================================================================
+  Testing subset of N = 10,000 records across 2 batches (8192 + 1808)...
+  Batch-Edge Equivalence: MaxAE = 0.00e+00 (Pass=True)
+
+================================================================================
+ [8] PARTIAL-BATCH MASKING INVARIANCE TEST
+================================================================================
+  Modifying padded slots (slots 700..8191) with random non-zero label values...
+  Masking Invariance Discrepancy: MaxAE = 3.54e-06 (Pass=True)
+
+================================================================================
+ [9] FINAL ASSERTION SUMMARY
+================================================================================
+  - plaintext_batch_equivalence_all_cases        : PASS
+  - ckks_encryption_error_within_tolerance       : PASS
+  - partial_batch_masking_invariance_passed      : PASS
+  - synthetic_batch_edge_test_passed             : PASS
+
+OVERALL STATUS: PASS
+
+Saved CSV: C:\Users\mishr\Desktop\ML\venv\MinorProject\results\ptbxl\batching_validation\ptbxl_batching_validation.csv
+Saved JSON: C:\Users\mishr\Desktop\ML\venv\MinorProject\results\ptbxl\batching_validation\ptbxl_batching_validation.json

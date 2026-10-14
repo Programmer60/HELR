@@ -1,0 +1,113 @@
+========================================================================
+ PTB-XL SIGMOID CALIBRATION & OBJECTIVE-CONSISTENCY AUDIT
+========================================================================
+Timestamp : 2026-10-14 23:01:22
+Python    : 3.13.5
+
+[1] Loading data and auditing baseline model...
+  X_train : (17084, 48)  pos=9841/17084
+  X_val   : (2146, 48)   pos=1232/2146
+  Baseline fit_intercept=True, intercept=0.5846, C=1.0, ||w||=2.5754
+
+[2] Establishing CKKS-consistent objective...
+  CKKS convention : no intercept, L2=0.01
+  Baseline convention : intercept=0.5846, effective L2 ? 1.0 (sklearn total, not per-sample)
+  Decision: use CKKS convention for calibration. Do NOT overwrite saved baseline.
+
+[3] Logit distribution analysis...
+  train_with_intercept: min=-24.786  max=20.265  mean=0.585  std=1.643
+  val_with_intercept: min=-2.356  max=112.099  mean=0.589  std=2.876
+  train_no_intercept: min=-25.370  max=19.680  mean=0.000  std=1.643
+  val_no_intercept: min=-2.941  max=111.515  mean=0.004  std=2.876
+
+  Fraction of TRAINING logits (with intercept) outside candidate intervals:
+    |z|>3: 0.0765
+    |z|>5: 0.0244
+    |z|>6: 0.0142
+    |z|>8: 0.0056
+
+  Fraction of VAL logits (with intercept) outside candidate intervals:
+    |z|>3: 0.0690
+    |z|>5: 0.0219
+    |z|>6: 0.0116
+    |z|>8: 0.0051
+
+  NOTE: val max=112.10 suggests outliers beyond [-6,6]
+
+[4] Evaluating MHEALTH polynomials on PTB-XL logits...
+  Deg 1 on train (full):    prob_maxAE=4.3828  out_of_01=1692  grad_maxAE=0.1970
+  Deg 1 on train (p999):    prob_maxAE=1.5245  out_of_01=1674  grad_maxAE=0.1970
+  Deg 1 on val (full):      prob_maxAE=21.5835  out_of_01=200  grad_maxAE=0.1970
+  Deg 3 on train (full):    prob_maxAE=21.0353  out_of_01=573  grad_maxAE=2.7858
+  Deg 3 on train (p999):    prob_maxAE=0.6860  out_of_01=559  grad_maxAE=0.3546
+  Deg 3 on val (full):      prob_maxAE=2227.6691  out_of_01=60  grad_maxAE=59.9038
+  Deg 5 on train (full):    prob_maxAE=989.5641  out_of_01=282  grad_maxAE=208.4680
+  Deg 5 on train (p999):    prob_maxAE=6.7641  out_of_01=264  grad_maxAE=4.3182
+  Deg 5 on val (full):      prob_maxAE=2077785.2357  out_of_01=31  grad_maxAE=92872.0176
+
+[5] Fitting PTB-XL-specific polynomial candidates (training logits only)...
+  Candidate Deg 1: c1=0.077287 c3=0.000000 c5=0.000000  fit_interval=[np.float64(-2.7969), np.float64(9.6909)]
+    Train: prob_maxAE=1.4608  out_of_01=149
+    Val  : prob_maxAE=8.1186  out_of_01=17
+    Depth: fwd=2  remaining=5  feasible=True
+  Candidate Deg 3: c1=0.137502 c3=-0.001092 c5=0.000000  fit_interval=[np.float64(-2.7969), np.float64(9.6909)]
+    Train: prob_maxAE=14.8354  out_of_01=412
+    Val  : prob_maxAE=1498.7906  out_of_01=46
+    Depth: fwd=4  remaining=3  feasible=True
+  Candidate Deg 5: c1=0.179846 c3=-0.003353 c5=0.000022  fit_interval=[np.float64(-2.7969), np.float64(9.6909)]
+    Train: prob_maxAE=183.6879  out_of_01=569
+    Val  : prob_maxAE=379914.3958  out_of_01=58
+    Depth: fwd=5  remaining=2  feasible=True
+
+[6] CKKS depth & numerical feasibility check...
+  CKKS total usable levels: 7
+  Level consumption breakdown:
+    Forward dot product (Ct?Ct): 1
+    Polynomial evaluation      : deg1=1  deg3=3  deg5=4
+    Backward gradient (Ct?Ct)  : 1
+  Level budget check:
+    Deg 1: fwd=2  +bwd=1  total=3  margin=4  OK
+    Deg 3: fwd=4  +bwd=1  total=5  margin=2  OK
+    Deg 5: fwd=5  +bwd=1  total=6  margin=1  OK
+
+[7] Gradient comparison (poly vs exact sigmoid)...
+  deg1_ptbxl           w_zero                  maxAE=0.0000e+00  meanAE=0.0000e+00
+  deg1_ptbxl           w_rand1                 maxAE=4.5474e-02  meanAE=1.7218e-02
+  deg1_ptbxl           w_rand2                 maxAE=3.7765e-02  meanAE=1.1370e-02
+  deg1_ptbxl           w_baseline_coef         maxAE=8.5058e-02  meanAE=2.7876e-02
+  deg1_ptbxl           w_noic_ref              maxAE=8.7292e-02  meanAE=3.0862e-02
+  deg3_ptbxl           w_zero                  maxAE=0.0000e+00  meanAE=0.0000e+00
+  deg3_ptbxl           w_rand1                 maxAE=2.7755e-02  meanAE=1.0329e-02
+  deg3_ptbxl           w_rand2                 maxAE=2.5852e-02  meanAE=8.1536e-03
+  deg3_ptbxl           w_baseline_coef         maxAE=1.0490e-01  meanAE=2.6222e-02
+  deg3_ptbxl           w_noic_ref              maxAE=1.9214e+00  meanAE=1.3011e-01
+  deg5_ptbxl           w_zero                  maxAE=0.0000e+00  meanAE=0.0000e+00
+  deg5_ptbxl           w_rand1                 maxAE=1.5922e-02  meanAE=5.8703e-03
+  deg5_ptbxl           w_rand2                 maxAE=5.1662e-02  meanAE=9.2740e-03
+  deg5_ptbxl           w_baseline_coef         maxAE=1.2958e+00  meanAE=1.6628e-01
+  deg5_ptbxl           w_noic_ref              maxAE=1.4986e+02  meanAE=7.0002e+00
+  deg3_mhealth         w_zero                  maxAE=0.0000e+00  meanAE=0.0000e+00
+  deg3_mhealth         w_rand1                 maxAE=2.4172e-02  meanAE=8.9809e-03
+  deg3_mhealth         w_rand2                 maxAE=2.5344e-02  meanAE=8.3716e-03
+  deg3_mhealth         w_baseline_coef         maxAE=1.6109e-01  meanAE=3.3859e-02
+  deg3_mhealth         w_noic_ref              maxAE=2.8264e+00  meanAE=1.8631e-01
+
+[8] Short plaintext polynomial-training sanity check (50 epochs)...
+    Using CKKS-convention: no intercept, lr=0.05, L2=0.01, clip=1.0
+    Reporting train loss and VAL metrics ONLY. NO test data used.
+  deg1_ptbxl           val_acc=0.6594  val_loss=0.6197  stable=True  time=0.1s
+  deg3_ptbxl           val_acc=0.6631  val_loss=0.6060  stable=True  time=0.1s
+  deg5_ptbxl           val_acc=0.6687  val_loss=0.6015  stable=True  time=0.1s
+  deg3_mhealth         val_acc=0.6659  val_loss=0.6043  stable=True  time=0.1s
+
+[9] Candidate selection (validation performance + depth feasibility)...
+  Deg 1: val_prob_maxAE=8.1186  grad_maxAE=8.7292e-02  feasible=True  stable=True  val_acc=0.6594  ? FAIL
+  Deg 3: val_prob_maxAE=1498.7906  grad_maxAE=1.9214e+00  feasible=True  stable=True  val_acc=0.6631  ? FAIL
+  Deg 5: val_prob_maxAE=379914.3958  grad_maxAE=1.4986e+02  feasible=True  stable=True  val_acc=0.6687  ? FAIL
+
+  RECOMMENDATION: NO_FEASIBLE_CANDIDATE ? all candidates fail at least one numerical or depth constraint
+
+[10] Writing outputs...
+  Saved JSON : C:\Users\mishr\Desktop\ML\venv\MinorProject\results\ptbxl\sigmoid_calibration\ptbxl_sigmoid_calibration.json
+  Saved CSV  : C:\Users\mishr\Desktop\ML\venv\MinorProject\results\ptbxl\sigmoid_calibration\ptbxl_sigmoid_calibration.csv
+  Saved MD   : C:\Users\mishr\Desktop\ML\venv\MinorProject\docs\ptbxl\PTBXL_SIGMOID_CALIBRATION.md

@@ -178,7 +178,7 @@ def csp_compute_gradients(enc_X_cols, enc_y, enc_w_cols, P, D, degree):
     # enc_y is fresh (level 7). enc_p is at (7 - depth_to_p).
     # Burn enc_y down to match enc_p's level before subtraction.
     enc_y_aligned = burn(enc_y, depth_to_p)
-    enc_err = enc_p - enc_y_aligned
+    enc_err = enc_p - enc_y_aligned             
 
     # ── Step 5: gradient_j = (1/P) * sum_i( err_i * X_ij ) ──────────────────
     # enc_X_cols[j] is fresh (level 7). Burn to match enc_err.
@@ -187,7 +187,7 @@ def csp_compute_gradients(enc_X_cols, enc_y, enc_w_cols, P, D, degree):
         enc_Xj = burn(enc_X_cols[j], depth_to_p)            # align X_j to err level
         g_j = (enc_err * enc_Xj).sum()                      # Ct x Ct → gradient scalar
         enc_grads.append(g_j)
-
+ 
     return enc_grads, get_levels(enc_err), get_levels(enc_grads[0])
 
 
@@ -200,7 +200,7 @@ def hospital_update(enc_grads, w, P, D, lr, l2, grad_clip=1.0):
     Gradient clipping prevents weight explosion when the polynomial sigmoid
     produces out-of-range values for large logits.
     """
-    grad = np.zeros(D)
+    grad = np.zeros(D)  
     for j in range(D):
         grad[j] = enc_grads[j].decrypt()[0] / P + l2 * w[j]
     # Clip gradient norm to prevent explosion caused by unbounded polynomial sigmoid

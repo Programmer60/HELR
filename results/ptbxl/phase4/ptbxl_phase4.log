@@ -1,0 +1,73 @@
+================================================================================
+ PTB-XL PHASE 4: CONTROLLED MODULUS-LEVEL-AWARE SCHEDULING
+================================================================================
+Timestamp: 2026-10-15 00:06:37
+Platform: win32 | Python: 3.13.5
+
+[1] Loading frozen Variant 3 (Median-Centered) dataset...
+  Training samples: N = 17,084, Features: D = 48
+  Validation samples: N = 2,146 (Fold 9)
+  Test fold (Fold 10) strictly held out: N = 2,158
+
+[2] Partitioning training set into 8,192-slot batches...
+  Total batches: 3
+    Batch 1: valid=8,192, padded_unused=0, shape=(8192, 48)
+    Batch 2: valid=8,192, padded_unused=0, shape=(8192, 48)
+    Batch 3: valid=700, padded_unused=7,492, shape=(8192, 48)
+
+[3] Initializing TenSEAL CKKS context...
+  Context: N=16384, coeff_mod_bit_sizes=[60,40,40,40,40,40,40,60], scale=2^40, usable_levels=7
+
+[4] Encrypting batched training features and labels...
+  Encrypted 147 ciphertexts across 3 batches in 2.34s
+
+[5] Initialized evaluation weights: ||w|| = 0.1939
+
+================================================================================
+ [6] RUNNING CONTROLLED PHASE 4 SCHEDULING COMPARISON (3 REPETITIONS)
+================================================================================
+
+>>> Running Condition A: Deg-3 Control (Grad at Level 3)...
+  Rep 1: Total = 12.204s | Grad Comp =  6.393s (Start Level 3) | Grad MaxAE = 5.16e-06
+  Rep 2: Total = 12.407s | Grad Comp =  6.463s (Start Level 3) | Grad MaxAE = 5.16e-06
+  Rep 3: Total = 12.592s | Grad Comp =  6.594s (Start Level 3) | Grad MaxAE = 5.16e-06
+
+>>> Running Condition B: Deg-3 Intervention (Grad at Level 2)...
+  Rep 1: Total =  9.702s | Grad Comp =  3.474s (Start Level 2) | Grad MaxAE = 6.87e-06
+  Rep 2: Total =  9.540s | Grad Comp =  3.453s (Start Level 2) | Grad MaxAE = 6.87e-06
+  Rep 3: Total =  9.658s | Grad Comp =  3.511s (Start Level 2) | Grad MaxAE = 6.87e-06
+
+>>> Running Condition C: Deg-5 Control (Grad at Level 2)...
+  Rep 1: Total =  9.748s | Grad Comp =  3.492s (Start Level 2) | Grad MaxAE = 7.00e-06
+  Rep 2: Total =  9.678s | Grad Comp =  3.433s (Start Level 2) | Grad MaxAE = 7.00e-06
+  Rep 3: Total =  9.812s | Grad Comp =  3.535s (Start Level 2) | Grad MaxAE = 7.00e-06
+
+================================================================================
+ [7] SUMMARY TIMING AND MODULUS LEVEL COMPARISON
+================================================================================
+  Condition A: Deg-3 Control (Grad at Level 3)    :
+    Total Epoch Time  : 12.401 +/- 0.194 s
+    Gradient Comp Time:  6.483 +/- 0.102 s  (Start Level 3 -> End Level 2)
+    Poly Eval Time    :  0.134 s | Feature Align:  1.764 s | Level Adj:  0.000 s
+    CKKS Error vs Poly: MaxAE = 5.16e-06, MeanAE = 2.49e-06
+  Condition B: Deg-3 Intervention (Grad at Level 2):
+    Total Epoch Time  :  9.633 +/- 0.084 s
+    Gradient Comp Time:  3.479 +/- 0.029 s  (Start Level 2 -> End Level 1)
+    Poly Eval Time    :  0.133 s | Feature Align:  2.049 s | Level Adj:  0.005 s
+    CKKS Error vs Poly: MaxAE = 6.87e-06, MeanAE = 3.31e-06
+  Condition C: Deg-5 Control (Grad at Level 2)    :
+    Total Epoch Time  :  9.746 +/- 0.067 s
+    Gradient Comp Time:  3.486 +/- 0.051 s  (Start Level 2 -> End Level 1)
+    Poly Eval Time    :  0.189 s | Feature Align:  2.071 s | Level Adj:  0.000 s
+    CKKS Error vs Poly: MaxAE = 7.00e-06, MeanAE = 3.37e-06
+
+Condition A vs Condition B Gradient Discrepancy (Intervention Equivalence):
+  MaxAE = 1.71e-06, MeanAE = 8.22e-07 (Strictly within CKKS noise floor <= 1e-4: True)
+
+Scheduling Intervention Effect (Condition A [Level 3] vs Condition B [Level 2]):
+  Gradient computation time : 6.483s -> 3.479s (+46.34% speedup)
+  Total epoch runtime       : 12.401s -> 9.633s (+22.32% net speedup)
+  Condition C (Deg-5) grad  : 3.486s (executes at Level 2, identical to Condition B within error)
+
+Saved CSV: C:\Users\mishr\Desktop\ML\venv\MinorProject\results\ptbxl\phase4\ptbxl_phase4_results.csv
+Saved JSON: C:\Users\mishr\Desktop\ML\venv\MinorProject\results\ptbxl\phase4\ptbxl_phase4_results.json

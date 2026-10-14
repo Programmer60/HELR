@@ -1,0 +1,123 @@
+================================================================================
+ PTB-XL FINAL LOCKED TEST EVALUATION -- FOLD 10
+================================================================================
+Timestamp   : 2026-10-15 01:03:37
+Platform    : win32 | Python: 3.13.5
+Protocol    : Strictly locked one-shot evaluation on Fold 10 (N=2,158)
+Decision Th : 0.5 (pre-specified, locked)
+Polynomial  : P3(z) = 0.5 + 0.15012*z + -0.001593*z^3
+
+--------------------------------------------------------------------------------
+[STAGE 1] PRE-EVALUATION INTEGRITY CHECKS
+--------------------------------------------------------------------------------
+  Checkpoint File     : C:\Users\mishr\Desktop\ML\venv\MinorProject\results\ptbxl\encrypted_training_full10\best_validation_weights.npy
+  SHA-256 Hash        : bc2a92fee0dc02b0f036ceb0ff9fafe44ca7587a54ca614f55f7cbd510878961
+  Weight Array Shape  : (48,)
+  Weight Array Dtype  : float64
+  Weight Vector Norms : ||w||_2 = 0.298010, ||w||_1 = 1.639312, min = -0.105611, max = 0.079382
+  Final Weights File  : C:\Users\mishr\Desktop\ML\venv\MinorProject\results\ptbxl\encrypted_training_full10\final_weights.npy
+  Final Weights SHA256: bc2a92fee0dc02b0f036ceb0ff9fafe44ca7587a54ca614f55f7cbd510878961
+  Best vs Final Diff  : max|w_best - w_final| = 0.00e+00 (identical: True)
+
+  Dataset NPZ File    : C:\Users\mishr\Desktop\ML\venv\MinorProject\data\ptbxl_processed\ptbxl_features_48_median_centered.npz
+  Dataset SHA-256     : 51404b2964c1c598c21aa79f3d3e08c5b2a13e12dbfc6c97dafbaa78ef391987
+  Total Dataset Shape : 21,388 records x 48 features
+  Folds 1-8 (Train)   : 17,084 records (expected 17,084)
+  Fold 9    (Val)     : 2,146 records (expected 2,146)
+  Fold 10   (Test)    : 2,158 records (expected 2,158)
+
+  Fitting StandardScaler exclusively on Folds 1-8 (Train)...
+  Scaler mean shape   : (48,), var shape: (48,)
+  Fold 10 Class Split : Normal=912 (42.26%), Abnormal=1,246 (57.74%)
+
+  Verifying Fold 9 Validation Metrics against saved checkpoint results...
+    Fold 9 Exact Sigmoid Accuracy : 0.702237 (target: 0.702237)
+    Fold 9 Exact Sigmoid ROC-AUC  : 0.789949 (target: 0.789949)
+    Fold 9 Exact Sigmoid F1       : 0.701541 (target: 0.701541)
+    Fold 9 Exact Confusion Matrix : [[756, 158], [481, 751]] (target: [[756, 158], [481, 751]])
+  >>> PRE-EVALUATION INTEGRITY VERIFIED: 100% BITWISE MATCH ON VALIDATION FOLD 9 <<<
+
+--------------------------------------------------------------------------------
+[STAGE 2] LOCKED TEST EVALUATION (FOLD 10, N=2,158)
+--------------------------------------------------------------------------------
+  Test Logit Distribution :
+    Min               : -1.6027
+    5th Percentile    : -0.8112
+    25th Percentile   : -0.4165
+    Median (50th)     : -0.0919
+    75th Percentile   : 0.3540
+    95th Percentile   : 1.4050
+    Max               : 5.5230
+    Max Absolute Logit: 5.5230
+    Fraction |z| > 4.0: 0.093% (2 records)
+    Fraction |z| > 6.0: 0.000% (0 records)
+    Fraction |z| > 8.0: 0.000% (0 records)
+
+  Sigmoid Polynomial Approximation Behavior (Circuit Safety):
+    Max Absolute Error |P3(z) - sigma(z)| : 0.098373
+    Mean Absolute Error                   : 0.041267
+    RMSE                             : 0.049242
+    Predictions outside [0, 1]        : 2 / 2158 (0.09%)
+    Poly Min Probability             : 0.265963
+    Poly Max Probability             : 1.060739
+
+  [Primary Clinical Reference] Exact Sigmoid Evaluation (Threshold = 0.5):
+    Accuracy          : 0.6766 (67.66%)
+    ROC-AUC           : 0.7670
+    Abnormal Precision: 0.7896 (78.96%)
+    Abnormal Recall   : 0.5995 (59.95%)
+    Abnormal F1       : 0.6816
+    Normal Specificity: 0.7818 (78.18%)
+    Confusion Matrix  :
+      TN = 713   | FP = 199   (Total Normal   = 912)
+      FN = 499   | TP = 747   (Total Abnormal = 1246)
+
+  [Circuit Activation Model] Degree-3 Polynomial Sigmoid Evaluation (Threshold = 0.5):
+    Accuracy          : 0.6766 (67.66%)
+    ROC-AUC           : 0.7670
+    Abnormal Precision: 0.7896 (78.96%)
+    Abnormal Recall   : 0.5995 (59.95%)
+    Abnormal F1       : 0.6816
+    Normal Specificity: 0.7818 (78.18%)
+    Confusion Matrix  :
+      TN = 713   | FP = 199  
+      FN = 499   | TP = 747  
+    Discrete Classification Agreement : 100.00%
+
+--------------------------------------------------------------------------------
+[STAGE 3] GENERALIZATION GAP ANALYSIS (FOLD 9 VAL vs FOLD 10 TEST)
+--------------------------------------------------------------------------------
+  Accuracy  : Val = 0.7022 | Test = 0.6766 | Delta = -0.0257
+  ROC-AUC   : Val = 0.7899 | Test = 0.7670 | Delta = -0.0229
+  F1-Score  : Val = 0.7015 | Test = 0.6816 | Delta = -0.0200
+  Precision : Val = 0.8262 | Test = 0.7896 | Delta = -0.0365
+  Recall    : Val = 0.6096 | Test = 0.5995 | Delta = -0.0101
+  Specificity: Val = 0.8271 | Test = 0.7818 | Delta = -0.0453
+
+--------------------------------------------------------------------------------
+[STAGE 4] CONTEXTUAL BASELINE COMPARISON (SKLEARN LOGISTIC REGRESSION)
+--------------------------------------------------------------------------------
+  Saved Plaintext Baseline Model: sklearn LogisticRegression(max_iter=2000, solver='lbfgs', class_weight=None)
+  Baseline Test Metrics (from baseline_metrics.json):
+    N                 : 2158
+    Accuracy          : 0.6942
+    ROC-AUC           : 0.7463
+    Abnormal Precision: 0.7289
+    Abnormal Recall   : 0.7488
+    Abnormal F1       : 0.7387
+    Confusion Matrix  : [[565, 347], [313, 933]]
+
+  CRITICAL METHODOLOGICAL CAVEATS (Apples-to-Apples Scope):
+    1. Objective & Bias: Baseline uses an intercept (bias) fitted via L-BFGS.
+       The encrypted model is strictly bias-free, fitted via mini-batch SGD with L2=0.01.
+    2. Preprocessing & Range Control: Baseline was fitted on original uncentered features.
+       The encrypted model was trained on Variant 3 per-lead/per-record median-centered features.
+    3. Activation Function: Baseline uses exact transcendental logistic sigmoid in float64.
+       The encrypted model uses a bounded degree-3 polynomial approximation in CKKS.
+    => Baseline is presented strictly as historical task context, not a paired statistical null.
+
+--------------------------------------------------------------------------------
+[STAGE 5] GENERATING DELIVERABLES
+--------------------------------------------------------------------------------
+  Saved JSON Results  : C:\Users\mishr\Desktop\ML\venv\MinorProject\results\ptbxl\final_test_evaluation\ptbxl_final_test_results.json
+  Saved CSV Summary   : C:\Users\mishr\Desktop\ML\venv\MinorProject\results\ptbxl\final_test_evaluation\ptbxl_final_test_results.csv

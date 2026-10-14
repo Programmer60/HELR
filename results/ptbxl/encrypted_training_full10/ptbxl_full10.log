@@ -1,0 +1,128 @@
+================================================================================
+ PTB-XL FULL 10-EPOCH ENCRYPTED LOGISTIC REGRESSION TRAINING
+================================================================================
+Timestamp   : 2026-10-15 00:47:38
+Platform    : win32 | Python: 3.13.5
+Config      : MaxEpochs=10, LR=0.05, L2=0.01, GradClip=1.0, Seed=42
+Safety Rules: MaxLogit=6.0, GradTol=0.0001, EarlyStop(min_ep=5, pat=2, delta=0.001)
+
+[1] Loading frozen Variant 3 (Median-Centered) dataset...
+  Training samples: N = 17,084, Features: D = 48
+  Validation samples: N = 2,146 (Fold 9)
+  Test fold (Fold 10) strictly held out: N = 2,158
+
+[2] Partitioning training set into 8,192-slot batches...
+  Total batches: 3
+    Batch 1: valid=8,192, padded_unused=0, shape=(8192, 48)
+    Batch 2: valid=8,192, padded_unused=0, shape=(8192, 48)
+    Batch 3: valid=700, padded_unused=7,492, shape=(8192, 48)
+
+[3] Initializing TenSEAL CKKS context...
+  Context: N=16384, coeff_mod_bit_sizes=[60,40,40,40,40,40,40,60], scale=2^40, usable_levels=7
+
+[4] Hospital encrypting batched training features and labels...
+  Encrypted 147 ciphertexts across 3 batches in 2.35s (retained in memory)
+
+[5] Fresh Seed-42 Initialization: ||w_0|| = 0.1939
+  Saved initial checkpoint: C:\Users\mishr\Desktop\ML\venv\MinorProject\results\ptbxl\encrypted_training_full10\initial_weights.npy
+  Pre-training Val (Fold 9): Acc=0.4436, AUC=0.4255, F1=0.4804
+
+================================================================================
+ [6] EXECUTING FULL ENCRYPTED TRAINING RUN (UP TO 10 EPOCHS)
+================================================================================
+
+>>> Epoch 1/10:
+  Time: 9.565s (Grad=3.373s, Dec/Agg=0.126s)
+  Grad MaxAE vs Plaintext: 6.87e-06 (MeanAE=3.31e-06, RelErr=4.05e-05) | Pass <= 1e-4: True
+  ||g_raw|| = 0.6524, ||g_clip|| = 0.6524, ||w|| = 0.1935, ||Delta_w|| = 0.0326
+  Val Exact Sigmoid: Acc=0.5834, ROC-AUC=0.6160, F1=0.5991, Prec=0.6693, Rec=0.5422
+  Val Poly Sigmoid : Acc=0.5834, ROC-AUC=0.6160, F1=0.5991, Outside[0,1]=0
+  Val Logits: range=[-1.02, 1.22], max_abs=1.22
+  Checkpoint status: Best AUC=0.6160 at Epoch 1 (no-improve count=0)
+
+>>> Epoch 2/10:
+  Time: 9.348s (Grad=3.361s, Dec/Agg=0.116s)
+  Grad MaxAE vs Plaintext: 6.45e-06 (MeanAE=3.09e-06, RelErr=4.06e-05) | Pass <= 1e-4: True
+  ||g_raw|| = 0.6091, ||g_clip|| = 0.6091, ||w|| = 0.1980, ||Delta_w|| = 0.0305
+  Val Exact Sigmoid: Acc=0.6566, ROC-AUC=0.7140, F1=0.6593, Prec=0.7658, Rec=0.5787
+  Val Poly Sigmoid : Acc=0.6566, ROC-AUC=0.7140, F1=0.6593, Outside[0,1]=0
+  Val Logits: range=[-0.83, 1.46], max_abs=1.46
+  Checkpoint status: Best AUC=0.7140 at Epoch 2 (no-improve count=0)
+
+>>> Epoch 3/10:
+  Time: 9.181s (Grad=3.306s, Dec/Agg=0.113s)
+  Grad MaxAE vs Plaintext: 6.07e-06 (MeanAE=2.89e-06, RelErr=4.06e-05) | Pass <= 1e-4: True
+  ||g_raw|| = 0.5690, ||g_clip|| = 0.5690, ||w|| = 0.2062, ||Delta_w|| = 0.0284
+  Val Exact Sigmoid: Acc=0.6752, ROC-AUC=0.7534, F1=0.6717, Prec=0.8002, Rec=0.5787
+  Val Poly Sigmoid : Acc=0.6752, ROC-AUC=0.7534, F1=0.6717, Outside[0,1]=0
+  Val Logits: range=[-0.84, 1.69], max_abs=1.69
+  Checkpoint status: Best AUC=0.7534 at Epoch 3 (no-improve count=0)
+
+>>> Epoch 4/10:
+  Time: 9.122s (Grad=3.284s, Dec/Agg=0.116s)
+  Grad MaxAE vs Plaintext: 5.71e-06 (MeanAE=2.71e-06, RelErr=4.06e-05) | Pass <= 1e-4: True
+  ||g_raw|| = 0.5320, ||g_clip|| = 0.5320, ||w|| = 0.2170, ||Delta_w|| = 0.0266
+  Val Exact Sigmoid: Acc=0.6803, ROC-AUC=0.7707, F1=0.6740, Prec=0.8131, Rec=0.5755
+  Val Poly Sigmoid : Acc=0.6803, ROC-AUC=0.7707, F1=0.6740, Outside[0,1]=0
+  Val Logits: range=[-0.92, 1.90], max_abs=1.90
+  Checkpoint status: Best AUC=0.7707 at Epoch 4 (no-improve count=0)
+
+>>> Epoch 5/10:
+  Time: 9.161s (Grad=3.297s, Dec/Agg=0.116s)
+  Grad MaxAE vs Plaintext: 5.37e-06 (MeanAE=2.54e-06, RelErr=4.07e-05) | Pass <= 1e-4: True
+  ||g_raw|| = 0.4980, ||g_clip|| = 0.4980, ||w|| = 0.2294, ||Delta_w|| = 0.0249
+  Val Exact Sigmoid: Acc=0.6883, ROC-AUC=0.7792, F1=0.6837, Prec=0.8188, Rec=0.5869
+  Val Poly Sigmoid : Acc=0.6883, ROC-AUC=0.7792, F1=0.6837, Outside[0,1]=0
+  Val Logits: range=[-0.99, 2.25], max_abs=2.25
+  Checkpoint status: Best AUC=0.7792 at Epoch 5 (no-improve count=0)
+
+>>> Epoch 6/10:
+  Time: 9.140s (Grad=3.278s, Dec/Agg=0.120s)
+  Grad MaxAE vs Plaintext: 5.12e-06 (MeanAE=2.38e-06, RelErr=4.07e-05) | Pass <= 1e-4: True
+  ||g_raw|| = 0.4667, ||g_clip|| = 0.4667, ||w|| = 0.2428, ||Delta_w|| = 0.0233
+  Val Exact Sigmoid: Acc=0.6925, ROC-AUC=0.7837, F1=0.6884, Prec=0.8228, Rec=0.5917
+  Val Poly Sigmoid : Acc=0.6925, ROC-AUC=0.7837, F1=0.6884, Outside[0,1]=0
+  Val Logits: range=[-1.06, 2.56], max_abs=2.56
+  Checkpoint status: Best AUC=0.7837 at Epoch 6 (no-improve count=0)
+
+>>> Epoch 7/10:
+  Time: 9.223s (Grad=3.318s, Dec/Agg=0.121s)
+  Grad MaxAE vs Plaintext: 4.90e-06 (MeanAE=2.24e-06, RelErr=4.07e-05) | Pass <= 1e-4: True
+  ||g_raw|| = 0.4381, ||g_clip|| = 0.4381, ||w|| = 0.2566, ||Delta_w|| = 0.0219
+  Val Exact Sigmoid: Acc=0.6957, ROC-AUC=0.7864, F1=0.6933, Prec=0.8227, Rec=0.5990
+  Val Poly Sigmoid : Acc=0.6957, ROC-AUC=0.7864, F1=0.6933, Outside[0,1]=0
+  Val Logits: range=[-1.13, 2.86], max_abs=2.86
+  Checkpoint status: Best AUC=0.7864 at Epoch 7 (no-improve count=0)
+
+>>> Epoch 8/10:
+  Time: 10.997s (Grad=4.162s, Dec/Agg=0.180s)
+  Grad MaxAE vs Plaintext: 4.70e-06 (MeanAE=2.10e-06, RelErr=4.08e-05) | Pass <= 1e-4: True
+  ||g_raw|| = 0.4117, ||g_clip|| = 0.4117, ||w|| = 0.2705, ||Delta_w|| = 0.0206
+  Val Exact Sigmoid: Acc=0.6999, ROC-AUC=0.7881, F1=0.6982, Prec=0.8259, Rec=0.6047
+  Val Poly Sigmoid : Acc=0.6999, ROC-AUC=0.7881, F1=0.6982, Outside[0,1]=0
+  Val Logits: range=[-1.19, 3.13], max_abs=3.13
+  Checkpoint status: Best AUC=0.7881 at Epoch 8 (no-improve count=0)
+
+>>> Epoch 9/10:
+  Time: 10.720s (Grad=3.468s, Dec/Agg=0.120s)
+  Grad MaxAE vs Plaintext: 4.51e-06 (MeanAE=1.98e-06, RelErr=4.09e-05) | Pass <= 1e-4: True
+  ||g_raw|| = 0.3876, ||g_clip|| = 0.3876, ||w|| = 0.2844, ||Delta_w|| = 0.0194
+  Val Exact Sigmoid: Acc=0.7022, ROC-AUC=0.7892, F1=0.7018, Prec=0.8255, Rec=0.6104
+  Val Poly Sigmoid : Acc=0.7022, ROC-AUC=0.7892, F1=0.7018, Outside[0,1]=0
+  Val Logits: range=[-1.29, 3.38], max_abs=3.38
+  Checkpoint status: Best AUC=0.7892 at Epoch 9 (no-improve count=0)
+
+>>> Epoch 10/10:
+  Time: 9.368s (Grad=3.364s, Dec/Agg=0.118s)
+  Grad MaxAE vs Plaintext: 4.34e-06 (MeanAE=1.87e-06, RelErr=4.09e-05) | Pass <= 1e-4: True
+  ||g_raw|| = 0.3654, ||g_clip|| = 0.3654, ||w|| = 0.2980, ||Delta_w|| = 0.0183
+  Val Exact Sigmoid: Acc=0.7022, ROC-AUC=0.7899, F1=0.7015, Prec=0.8262, Rec=0.6096
+  Val Poly Sigmoid : Acc=0.7022, ROC-AUC=0.7899, F1=0.7015, Outside[0,1]=0
+  Val Logits: range=[-1.40, 3.62], max_abs=3.62
+  Checkpoint status: Best AUC=0.7899 at Epoch 10 (no-improve count=1)
+
+[7] Checkpoints saved:
+  Final Weights Checkpoint (Epoch 10): C:\Users\mishr\Desktop\ML\venv\MinorProject\results\ptbxl\encrypted_training_full10\final_weights.npy (||w|| = 0.2980)
+  Best Validation Weights (Epoch 10): C:\Users\mishr\Desktop\ML\venv\MinorProject\results\ptbxl\encrypted_training_full10\best_validation_weights.npy (||w|| = 0.2980)
+Saved CSV:  C:\Users\mishr\Desktop\ML\venv\MinorProject\results\ptbxl\encrypted_training_full10\ptbxl_full10_results.csv
+Saved JSON: C:\Users\mishr\Desktop\ML\venv\MinorProject\results\ptbxl\encrypted_training_full10\ptbxl_full10_results.json
