@@ -1,0 +1,140 @@
+{
+  "repository": "C:\\Users\\mishr\\Desktop\\ML\\venv\\MinorProject",
+  "git_branch": "main",
+  "git_commit": "5c34664 Worked on PTX-BL dataset",
+  "audit_timestamp": "2026-11-01T00:20:00+05:30",
+  "artifacts": {
+    "src/scheduler/cost_model.py": {
+      "sha256": "0834f15f5a45d72dbecaf2d9c5ed0d940cfa036daff2b5aba863cbb194fdd154",
+      "size_bytes": 12172
+    },
+    "src/scheduler/cost_model_v2.py": {
+      "sha256": "26e5f1545eaecec8a4dccd2617728ae7f33e5db85dfaf3a6a738251b9a64a2e7",
+      "size_bytes": 14103
+    },
+    "src/scheduler/workload_policy.py": {
+      "sha256": "6169ec9796ebfc0b6fc95cdd5990376baa98ed08eb5187f7a3bb2eb729b89757",
+      "size_bytes": 9415
+    },
+    "results/ptbxl/scheduler/phase3b/run_scheduler_training.py": {
+      "sha256": "bf6df45d38eb3b1964646bf767f8d502e8122f6ce4d158ce3608fa11ec771e55",
+      "size_bytes": 32309
+    },
+    "results/ptbxl/scheduler/phase3b/analyze_phase3b_results.py": {
+      "sha256": "801ccde2020590eea4768ff912134b8d4e658953fd45e6bacdee6f89f482d650",
+      "size_bytes": 6325
+    },
+    "results/ptbxl/scheduler/phase3b/verify_phase3b_statistics.py": {
+      "sha256": "afdf061e4c351546a0da1c899af3888adfd26baf7d102f52498d3a322f719408",
+      "size_bytes": 8246
+    },
+    "results/ptbxl/scheduler/phase3b/phase3b_training_results.json": {
+      "sha256": "a4e4952a67ad1bc5bdda6c2d11c2039d5a0b826bdaa0a23dfc71b0c33810ba49",
+      "size_bytes": 220995
+    },
+    "results/ptbxl/scheduler/phase3b/phase3b_training_results.csv": {
+      "sha256": "56dd22d0112b9373b36444b040410317c1f706f1a35811c86af1e79674677bb4",
+      "size_bytes": 2534
+    },
+    "results/ptbxl/scheduler/phase3b/phase3b_timing_breakdown.csv": {
+      "sha256": "b0cb159480878c1a7c201202a256b5fe4ac4513f8c81f06728c45bfbbe6caba9",
+      "size_bytes": 70656
+    },
+    "results/ptbxl/scheduler/phase3b/phase3b_validation_metrics.csv": {
+      "sha256": "fe8fb0f60195be6c47cbed61b57e2d70ab784bd06f2559e41a2695d52a4cf262",
+      "size_bytes": 1576
+    },
+    "results/ptbxl/scheduler/phase3b/phase3b_scheduler_decisions.json": {
+      "sha256": "69983c43d5da322d2136a4b2e31d296acfb044d14dabc7e3b28ff6bcc934fd48",
+      "size_bytes": 2771
+    },
+    "results/ptbxl/scheduler/phase3b/phase3b_analysis_summary.json": {
+      "sha256": "3137cced22bcb6c76d8000f4e5c67c55564b7c50d9a31c956ab6bde2a6e58acc",
+      "size_bytes": 4443
+    },
+    "results/ptbxl/scheduler/phase3b/pilot_result.json": {
+      "sha256": "adbdd7a67ea4bb1f7d4019823af54d47fd43efacd41e6808f79d29b0fb9e6842",
+      "size_bytes": 6013
+    },
+    "tests/test_cost_model.py": {
+      "sha256": "472947e0ff6600d8fc88eb8e4da47db76107e1b0c8e65a47c3e63745525f75a1",
+      "size_bytes": 7004
+    },
+    "tests/test_phase2_scheduler.py": {
+      "sha256": "83b5255161cdf61f5820d649f42c62fe1a1a5339068c40d1dd0e9fa17fd0c6af",
+      "size_bytes": 5564
+    },
+    "tests/test_cost_model_v2.py": {
+      "sha256": "0e79a3a16e662d464becb53c494e5a82e9b9496335116e7fd18993bdd9123ebf",
+      "size_bytes": 6944
+    },
+    "tests/test_phase3b_scheduler.py": {
+      "sha256": "1e7b27e0bcb30fd422c0e1587111edda553b1b97b2d7b10e8e89a4a706975421",
+      "size_bytes": 18824
+    },
+    "data/ptbxl_processed/preprocessing_summary.json": {
+      "sha256": "3e4f7c8ab723e67f92125e4501c297232a61cbc24bc2ad217f778aeeb167c6ef",
+      "size_bytes": 2658
+    },
+    "data/ptbxl_processed/ptbxl_binary_splits.npz": {
+      "sha256": "7bc649d452320680d355aa32b2a59fc5ef4644a35d7abe61c045773eff00f04c",
+      "size_bytes": 3859779
+    },
+    "data/ptbxl_processed/ptbxl_features_48_median_centered.npz": {
+      "sha256": "51404b2964c1c598c21aa79f3d3e08c5b2a13e12dbfc6c97dafbaa78ef391987",
+      "size_bytes": 3454807
+    },
+    "results/ptbxl/encrypted_training_full10/ptbxl_full10_results.json": {
+      "sha256": "e215cf818711c69575108fc77ec1300a3be640cc184b884d6e6039497a286284",
+      "size_bytes": 26967
+    },
+    "docs/ptbxl/SCHEDULER_PHASE0_AUDIT.md": {
+      "sha256": "262c525fa08625488b56de28546bdb1bcee4e143bdb3d2bbea6da6c1c54dcbdf",
+      "size_bytes": 25854
+    },
+    "docs/ptbxl/SCHEDULER_PHASE1_COST_MODEL.md": {
+      "sha256": "ab78cc429389fb584ad91677a2a395396c9356ad544414ba8467af97bc79e42d",
+      "size_bytes": 21458
+    },
+    "docs/ptbxl/SCHEDULER_PHASE2_HELDOUT_VALIDATION.md": {
+      "sha256": "198dea2db52440b176eb5fbf2ac5b2dcee48827479120d40b349db7d95a37d4d",
+      "size_bytes": 23333
+    },
+    "docs/ptbxl/SCHEDULER_PHASE3A_COSTMODEL_V2.md": {
+      "sha256": "e667ad9aeb15d8bef44a8b7e119965dcbd6f237e6a8d27c54a515c99586a645f",
+      "size_bytes": 22579
+    },
+    "docs/ptbxl/SCHEDULER_PHASE3B_TRAINER_INTEGRATION.md": {
+      "sha256": "5d3df7229ac92e20a2782dfaad84869f0d65dd503fdfc75fd5a8efee03301389",
+      "size_bytes": 19251
+    },
+    "docs/ptbxl/PTBXL_FINAL_TEST_EVALUATION.md": {
+      "sha256": "24327ed5bf67eb1e88ed46962b9bcc0d2598a668ffc0d69e918dbf010eb7c67f",
+      "size_bytes": 7326
+    },
+    "docs/ptbxl/final_research_freeze/ENVIRONMENT_AND_CKKS_CONFIG.md": {
+      "sha256": "0152291eea404fab3b817e817776d02e5f91b17bbd64571810d4e08bb8468ea1",
+      "size_bytes": 6860
+    },
+    "docs/ptbxl/final_research_freeze/EXPERIMENT_MANIFEST.md": {
+      "sha256": "b57cfb8d46430510cc16472f13f8ffa1fc8a7b78f12abd0bc356d8a2ed58261b",
+      "size_bytes": 7148
+    },
+    "docs/ptbxl/final_research_freeze/LIMITATIONS_AND_THREAT_MODEL.md": {
+      "sha256": "dfecf5814e3e9dc6dcd43ce181208a89eb01288b2885193fb716202ca45d6871",
+      "size_bytes": 7156
+    },
+    "docs/ptbxl/final_research_freeze/REPRODUCTION_COMMANDS.md": {
+      "sha256": "da5e137caacbb8d943fb9bba2f17954c7548e336bde5d5b496c8fd1ab924a90a",
+      "size_bytes": 5942
+    },
+    "docs/ptbxl/final_research_freeze/RESULTS_SUMMARY.md": {
+      "sha256": "3aefc51b4f80c9d209721cad2e665799822a0b58a3505f3d3a074cdcae298266",
+      "size_bytes": 11164
+    },
+    "docs/ptbxl/final_research_freeze/FINAL_RESEARCH_REPORT.md": {
+      "sha256": "e69da5dbb84e62013143fe323f56738ca517fdeb980ff0887e8051954364ec9d",
+      "size_bytes": 28634
+    }
+  }
+}

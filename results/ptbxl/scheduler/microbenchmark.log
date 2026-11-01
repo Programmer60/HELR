@@ -1,0 +1,57 @@
+================================================================================
+ CKKS MICROBENCHMARK PROFILER SUMMARY
+================================================================================
+Timestamp: 2026-10-29 23:26:06
+Platform : Windows-11-10.0.26200-SP0 | CPUs: 16
+
+Operation                        | Lvl | Mean (ms)  | Std (ms)  | Median    | IQR (ms)  | Max AE    | Notes
+------------------------------------------------------------------------------------------------------------------------
+ct_ct_mul_rescale                | L7  |     45.325 |     5.332 |    46.055 |    10.653 | 1.46e-07  | Ct-Ct multiply + relin + rescale (drops 7 -> 6)
+ct_ct_mul_rescale                | L6  |     36.788 |     4.491 |    38.198 |     9.507 | 6.05e-07  | Ct-Ct multiply + relin + rescale (drops 6 -> 5)
+ct_ct_mul_rescale                | L5  |     27.240 |     3.259 |    25.426 |     6.248 | 1.28e-06  | Ct-Ct multiply + relin + rescale (drops 5 -> 4)
+ct_ct_mul_rescale                | L4  |     19.513 |     2.135 |    18.387 |     2.105 | 2.10e-06  | Ct-Ct multiply + relin + rescale (drops 4 -> 3)
+ct_ct_mul_rescale                | L3  |     14.310 |     1.851 |    13.240 |     3.649 | 3.04e-06  | Ct-Ct multiply + relin + rescale (drops 3 -> 2)
+ct_ct_mul_rescale                | L2  |      8.985 |     1.149 |     8.471 |     2.395 | 4.05e-06  | Ct-Ct multiply + relin + rescale (drops 2 -> 1)
+ct_ct_mul_rescale                | L1  | UNSUPPORTED | -         | -         | -         | -         | Cannot rescale below Level 1 (only 1 prime left in chain)
+pt_mul_one_rescale_to_next       | L7  |      7.842 |     0.977 |     7.276 |     1.662 | 1.44e-06  | Plaintext multiply by 1.0 + rescale (drops 7 -> 6)
+pt_mul_one_rescale_to_next       | L6  |      7.128 |     0.949 |     6.560 |     1.991 | 4.62e-06  | Plaintext multiply by 1.0 + rescale (drops 6 -> 5)
+pt_mul_one_rescale_to_next       | L5  |      6.226 |     0.832 |     6.056 |     1.715 | 8.21e-06  | Plaintext multiply by 1.0 + rescale (drops 5 -> 4)
+pt_mul_one_rescale_to_next       | L4  |      5.144 |     0.738 |     4.845 |     1.608 | 1.29e-05  | Plaintext multiply by 1.0 + rescale (drops 4 -> 3)
+pt_mul_one_rescale_to_next       | L3  |      4.328 |     0.715 |     4.854 |     1.435 | 1.76e-05  | Plaintext multiply by 1.0 + rescale (drops 3 -> 2)
+pt_mul_one_rescale_to_next       | L2  |      3.040 |     0.583 |     2.734 |     1.178 | 2.29e-05  | Plaintext multiply by 1.0 + rescale (drops 2 -> 1)
+pt_mul_one_rescale_to_next       | L1  | UNSUPPORTED | -         | -         | -         | -         | Cannot rescale below Level 1
+pt_mul_scalar_rescale            | L7  |      7.963 |     0.967 |     7.413 |     1.743 | 2.26e-07  | Plaintext scalar multiply (c1=0.15012) + rescale
+pt_mul_scalar_rescale            | L6  |      7.070 |     0.896 |     6.606 |     1.902 | 7.02e-07  | Plaintext scalar multiply (c1=0.15012) + rescale
+pt_mul_scalar_rescale            | L5  |      6.178 |     0.841 |     5.872 |     1.790 | 1.24e-06  | Plaintext scalar multiply (c1=0.15012) + rescale
+pt_mul_scalar_rescale            | L4  |      5.343 |     0.735 |     5.489 |     1.535 | 1.94e-06  | Plaintext scalar multiply (c1=0.15012) + rescale
+pt_mul_scalar_rescale            | L3  |      4.133 |     0.685 |     3.895 |     1.429 | 2.66e-06  | Plaintext scalar multiply (c1=0.15012) + rescale
+pt_mul_scalar_rescale            | L2  |      3.055 |     0.534 |     2.870 |     1.098 | 3.45e-06  | Plaintext scalar multiply (c1=0.15012) + rescale
+pt_mul_scalar_rescale            | L1  | UNSUPPORTED | -         | -         | -         | -         | Cannot rescale below Level 1
+ct_ct_add                        | L7  |      0.659 |     0.162 |     0.670 |     0.314 | 2.20e-08  | Ct-Ct addition at Level 7
+ct_ct_add                        | L6  |      0.516 |     0.147 |     0.445 |     0.291 | 1.57e-06  | Ct-Ct addition at Level 6
+ct_ct_add                        | L5  |      0.454 |     0.125 |     0.454 |     0.243 | 5.06e-06  | Ct-Ct addition at Level 5
+ct_ct_add                        | L4  |      0.367 |     0.102 |     0.366 |     0.198 | 8.98e-06  | Ct-Ct addition at Level 4
+ct_ct_add                        | L3  |      0.281 |     0.075 |     0.253 |     0.145 | 1.41e-05  | Ct-Ct addition at Level 3
+ct_ct_add                        | L2  |      0.190 |     0.051 |     0.163 |     0.096 | 1.93e-05  | Ct-Ct addition at Level 2
+ct_ct_add                        | L1  |      0.116 |     0.026 |     0.129 |     0.049 | 2.51e-05  | Ct-Ct addition at Level 1
+ct_ct_sub                        | L7  |      0.580 |     0.094 |     0.622 |     0.161 | 2.97e-08  | Ct-Ct subtraction at Level 7
+ct_ct_sub                        | L6  |      0.470 |     0.078 |     0.466 |     0.141 | 1.57e-06  | Ct-Ct subtraction at Level 6
+ct_ct_sub                        | L5  |      0.376 |     0.063 |     0.344 |     0.120 | 5.09e-06  | Ct-Ct subtraction at Level 5
+ct_ct_sub                        | L4  |      0.313 |     0.055 |     0.288 |     0.099 | 9.01e-06  | Ct-Ct subtraction at Level 4
+ct_ct_sub                        | L3  |      0.258 |     0.036 |     0.264 |     0.061 | 1.41e-05  | Ct-Ct subtraction at Level 3
+ct_ct_sub                        | L2  |      0.174 |     0.026 |     0.165 |     0.043 | 1.94e-05  | Ct-Ct subtraction at Level 2
+ct_ct_sub                        | L1  |      0.101 |     0.020 |     0.096 |     0.028 | 2.52e-05  | Ct-Ct subtraction at Level 1
+slot_sum                         | L7  |    468.629 |    42.235 |   476.146 |    86.012 | 2.43e-06  | Slot summation across 8,192 slots at Level 7
+slot_sum                         | L6  |    360.031 |    38.343 |   340.684 |    68.624 | 4.99e-05  | Slot summation across 8,192 slots at Level 6
+slot_sum                         | L5  |    283.318 |    29.457 |   284.236 |    58.672 | 1.60e-04  | Slot summation across 8,192 slots at Level 5
+slot_sum                         | L4  |    203.757 |    22.264 |   194.827 |    43.219 | 2.82e-04  | Slot summation across 8,192 slots at Level 4
+slot_sum                         | L3  |    138.419 |    16.777 |   136.417 |    33.458 | 4.43e-04  | Slot summation across 8,192 slots at Level 3
+slot_sum                         | L2  |     84.976 |     9.866 |    81.119 |    19.227 | 6.07e-04  | Slot summation across 8,192 slots at Level 2
+slot_sum                         | L1  |     44.012 |     6.112 |    41.139 |    13.269 | 7.88e-04  | Slot summation across 8,192 slots at Level 1
+gradient_dot_product             | L3  |     96.907 |    10.180 |    95.215 |    17.153 | 1.32e-03  | Complete dot product at Level 3->2 (Condition A)
+gradient_dot_product             | L2  |     52.498 |     7.063 |    48.755 |    15.328 | 1.75e-03  | Complete dot product at Level 2->1 (Conditions B & C)
+feature_alignment_burn4          | L7  |     26.923 |     3.159 |    26.594 |     6.591 | 1.28e-05  | Sequence of 4 plaintext mults by 1.0 (Level 7 -> Level 3)
+feature_alignment_burn5          | L7  |     29.887 |     3.755 |    27.693 |     5.967 | 1.76e-05  | Sequence of 5 plaintext mults by 1.0 (Level 7 -> Level 2)
+condition_b_level_adjustment     | L3  |      3.954 |     0.619 |     3.629 |     1.119 | 1.77e-05  | Condition B single scalar mult by 1.0 on err (Level 3 -> Level 2)
+decryption_scalar                | L2  |      4.915 |     0.846 |     5.374 |     1.723 | N/A       | Decryption of scalar result at Level 2
+decryption_scalar                | L1  |      2.524 |     0.368 |     2.547 |     0.676 | N/A       | Decryption of scalar result at Level 1

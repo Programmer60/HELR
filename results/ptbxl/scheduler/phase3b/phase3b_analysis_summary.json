@@ -1,0 +1,133 @@
+{
+  "schedule_stats": {
+    "A-cache": {
+      "n_runs": 3,
+      "cum_time_mean": 126.28939626667609,
+      "cum_time_std": 7.440801814863879,
+      "epoch_time_mean": 12.406520100000975,
+      "epoch_time_std": 0.7198764047992651,
+      "grad_time_mean": 7.580331046663923,
+      "grad_time_std": 0.49201014786937364,
+      "pred_time_mean": 105.77952551166528,
+      "mape_mean": 16.03922438440124,
+      "mape_std": 5.121043624428154,
+      "val_auc_mean": 0.7841971804635919,
+      "val_auc_std": 0.005035543660706978,
+      "best_auc_mean": 0.7841971804635919,
+      "best_auc_std": 0.005035543660706978,
+      "max_grad_ae": 5.475166690277478e-06
+    },
+    "A-repeat": {
+      "n_runs": 3,
+      "cum_time_mean": 136.0680789666561,
+      "cum_time_std": 14.302459718122824,
+      "epoch_time_mean": 13.606807896665607,
+      "epoch_time_std": 1.430245971812282,
+      "grad_time_mean": 7.069215263332201,
+      "grad_time_std": 0.74767295906005,
+      "pred_time_mean": 121.29002759442665,
+      "mape_mean": 10.205084377086179,
+      "mape_std": 9.37393954615222,
+      "val_auc_mean": 0.7841971804635919,
+      "val_auc_std": 0.005035543660706978,
+      "best_auc_mean": 0.7841971804635919,
+      "best_auc_std": 0.005035543660706978,
+      "max_grad_ae": 5.4751865614932616e-06
+    },
+    "B-cache": {
+      "n_runs": 3,
+      "cum_time_mean": 86.11020379997596,
+      "cum_time_std": 5.0037002841799785,
+      "epoch_time_mean": 8.369010606664235,
+      "epoch_time_std": 0.47627126017056537,
+      "grad_time_mean": 3.850369633335504,
+      "grad_time_std": 0.23907616402997517,
+      "pred_time_mean": 74.22374933531391,
+      "mape_mean": 13.615556702736052,
+      "mape_std": 4.858592746838833,
+      "val_auc_mean": 0.7841974764841285,
+      "val_auc_std": 0.005036050814301348,
+      "best_auc_mean": 0.7841974764841285,
+      "best_auc_std": 0.005036050814301348,
+      "max_grad_ae": 7.284076708441445e-06
+    },
+    "B-repeat": {
+      "n_runs": 3,
+      "cum_time_mean": 115.10305366670946,
+      "cum_time_std": 17.90698416741407,
+      "epoch_time_mean": 11.510305366670947,
+      "epoch_time_std": 1.7906984167414073,
+      "grad_time_mean": 4.124477120005758,
+      "grad_time_std": 0.6368580199416433,
+      "pred_time_mean": 91.80633509575271,
+      "mape_mean": 19.038765478712136,
+      "mape_std": 11.583118316630316,
+      "val_auc_mean": 0.7841974764841285,
+      "val_auc_std": 0.005036050814301348,
+      "best_auc_mean": 0.7841974764841285,
+      "best_auc_std": 0.005036050814301348,
+      "max_grad_ae": 7.282600784641602e-06
+    }
+  },
+  "pairwise_comparisons": {
+    "level_effect_repeated": {
+      "mean_ratio": 1.2093034182107105,
+      "std_ratio": 0.22317435630395152,
+      "min_ratio": 0.9014741352266975,
+      "max_ratio": 1.4235590853045905
+    },
+    "level_effect_cached": {
+      "mean_ratio": 1.4683484470254526,
+      "std_ratio": 0.07491561773158674,
+      "min_ratio": 1.4100471682331852,
+      "max_ratio": 1.5741100865361102
+    },
+    "cache_effect_cond_A": {
+      "mean_ratio": 1.0796864070761767,
+      "std_ratio": 0.1007851224216417,
+      "min_ratio": 0.9372435627839338,
+      "max_ratio": 1.1552654013410195
+    },
+    "cache_effect_cond_B": {
+      "mean_ratio": 1.3318570900930924,
+      "std_ratio": 0.1038993999331395,
+      "min_ratio": 1.2408614941790397,
+      "max_ratio": 1.4772672451581588
+    },
+    "combined_effect": {
+      "mean_ratio": 1.5889743588235639,
+      "std_ratio": 0.1996978952974903,
+      "min_ratio": 1.3317182123276767,
+      "max_ratio": 1.8185149208770863
+    }
+  },
+  "regret_evaluation": [
+    {
+      "seed": 42,
+      "oracle_schedule": "B-cache",
+      "oracle_time_s": 91.8810000999656,
+      "chosen_schedule": "B-cache",
+      "chosen_time_s": 91.8810000999656,
+      "regret_s": 0.0,
+      "regret_percent": 0.0
+    },
+    {
+      "seed": 123,
+      "oracle_schedule": "B-cache",
+      "oracle_time_s": 82.97894169995561,
+      "chosen_schedule": "B-cache",
+      "chosen_time_s": 82.97894169995561,
+      "regret_s": 0.0,
+      "regret_percent": 0.0
+    },
+    {
+      "seed": 2026,
+      "oracle_schedule": "B-cache",
+      "oracle_time_s": 83.47066960000666,
+      "chosen_schedule": "B-cache",
+      "chosen_time_s": 83.47066960000666,
+      "regret_s": 0.0,
+      "regret_percent": 0.0
+    }
+  ]
+}

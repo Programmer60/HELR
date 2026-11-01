@@ -1,0 +1,225 @@
+{
+  "status": "PASS",
+  "acceptance_threshold_percent": 15.0,
+  "mean_epoch_mape_percent": 0.8724963777330393,
+  "max_epoch_mape_percent": 1.2906272050428884,
+  "all_epoch_mapes": {
+    "A": 0.6395510141311025,
+    "B": 0.687310914025127,
+    "C": 1.2906272050428884
+  },
+  "gradient_speedup_analysis": {
+    "actual_ratio_A_vs_B": 1.8635043889428942,
+    "predicted_ratio_A_vs_B": 1.8459335706600235,
+    "relative_error_percent": 0.9428911671540532
+  },
+  "conditions": [
+    {
+      "condition": "A",
+      "condition_name": "Condition A: Deg-3 Control (Grad at Level 3)",
+      "stages": {
+        "forward_linear_s": {
+          "label": "Forward Linear",
+          "actual_s": 3.013319333336161,
+          "predicted_s": 3.017885642947526,
+          "abs_error_s": 0.00456630961136506,
+          "mape_percent": 0.15153752743190096
+        },
+        "poly_eval_s": {
+          "label": "Polynomial Eval",
+          "actual_s": 0.13415090000004662,
+          "predicted_s": 0.1338,
+          "abs_error_s": 0.0003509000000466167,
+          "mape_percent": 0.26157111137271144
+        },
+        "error_comp_s": {
+          "label": "Error Comp",
+          "actual_s": 0.0397,
+          "predicted_s": 0.039599999999999996,
+          "abs_error_s": 0.00010000000000000286,
+          "mape_percent": 0.2518891687657503
+        },
+        "level_adjustment_s": {
+          "label": "Level Adjustment",
+          "actual_s": 2.6666627187902727e-06,
+          "predicted_s": 0.0,
+          "abs_error_s": 2.6666627187902727e-06,
+          "mape_percent": 0.0
+        },
+        "feature_alignment_s": {
+          "label": "Feature Alignment",
+          "actual_s": 1.7636329333229999,
+          "predicted_s": 1.7926333564514838,
+          "abs_error_s": 0.029000423128483943,
+          "mape_percent": 1.6443570870408935
+        },
+        "gradient_comp_s": {
+          "label": "Gradient Comp",
+          "actual_s": 6.4831882333237445,
+          "predicted_s": 6.452404864292273,
+          "abs_error_s": 0.030783369031471608,
+          "mape_percent": 0.4748183752130525
+        },
+        "decryption_agg_s": {
+          "label": "Decryption Agg",
+          "actual_s": 0.2558774333398712,
+          "predicted_s": 0.3272581125439306,
+          "abs_error_s": 0.07138067920405944,
+          "mape_percent": 27.89643395760012
+        },
+        "weight_enc_s": {
+          "label": "Weight Encryption",
+          "actual_s": 0.7095,
+          "predicted_s": 0.7169,
+          "abs_error_s": 0.007399999999999962,
+          "mape_percent": 1.0429880197322006
+        },
+        "total_epoch_time_s": {
+          "label": "Total Epoch Time",
+          "actual_s": 12.40117016667015,
+          "predicted_s": 12.480481976235213,
+          "abs_error_s": 0.07931180956506267,
+          "mape_percent": 0.6395510141311025
+        }
+      }
+    },
+    {
+      "condition": "B",
+      "condition_name": "Condition B: Deg-3 Intervention (Grad at Level 2)",
+      "stages": {
+        "forward_linear_s": {
+          "label": "Forward Linear",
+          "actual_s": 3.080204000007749,
+          "predicted_s": 3.017885642947526,
+          "abs_error_s": 0.06231835706022304,
+          "mape_percent": 2.0231892777253146
+        },
+        "poly_eval_s": {
+          "label": "Polynomial Eval",
+          "actual_s": 0.13342146666157836,
+          "predicted_s": 0.1338,
+          "abs_error_s": 0.0003785333384216383,
+          "mape_percent": 0.2837124698844622
+        },
+        "error_comp_s": {
+          "label": "Error Comp",
+          "actual_s": 0.0397,
+          "predicted_s": 0.039599999999999996,
+          "abs_error_s": 0.00010000000000000286,
+          "mape_percent": 0.2518891687657503
+        },
+        "level_adjustment_s": {
+          "label": "Level Adjustment",
+          "actual_s": 0.0054407666611950845,
+          "predicted_s": 0.005485009478872982,
+          "abs_error_s": 4.4242817677897506e-05,
+          "mape_percent": 0.8131724889701373
+        },
+        "feature_alignment_s": {
+          "label": "Feature Alignment",
+          "actual_s": 2.048653633328892,
+          "predicted_s": 1.9899781569324944,
+          "abs_error_s": 0.058675476396397475,
+          "mape_percent": 2.864099398835649
+        },
+        "gradient_comp_s": {
+          "label": "Gradient Comp",
+          "actual_s": 3.479030300004524,
+          "predicted_s": 3.4954696999118884,
+          "abs_error_s": 0.016439399907364205,
+          "mape_percent": 0.4725282187781701
+        },
+        "decryption_agg_s": {
+          "label": "Decryption Agg",
+          "actual_s": 0.13005256665928755,
+          "predicted_s": 0.16805607804893188,
+          "abs_error_s": 0.038003511389644334,
+          "mape_percent": 29.22165426323815
+        },
+        "weight_enc_s": {
+          "label": "Weight Encryption",
+          "actual_s": 0.7152,
+          "predicted_s": 0.7169,
+          "abs_error_s": 0.0017000000000000348,
+          "mape_percent": 0.23769574944072078
+        },
+        "total_epoch_time_s": {
+          "label": "Total Epoch Time",
+          "actual_s": 9.633385900000576,
+          "predicted_s": 9.567174587319714,
+          "abs_error_s": 0.06621131268086167,
+          "mape_percent": 0.687310914025127
+        }
+      }
+    },
+    {
+      "condition": "C",
+      "condition_name": "Condition C: Deg-5 Control (Grad at Level 2)",
+      "stages": {
+        "forward_linear_s": {
+          "label": "Forward Linear",
+          "actual_s": 3.1069152666605078,
+          "predicted_s": 3.017885642947526,
+          "abs_error_s": 0.08902962371298173,
+          "mape_percent": 2.865531115970083
+        },
+        "poly_eval_s": {
+          "label": "Polynomial Eval",
+          "actual_s": 0.18908243333377564,
+          "predicted_s": 0.189,
+          "abs_error_s": 8.243333377563888e-05,
+          "mape_percent": 0.04359650567333475
+        },
+        "error_comp_s": {
+          "label": "Error Comp",
+          "actual_s": 0.0429,
+          "predicted_s": 0.0429,
+          "abs_error_s": 0.0,
+          "mape_percent": 0.0
+        },
+        "level_adjustment_s": {
+          "label": "Level Adjustment",
+          "actual_s": 2.7333395943666496e-06,
+          "predicted_s": 0.0,
+          "abs_error_s": 2.7333395943666496e-06,
+          "mape_percent": 0.0
+        },
+        "feature_alignment_s": {
+          "label": "Feature Alignment",
+          "actual_s": 2.0706908333231695,
+          "predicted_s": 1.9899781569324944,
+          "abs_error_s": 0.08071267639067514,
+          "mape_percent": 3.8978622540740457
+        },
+        "gradient_comp_s": {
+          "label": "Gradient Comp",
+          "actual_s": 3.4864374666649383,
+          "predicted_s": 3.4954696999118884,
+          "abs_error_s": 0.009032233246950128,
+          "mape_percent": 0.259067696848445
+        },
+        "decryption_agg_s": {
+          "label": "Decryption Agg",
+          "actual_s": 0.12262563333206344,
+          "predicted_s": 0.16805607804893188,
+          "abs_error_s": 0.04543044471686844,
+          "mape_percent": 37.048081614261925
+        },
+        "weight_enc_s": {
+          "label": "Weight Encryption",
+          "actual_s": 0.726,
+          "predicted_s": 0.7169,
+          "abs_error_s": 0.009099999999999997,
+          "mape_percent": 1.2534435261707986
+        },
+        "total_epoch_time_s": {
+          "label": "Total Epoch Time",
+          "actual_s": 9.745973766669826,
+          "predicted_s": 9.620189577840842,
+          "abs_error_s": 0.1257841888289839,
+          "mape_percent": 1.2906272050428884
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "workload": {
+    "num_samples": 17084,
+    "num_features": 48,
+    "slot_capacity": 8192,
+    "num_batches": 3,
+    "total_feature_ciphertexts": 144
+  },
+  "repeated_alignment_cost_per_epoch": {
+    "condition_A_deg3_L3": {
+      "empirical_phase4_s": 1.7636329333229999,
+      "microbenchmark_raw_s": 3.876928159997624,
+      "burn_ops_per_column": 4,
+      "total_burn_ops_per_epoch": 576
+    },
+    "condition_B_deg3_L2": {
+      "empirical_phase4_s": 2.048653633328892,
+      "microbenchmark_raw_s": 4.3037257599979055,
+      "burn_ops_per_column": 5,
+      "total_burn_ops_per_epoch": 720
+    },
+    "condition_C_deg5_L2": {
+      "empirical_phase4_s": 2.0706908333231695,
+      "microbenchmark_raw_s": 4.3037257599979055,
+      "burn_ops_per_column": 5,
+      "total_burn_ops_per_epoch": 720
+    }
+  },
+  "caching_strategy_assessment": {
+    "precomputation_cost_condition_B_s": 2.048653633328892,
+    "break_even_epoch_threshold": 1,
+    "savings_per_epoch_after_epoch_1_s": 2.048653633328892,
+    "ten_epoch_total_savings_condition_B_s": 18.437882699960024,
+    "ten_epoch_percentage_reduction_total_runtime": 19.13956618301663,
+    "memory_overhead": {
+      "bytes_per_ciphertext_level_2": 786432,
+      "total_cached_ram_mb_level_2": 108.0,
+      "total_cached_ram_mb_level_3": 144.0,
+      "ram_feasibility": "Fully feasible; < 110 MB memory overhead for entire dataset"
+    },
+    "numerical_equivalence": {
+      "deterministic": true,
+      "reproducibility": "Exact bit-identical ciphertext reuse across epochs",
+      "max_abs_deviation": 0.0
+    },
+    "recommendation": "Adopt cached feature-alignment for multi-epoch training. Eliminates 2.05s per epoch (21.3% of Condition B epoch runtime) starting from Epoch 2 with zero numerical drift and < 110 MB RAM overhead."
+  }
+}

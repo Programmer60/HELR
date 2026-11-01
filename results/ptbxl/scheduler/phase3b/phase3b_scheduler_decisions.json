@@ -1,0 +1,106 @@
+{
+  "epochs_1": {
+    "selected_plan": "B-repeat",
+    "predicted_total_s": 9.180633509575273,
+    "candidates": {
+      "A-repeat": {
+        "feasible": true,
+        "predicted_total_s": 12.129002759442665,
+        "rejection_reason": null
+      },
+      "A-cache": {
+        "feasible": true,
+        "predicted_total_s": 12.129002759442665,
+        "rejection_reason": null
+      },
+      "B-repeat": {
+        "feasible": true,
+        "predicted_total_s": 9.180633509575273,
+        "rejection_reason": null
+      },
+      "B-cache": {
+        "feasible": true,
+        "predicted_total_s": 9.180633509575273,
+        "rejection_reason": null
+      }
+    }
+  },
+  "epochs_3": {
+    "selected_plan": "B-cache",
+    "predicted_total_s": 23.634659248628303,
+    "candidates": {
+      "A-repeat": {
+        "feasible": true,
+        "predicted_total_s": 36.387008278328,
+        "rejection_reason": null
+      },
+      "A-cache": {
+        "feasible": true,
+        "predicted_total_s": 32.94023003771436,
+        "rejection_reason": null
+      },
+      "B-repeat": {
+        "feasible": true,
+        "predicted_total_s": 27.54190052872582,
+        "rejection_reason": null
+      },
+      "B-cache": {
+        "feasible": true,
+        "predicted_total_s": 23.634659248628303,
+        "rejection_reason": null
+      }
+    }
+  },
+  "epochs_5": {
+    "selected_plan": "B-cache",
+    "predicted_total_s": 38.08868498768133,
+    "candidates": {
+      "A-repeat": {
+        "feasible": true,
+        "predicted_total_s": 60.64501379721332,
+        "rejection_reason": null
+      },
+      "A-cache": {
+        "feasible": true,
+        "predicted_total_s": 53.751457315986045,
+        "rejection_reason": null
+      },
+      "B-repeat": {
+        "feasible": true,
+        "predicted_total_s": 45.903167547876365,
+        "rejection_reason": null
+      },
+      "B-cache": {
+        "feasible": true,
+        "predicted_total_s": 38.08868498768133,
+        "rejection_reason": null
+      }
+    }
+  },
+  "epochs_10": {
+    "selected_plan": "B-cache",
+    "predicted_total_s": 74.22374933531391,
+    "candidates": {
+      "A-repeat": {
+        "feasible": true,
+        "predicted_total_s": 121.29002759442665,
+        "rejection_reason": null
+      },
+      "A-cache": {
+        "feasible": true,
+        "predicted_total_s": 105.77952551166527,
+        "rejection_reason": null
+      },
+      "B-repeat": {
+        "feasible": true,
+        "predicted_total_s": 91.80633509575273,
+        "rejection_reason": null
+      },
+      "B-cache": {
+        "feasible": true,
+        "predicted_total_s": 74.22374933531391,
+        "rejection_reason": null
+      }
+    }
+  }
+}

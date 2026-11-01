@@ -1,0 +1,2026 @@
+{
+  "VB1": {
+    "workload_id": "VB1",
+    "N": 8192,
+    "D": 12,
+    "B": 1,
+    "desc": "B=1 boundary, full capacity",
+    "persistent_worker": {
+      "A-repeat": {
+        "schedule_name": "Condition A (Deg-3, Grad L3, Repeated)",
+        "condition": "A",
+        "alignment_strategy": "repeated",
+        "predicted_step_s": 1.167239466604466,
+        "predicted_epoch1_s": 1.167239466604466,
+        "predicted_10ep_s": 11.67239466604466,
+        "components_s": {
+          "weight_enc_s": 0.17088291997788474,
+          "forward_linear_s": 0.2521878400002606,
+          "poly_eval_s": 0.04428840666318623,
+          "error_comp_s": 0.012467980002130693,
+          "level_adjustment_s": 0.0,
+          "feature_alignment_s": 0.1436157600255683,
+          "alignment_precompute_s": 0.1436157600255683,
+          "gradient_comp_s": 0.5239999199751764,
+          "decryption_agg_s": 0.019796639960259196,
+          "total_epoch_time_s": 1.167239466604466
+        }
+      },
+      "B-repeat": {
+        "schedule_name": "Condition B (Deg-3, Grad L2, Repeated)",
+        "condition": "B",
+        "alignment_strategy": "repeated",
+        "predicted_step_s": 0.9228137966158101,
+        "predicted_epoch1_s": 0.9228137966158101,
+        "predicted_10ep_s": 9.228137966158101,
+        "components_s": {
+          "weight_enc_s": 0.17088291997788474,
+          "forward_linear_s": 0.2521878400002606,
+          "poly_eval_s": 0.04428840666318623,
+          "error_comp_s": 0.012467980002130693,
+          "level_adjustment_s": 0.0016956900003909444,
+          "feature_alignment_s": 0.16280172000406312,
+          "alignment_precompute_s": 0.16280172000406312,
+          "gradient_comp_s": 0.26918331998167555,
+          "decryption_agg_s": 0.009305919986218214,
+          "total_epoch_time_s": 0.9228137966158101
+        }
+      },
+      "A-cache": {
+        "schedule_name": "Condition A (Deg-3, Grad L3, Cached)",
+        "condition": "A",
+        "alignment_strategy": "cached",
+        "predicted_step_s": 1.0236237065788978,
+        "predicted_epoch1_s": 1.167239466604466,
+        "predicted_10ep_s": 10.379852825814545,
+        "components_s": {
+          "weight_enc_s": 0.17088291997788474,
+          "forward_linear_s": 0.2521878400002606,
+          "poly_eval_s": 0.04428840666318623,
+          "error_comp_s": 0.012467980002130693,
+          "level_adjustment_s": 0.0,
+          "feature_alignment_s": 0.1436157600255683,
+          "alignment_precompute_s": 0.1436157600255683,
+          "gradient_comp_s": 0.5239999199751764,
+          "decryption_agg_s": 0.019796639960259196,
+          "total_epoch_time_s": 1.167239466604466
+        }
+      },
+      "B-cache": {
+        "schedule_name": "Condition B (Deg-3, Grad L2, Cached)",
+        "condition": "B",
+        "alignment_strategy": "cached",
+        "predicted_step_s": 0.760012076611747,
+        "predicted_epoch1_s": 0.9228137966158101,
+        "predicted_10ep_s": 7.762922486121533,
+        "components_s": {
+          "weight_enc_s": 0.17088291997788474,
+          "forward_linear_s": 0.2521878400002606,
+          "poly_eval_s": 0.04428840666318623,
+          "error_comp_s": 0.012467980002130693,
+          "level_adjustment_s": 0.0016956900003909444,
+          "feature_alignment_s": 0.16280172000406312,
+          "alignment_precompute_s": 0.16280172000406312,
+          "gradient_comp_s": 0.26918331998167555,
+          "decryption_agg_s": 0.009305919986218214,
+          "total_epoch_time_s": 0.9228137966158101
+        }
+      },
+      "C-repeat": {
+        "schedule_name": "Condition C (Deg-5, Grad L2, Repeated)",
+        "condition": "C",
+        "alignment_strategy": "repeated",
+        "predicted_step_s": 0.9418665666137822,
+        "predicted_epoch1_s": 0.9418665666137822,
+        "predicted_10ep_s": 9.418665666137823,
+        "components_s": {
+          "weight_enc_s": 0.17088291997788474,
+          "forward_linear_s": 0.2521878400002606,
+          "poly_eval_s": 0.06343803666334133,
+          "error_comp_s": 0.014066810000338593,
+          "level_adjustment_s": 0.0,
+          "feature_alignment_s": 0.16280172000406312,
+          "alignment_precompute_s": 0.16280172000406312,
+          "gradient_comp_s": 0.26918331998167555,
+          "decryption_agg_s": 0.009305919986218214,
+          "total_epoch_time_s": 0.9418665666137822
+        }
+      },
+      "C-cache": {
+        "schedule_name": "Condition C (Deg-5, Grad L2, Cached)",
+        "condition": "C",
+        "alignment_strategy": "cached",
+        "predicted_step_s": 0.7790648466097191,
+        "predicted_epoch1_s": 0.9418665666137822,
+        "predicted_10ep_s": 7.953450186101254,
+        "components_s": {
+          "weight_enc_s": 0.17088291997788474,
+          "forward_linear_s": 0.2521878400002606,
+          "poly_eval_s": 0.06343803666334133,
+          "error_comp_s": 0.014066810000338593,
+          "level_adjustment_s": 0.0,
+          "feature_alignment_s": 0.16280172000406312,
+          "alignment_precompute_s": 0.16280172000406312,
+          "gradient_comp_s": 0.26918331998167555,
+          "decryption_agg_s": 0.009305919986218214,
+          "total_epoch_time_s": 0.9418665666137822
+        }
+      },
+      "recommended_primary_schedule": "B-cache"
+    },
+    "fresh_worker": {
+      "A-repeat": {
+        "schedule_name": "Condition A (Deg-3, Grad L3, Repeated)",
+        "condition": "A",
+        "alignment_strategy": "repeated",
+        "predicted_step_s": 1.168248916703548,
+        "predicted_epoch1_s": 1.168248916703548,
+        "predicted_10ep_s": 11.68248916703548,
+        "components_s": {
+          "weight_enc_s": 0.17980507999891415,
+          "forward_linear_s": 0.24628371999133378,
+          "poly_eval_s": 0.04880781000293792,
+          "error_comp_s": 0.012947786663930552,
+          "level_adjustment_s": 0.0,
+          "feature_alignment_s": 0.14937343996716662,
+          "alignment_precompute_s": 0.14937343996716662,
+          "gradient_comp_s": 0.5105236000264994,
+          "decryption_agg_s": 0.02050748005276546,
+          "total_epoch_time_s": 1.168248916703548
+        }
+      },
+      "B-repeat": {
+        "schedule_name": "Condition B (Deg-3, Grad L2, Repeated)",
+        "condition": "B",
+        "alignment_strategy": "repeated",
+        "predicted_step_s": 0.9381504166851906,
+        "predicted_epoch1_s": 0.9381504166851906,
+        "predicted_10ep_s": 9.381504166851906,
+        "components_s": {
+          "weight_enc_s": 0.17980507999891415,
+          "forward_linear_s": 0.24628371999133378,
+          "poly_eval_s": 0.04880781000293792,
+          "error_comp_s": 0.012947786663930552,
+          "level_adjustment_s": 0.001723100003437139,
+          "feature_alignment_s": 0.16401132005266844,
+          "alignment_precompute_s": 0.16401132005266844,
+          "gradient_comp_s": 0.2745524800033309,
+          "decryption_agg_s": 0.010019119968637823,
+          "total_epoch_time_s": 0.9381504166851906
+        }
+      },
+      "A-cache": {
+        "schedule_name": "Condition A (Deg-3, Grad L3, Cached)",
+        "condition": "A",
+        "alignment_strategy": "cached",
+        "predicted_step_s": 1.0188754767363812,
+        "predicted_epoch1_s": 1.168248916703548,
+        "predicted_10ep_s": 10.338128207330978,
+        "components_s": {
+          "weight_enc_s": 0.17980507999891415,
+          "forward_linear_s": 0.24628371999133378,
+          "poly_eval_s": 0.04880781000293792,
+          "error_comp_s": 0.012947786663930552,
+          "level_adjustment_s": 0.0,
+          "feature_alignment_s": 0.14937343996716662,
+          "alignment_precompute_s": 0.14937343996716662,
+          "gradient_comp_s": 0.5105236000264994,
+          "decryption_agg_s": 0.02050748005276546,
+          "total_epoch_time_s": 1.168248916703548
+        }
+      },
+      "B-cache": {
+        "schedule_name": "Condition B (Deg-3, Grad L2, Cached)",
+        "condition": "B",
+        "alignment_strategy": "cached",
+        "predicted_step_s": 0.7741390966325221,
+        "predicted_epoch1_s": 0.9381504166851906,
+        "predicted_10ep_s": 7.905402286377891,
+        "components_s": {
+          "weight_enc_s": 0.17980507999891415,
+          "forward_linear_s": 0.24628371999133378,
+          "poly_eval_s": 0.04880781000293792,
+          "error_comp_s": 0.012947786663930552,
+          "level_adjustment_s": 0.001723100003437139,
+          "feature_alignment_s": 0.16401132005266844,
+          "alignment_precompute_s": 0.16401132005266844,
+          "gradient_comp_s": 0.2745524800033309,
+          "decryption_agg_s": 0.010019119968637823,
+          "total_epoch_time_s": 0.9381504166851906
+        }
+      },
+      "C-repeat": {
+        "schedule_name": "Condition C (Deg-5, Grad L2, Repeated)",
+        "condition": "C",
+        "alignment_strategy": "repeated",
+        "predicted_step_s": 0.9563825200277691,
+        "predicted_epoch1_s": 0.9563825200277691,
+        "predicted_10ep_s": 9.563825200277691,
+        "components_s": {
+          "weight_enc_s": 0.17980507999891415,
+          "forward_linear_s": 0.24628371999133378,
+          "poly_eval_s": 0.06754319000849501,
+          "error_comp_s": 0.014167610004389038,
+          "level_adjustment_s": 0.0,
+          "feature_alignment_s": 0.16401132005266844,
+          "alignment_precompute_s": 0.16401132005266844,
+          "gradient_comp_s": 0.2745524800033309,
+          "decryption_agg_s": 0.010019119968637823,
+          "total_epoch_time_s": 0.9563825200277691
+        }
+      },
+      "C-cache": {
+        "schedule_name": "Condition C (Deg-5, Grad L2, Cached)",
+        "condition": "C",
+        "alignment_strategy": "cached",
+        "predicted_step_s": 0.7923711999751006,
+        "predicted_epoch1_s": 0.9563825200277691,
+        "predicted_10ep_s": 8.087723319803676,
+        "components_s": {
+          "weight_enc_s": 0.17980507999891415,
+          "forward_linear_s": 0.24628371999133378,
+          "poly_eval_s": 0.06754319000849501,
+          "error_comp_s": 0.014167610004389038,
+          "level_adjustment_s": 0.0,
+          "feature_alignment_s": 0.16401132005266844,
+          "alignment_precompute_s": 0.16401132005266844,
+          "gradient_comp_s": 0.2745524800033309,
+          "decryption_agg_s": 0.010019119968637823,
+          "total_epoch_time_s": 0.9563825200277691
+        }
+      },
+      "recommended_primary_schedule": "B-cache"
+    }
+  },
+  "VB2": {
+    "workload_id": "VB2",
+    "N": 8192,
+    "D": 48,
+    "B": 1,
+    "desc": "B=1 boundary, full capacity",
+    "persistent_worker": {
+      "A-repeat": {
+        "schedule_name": "Condition A (Deg-3, Grad L3, Repeated)",
+        "condition": "A",
+        "alignment_strategy": "repeated",
+        "predicted_step_s": 4.498688706421913,
+        "predicted_epoch1_s": 4.498688706421913,
+        "predicted_10ep_s": 44.98688706421913,
+        "components_s": {
+          "weight_enc_s": 0.683531679911539,
+          "forward_linear_s": 1.0087513600010425,
+          "poly_eval_s": 0.04428840666318623,
+          "error_comp_s": 0.012467980002130693,
+          "level_adjustment_s": 0.0,
+          "feature_alignment_s": 0.5744630401022732,
+          "alignment_precompute_s": 0.5744630401022732,
+          "gradient_comp_s": 2.0959996799007055,
+          "decryption_agg_s": 0.07918655984103679,
+          "total_epoch_time_s": 4.498688706421913
+        }
+      },
+      "B-repeat": {
+        "schedule_name": "Condition B (Deg-3, Grad L2, Repeated)",
+        "condition": "B",
+        "alignment_strategy": "repeated",
+        "predicted_step_s": 3.515898956466117,
+        "predicted_epoch1_s": 3.515898956466117,
+        "predicted_10ep_s": 35.15898956466117,
+        "components_s": {
+          "weight_enc_s": 0.683531679911539,
+          "forward_linear_s": 1.0087513600010425,
+          "poly_eval_s": 0.04428840666318623,
+          "error_comp_s": 0.012467980002130693,
+          "level_adjustment_s": 0.0016956900003909444,
+          "feature_alignment_s": 0.6512068800162525,
+          "alignment_precompute_s": 0.6512068800162525,
+          "gradient_comp_s": 1.0767332799267022,
+          "decryption_agg_s": 0.037223679944872856,
+          "total_epoch_time_s": 3.515898956466117
+        }
+      },
+      "A-cache": {
+        "schedule_name": "Condition A (Deg-3, Grad L3, Cached)",
+        "condition": "A",
+        "alignment_strategy": "cached",
+        "predicted_step_s": 3.92422566631964,
+        "predicted_epoch1_s": 4.498688706421913,
+        "predicted_10ep_s": 39.81671970329867,
+        "components_s": {
+          "weight_enc_s": 0.683531679911539,
+          "forward_linear_s": 1.0087513600010425,
+          "poly_eval_s": 0.04428840666318623,
+          "error_comp_s": 0.012467980002130693,
+          "level_adjustment_s": 0.0,
+          "feature_alignment_s": 0.5744630401022732,
+          "alignment_precompute_s": 0.5744630401022732,
+          "gradient_comp_s": 2.0959996799007055,
+          "decryption_agg_s": 0.07918655984103679,
+          "total_epoch_time_s": 4.498688706421913
+        }
+      },
+      "B-cache": {
+        "schedule_name": "Condition B (Deg-3, Grad L2, Cached)",
+        "condition": "B",
+        "alignment_strategy": "cached",
+        "predicted_step_s": 2.8646920764498645,
+        "predicted_epoch1_s": 3.515898956466117,
+        "predicted_10ep_s": 29.298127644514896,
+        "components_s": {
+          "weight_enc_s": 0.683531679911539,
+          "forward_linear_s": 1.0087513600010425,
+          "poly_eval_s": 0.04428840666318623,
+          "error_comp_s": 0.012467980002130693,
+          "level_adjustment_s": 0.0016956900003909444,
+          "feature_alignment_s": 0.6512068800162525,
+          "alignment_precompute_s": 0.6512068800162525,
+          "gradient_comp_s": 1.0767332799267022,
+          "decryption_agg_s": 0.037223679944872856,
+          "total_epoch_time_s": 3.515898956466117
+        }
+      },
+      "C-repeat": {
+        "schedule_name": "Condition C (Deg-5, Grad L2, Repeated)",
+        "condition": "C",
+        "alignment_strategy": "repeated",
+        "predicted_step_s": 3.534951726464089,
+        "predicted_epoch1_s": 3.534951726464089,
+        "predicted_10ep_s": 35.34951726464089,
+        "components_s": {
+          "weight_enc_s": 0.683531679911539,
+          "forward_linear_s": 1.0087513600010425,
+          "poly_eval_s": 0.06343803666334133,
+          "error_comp_s": 0.014066810000338593,
+          "level_adjustment_s": 0.0,
+          "feature_alignment_s": 0.6512068800162525,
+          "alignment_precompute_s": 0.6512068800162525,
+          "gradient_comp_s": 1.0767332799267022,
+          "decryption_agg_s": 0.037223679944872856,
+          "total_epoch_time_s": 3.534951726464089
+        }
+      },
+      "C-cache": {
+        "schedule_name": "Condition C (Deg-5, Grad L2, Cached)",
+        "condition": "C",
+        "alignment_strategy": "cached",
+        "predicted_step_s": 2.8837448464478364,
+        "predicted_epoch1_s": 3.534951726464089,
+        "predicted_10ep_s": 29.488655344494617,
+        "components_s": {
+          "weight_enc_s": 0.683531679911539,
+          "forward_linear_s": 1.0087513600010425,
+          "poly_eval_s": 0.06343803666334133,
+          "error_comp_s": 0.014066810000338593,
+          "level_adjustment_s": 0.0,
+          "feature_alignment_s": 0.6512068800162525,
+          "alignment_precompute_s": 0.6512068800162525,
+          "gradient_comp_s": 1.0767332799267022,
+          "decryption_agg_s": 0.037223679944872856,
+          "total_epoch_time_s": 3.534951726464089
+        }
+      },
+      "recommended_primary_schedule": "B-cache"
+    },
+    "fresh_worker": {
+      "A-repeat": {
+        "schedule_name": "Condition A (Deg-3, Grad L3, Repeated)",
+        "condition": "A",
+        "alignment_strategy": "repeated",
+        "predicted_step_s": 4.487728876813586,
+        "predicted_epoch1_s": 4.487728876813586,
+        "predicted_10ep_s": 44.877288768135855,
+        "components_s": {
+          "weight_enc_s": 0.7192203199956566,
+          "forward_linear_s": 0.9851348799653351,
+          "poly_eval_s": 0.04880781000293792,
+          "error_comp_s": 0.012947786663930552,
+          "level_adjustment_s": 0.0,
+          "feature_alignment_s": 0.5974937598686665,
+          "alignment_precompute_s": 0.5974937598686665,
+          "gradient_comp_s": 2.0420944001059977,
+          "decryption_agg_s": 0.08202992021106184,
+          "total_epoch_time_s": 4.487728876813586
+        }
+      },
+      "B-repeat": {
+        "schedule_name": "Condition B (Deg-3, Grad L2, Repeated)",
+        "condition": "B",
+        "alignment_strategy": "repeated",
+        "predicted_step_s": 3.562165576729846,
+        "predicted_epoch1_s": 3.562165576729846,
+        "predicted_10ep_s": 35.621655767298456,
+        "components_s": {
+          "weight_enc_s": 0.7192203199956566,
+          "forward_linear_s": 0.9851348799653351,
+          "poly_eval_s": 0.04880781000293792,
+          "error_comp_s": 0.012947786663930552,
+          "level_adjustment_s": 0.001723100003437139,
+          "feature_alignment_s": 0.6560452802106738,
+          "alignment_precompute_s": 0.6560452802106738,
+          "gradient_comp_s": 1.0982099200133235,
+          "decryption_agg_s": 0.04007647987455129,
+          "total_epoch_time_s": 3.562165576729846
+        }
+      },
+      "A-cache": {
+        "schedule_name": "Condition A (Deg-3, Grad L3, Cached)",
+        "condition": "A",
+        "alignment_strategy": "cached",
+        "predicted_step_s": 3.890235116944919,
+        "predicted_epoch1_s": 4.487728876813586,
+        "predicted_10ep_s": 39.49984492931786,
+        "components_s": {
+          "weight_enc_s": 0.7192203199956566,
+          "forward_linear_s": 0.9851348799653351,
+          "poly_eval_s": 0.04880781000293792,
+          "error_comp_s": 0.012947786663930552,
+          "level_adjustment_s": 0.0,
+          "feature_alignment_s": 0.5974937598686665,
+          "alignment_precompute_s": 0.5974937598686665,
+          "gradient_comp_s": 2.0420944001059977,
+          "decryption_agg_s": 0.08202992021106184,
+          "total_epoch_time_s": 4.487728876813586
+        }
+      },
+      "B-cache": {
+        "schedule_name": "Condition B (Deg-3, Grad L2, Cached)",
+        "condition": "B",
+        "alignment_strategy": "cached",
+        "predicted_step_s": 2.9061202965191724,
+        "predicted_epoch1_s": 3.562165576729846,
+        "predicted_10ep_s": 29.717248245402395,
+        "components_s": {
+          "weight_enc_s": 0.7192203199956566,
+          "forward_linear_s": 0.9851348799653351,
+          "poly_eval_s": 0.04880781000293792,
+          "error_comp_s": 0.012947786663930552,
+          "level_adjustment_s": 0.001723100003437139,
+          "feature_alignment_s": 0.6560452802106738,
+          "alignment_precompute_s": 0.6560452802106738,
+          "gradient_comp_s": 1.0982099200133235,
+          "decryption_agg_s": 0.04007647987455129,
+          "total_epoch_time_s": 3.562165576729846
+        }
+      },
+      "C-repeat": {
+        "schedule_name": "Condition C (Deg-5, Grad L2, Repeated)",
+        "condition": "C",
+        "alignment_strategy": "repeated",
+        "predicted_step_s": 3.5803976800724246,
+        "predicted_epoch1_s": 3.5803976800724246,
+        "predicted_10ep_s": 35.80397680072424,
+        "components_s": {
+          "weight_enc_s": 0.7192203199956566,
+          "forward_linear_s": 0.9851348799653351,
+          "poly_eval_s": 0.06754319000849501,
+          "error_comp_s": 0.014167610004389038,
+          "level_adjustment_s": 0.0,
+          "feature_alignment_s": 0.6560452802106738,
+          "alignment_precompute_s": 0.6560452802106738,
+          "gradient_comp_s": 1.0982099200133235,
+          "decryption_agg_s": 0.04007647987455129,
+          "total_epoch_time_s": 3.5803976800724246
+        }
+      },
+      "C-cache": {
+        "schedule_name": "Condition C (Deg-5, Grad L2, Cached)",
+        "condition": "C",
+        "alignment_strategy": "cached",
+        "predicted_step_s": 2.9243523998617507,
+        "predicted_epoch1_s": 3.5803976800724246,
+        "predicted_10ep_s": 29.89956927882818,
+        "components_s": {
+          "weight_enc_s": 0.7192203199956566,
+          "forward_linear_s": 0.9851348799653351,
+          "poly_eval_s": 0.06754319000849501,
+          "error_comp_s": 0.014167610004389038,
+          "level_adjustment_s": 0.0,
+          "feature_alignment_s": 0.6560452802106738,
+          "alignment_precompute_s": 0.6560452802106738,
+          "gradient_comp_s": 1.0982099200133235,
+          "decryption_agg_s": 0.04007647987455129,
+          "total_epoch_time_s": 3.5803976800724246
+        }
+      },
+      "recommended_primary_schedule": "B-cache"
+    }
+  },
+  "VB3": {
+    "workload_id": "VB3",
+    "N": 8193,
+    "D": 12,
+    "B": 2,
+    "desc": "B=2 boundary transition (+1 record)",
+    "persistent_worker": {
+      "A-repeat": {
+        "schedule_name": "Condition A (Deg-3, Grad L3, Repeated)",
+        "condition": "A",
+        "alignment_strategy": "repeated",
+        "predicted_step_s": 2.1635960132310474,
+        "predicted_epoch1_s": 2.1635960132310474,
+        "predicted_10ep_s": 21.635960132310473,
+        "components_s": {
+          "weight_enc_s": 0.17088291997788474,
+          "forward_linear_s": 0.5043756800005212,
+          "poly_eval_s": 0.08857681332637246,
+          "error_comp_s": 0.024935960004261386,
+          "level_adjustment_s": 0.0,
+          "feature_alignment_s": 0.2872315200511366,
+          "alignment_precompute_s": 0.2872315200511366,
+          "gradient_comp_s": 1.0479998399503527,
+          "decryption_agg_s": 0.03959327992051839,
+          "total_epoch_time_s": 2.1635960132310474
+        }
+      },
+      "B-repeat": {
+        "schedule_name": "Condition B (Deg-3, Grad L2, Repeated)",
+        "condition": "B",
+        "alignment_strategy": "repeated",
+        "predicted_step_s": 1.6747446732537354,
+        "predicted_epoch1_s": 1.6747446732537354,
+        "predicted_10ep_s": 16.747446732537355,
+        "components_s": {
+          "weight_enc_s": 0.17088291997788474,
+          "forward_linear_s": 0.5043756800005212,
+          "poly_eval_s": 0.08857681332637246,
+          "error_comp_s": 0.024935960004261386,
+          "level_adjustment_s": 0.0033913800007818887,
+          "feature_alignment_s": 0.32560344000812624,
+          "alignment_precompute_s": 0.32560344000812624,
+          "gradient_comp_s": 0.5383666399633511,
+          "decryption_agg_s": 0.018611839972436428,
+          "total_epoch_time_s": 1.6747446732537354
+        }
+      },
+      "A-cache": {
+        "schedule_name": "Condition A (Deg-3, Grad L3, Cached)",
+        "condition": "A",
+        "alignment_strategy": "cached",
+        "predicted_step_s": 1.8763644931799108,
+        "predicted_epoch1_s": 2.1635960132310474,
+        "predicted_10ep_s": 19.050876451850243,
+        "components_s": {
+          "weight_enc_s": 0.17088291997788474,
+          "forward_linear_s": 0.5043756800005212,
+          "poly_eval_s": 0.08857681332637246,
+          "error_comp_s": 0.024935960004261386,
+          "level_adjustment_s": 0.0,
+          "feature_alignment_s": 0.2872315200511366,
+          "alignment_precompute_s": 0.2872315200511366,
+          "gradient_comp_s": 1.0479998399503527,
+          "decryption_agg_s": 0.03959327992051839,
+          "total_epoch_time_s": 2.1635960132310474
+        }
+      },
+      "B-cache": {
+        "schedule_name": "Condition B (Deg-3, Grad L2, Cached)",
+        "condition": "B",
+        "alignment_strategy": "cached",
+        "predicted_step_s": 1.3491412332456092,
+        "predicted_epoch1_s": 1.6747446732537354,
+        "predicted_10ep_s": 13.817015772464218,
+        "components_s": {
+          "weight_enc_s": 0.17088291997788474,
+          "forward_linear_s": 0.5043756800005212,
+          "poly_eval_s": 0.08857681332637246,
+          "error_comp_s": 0.024935960004261386,
+          "level_adjustment_s": 0.0033913800007818887,
+          "feature_alignment_s": 0.32560344000812624,
+          "alignment_precompute_s": 0.32560344000812624,
+          "gradient_comp_s": 0.5383666399633511,
+          "decryption_agg_s": 0.018611839972436428,
+          "total_epoch_time_s": 1.6747446732537354
+        }
+      },
+      "C-repeat": {
+        "schedule_name": "Condition C (Deg-5, Grad L2, Repeated)",
+        "condition": "C",
+        "alignment_strategy": "repeated",
+        "predicted_step_s": 1.7128502132496797,
+        "predicted_epoch1_s": 1.7128502132496797,
+        "predicted_10ep_s": 17.1285021324968,
+        "components_s": {
+          "weight_enc_s": 0.17088291997788474,
+          "forward_linear_s": 0.5043756800005212,
+          "poly_eval_s": 0.12687607332668266,
+          "error_comp_s": 0.028133620000677186,
+          "level_adjustment_s": 0.0,
+          "feature_alignment_s": 0.32560344000812624,
+          "alignment_precompute_s": 0.32560344000812624,
+          "gradient_comp_s": 0.5383666399633511,
+          "decryption_agg_s": 0.018611839972436428,
+          "total_epoch_time_s": 1.7128502132496797
+        }
+      },
+      "C-cache": {
+        "schedule_name": "Condition C (Deg-5, Grad L2, Cached)",
+        "condition": "C",
+        "alignment_strategy": "cached",
+        "predicted_step_s": 1.3872467732415534,
+        "predicted_epoch1_s": 1.7128502132496797,
+        "predicted_10ep_s": 14.19807117242366,
+        "components_s": {
+          "weight_enc_s": 0.17088291997788474,
+          "forward_linear_s": 0.5043756800005212,
+          "poly_eval_s": 0.12687607332668266,
+          "error_comp_s": 0.028133620000677186,
+          "level_adjustment_s": 0.0,
+          "feature_alignment_s": 0.32560344000812624,
+          "alignment_precompute_s": 0.32560344000812624,
+          "gradient_comp_s": 0.5383666399633511,
+          "decryption_agg_s": 0.018611839972436428,
+          "total_epoch_time_s": 1.7128502132496797
+        }
+      },
+      "recommended_primary_schedule": "B-cache"
+    },
+    "fresh_worker": {
+      "A-repeat": {
+        "schedule_name": "Condition A (Deg-3, Grad L3, Repeated)",
+        "condition": "A",
+        "alignment_strategy": "repeated",
+        "predicted_step_s": 2.1566927534081817,
+        "predicted_epoch1_s": 2.1566927534081817,
+        "predicted_10ep_s": 21.566927534081817,
+        "components_s": {
+          "weight_enc_s": 0.17980507999891415,
+          "forward_linear_s": 0.49256743998266755,
+          "poly_eval_s": 0.09761562000587584,
+          "error_comp_s": 0.025895573327861104,
+          "level_adjustment_s": 0.0,
+          "feature_alignment_s": 0.29874687993433324,
+          "alignment_precompute_s": 0.29874687993433324,
+          "gradient_comp_s": 1.0210472000529989,
+          "decryption_agg_s": 0.04101496010553092,
+          "total_epoch_time_s": 2.1566927534081817
+        }
+      },
+      "B-repeat": {
+        "schedule_name": "Condition B (Deg-3, Grad L2, Repeated)",
+        "condition": "B",
+        "alignment_strategy": "repeated",
+        "predicted_step_s": 1.696495753371467,
+        "predicted_epoch1_s": 1.696495753371467,
+        "predicted_10ep_s": 16.96495753371467,
+        "components_s": {
+          "weight_enc_s": 0.17980507999891415,
+          "forward_linear_s": 0.49256743998266755,
+          "poly_eval_s": 0.09761562000587584,
+          "error_comp_s": 0.025895573327861104,
+          "level_adjustment_s": 0.003446200006874278,
+          "feature_alignment_s": 0.3280226401053369,
+          "alignment_precompute_s": 0.3280226401053369,
+          "gradient_comp_s": 0.5491049600066618,
+          "decryption_agg_s": 0.020038239937275645,
+          "total_epoch_time_s": 1.696495753371467
+        }
+      },
+      "A-cache": {
+        "schedule_name": "Condition A (Deg-3, Grad L3, Cached)",
+        "condition": "A",
+        "alignment_strategy": "cached",
+        "predicted_step_s": 1.8579458734738483,
+        "predicted_epoch1_s": 2.1566927534081817,
+        "predicted_10ep_s": 18.87820561467282,
+        "components_s": {
+          "weight_enc_s": 0.17980507999891415,
+          "forward_linear_s": 0.49256743998266755,
+          "poly_eval_s": 0.09761562000587584,
+          "error_comp_s": 0.025895573327861104,
+          "level_adjustment_s": 0.0,
+          "feature_alignment_s": 0.29874687993433324,
+          "alignment_precompute_s": 0.29874687993433324,
+          "gradient_comp_s": 1.0210472000529989,
+          "decryption_agg_s": 0.04101496010553092,
+          "total_epoch_time_s": 2.1566927534081817
+        }
+      },
+      "B-cache": {
+        "schedule_name": "Condition B (Deg-3, Grad L2, Cached)",
+        "condition": "B",
+        "alignment_strategy": "cached",
+        "predicted_step_s": 1.36847311326613,
+        "predicted_epoch1_s": 1.696495753371467,
+        "predicted_10ep_s": 14.01275377276664,
+        "components_s": {
+          "weight_enc_s": 0.17980507999891415,
+          "forward_linear_s": 0.49256743998266755,
+          "poly_eval_s": 0.09761562000587584,
+          "error_comp_s": 0.025895573327861104,
+          "level_adjustment_s": 0.003446200006874278,
+          "feature_alignment_s": 0.3280226401053369,
+          "alignment_precompute_s": 0.3280226401053369,
+          "gradient_comp_s": 0.5491049600066618,
+          "decryption_agg_s": 0.020038239937275645,
+          "total_epoch_time_s": 1.696495753371467
+        }
+      },
+      "C-repeat": {
+        "schedule_name": "Condition C (Deg-5, Grad L2, Repeated)",
+        "condition": "C",
+        "alignment_strategy": "repeated",
+        "predicted_step_s": 1.7329599600566241,
+        "predicted_epoch1_s": 1.7329599600566241,
+        "predicted_10ep_s": 17.32959960056624,
+        "components_s": {
+          "weight_enc_s": 0.17980507999891415,
+          "forward_linear_s": 0.49256743998266755,
+          "poly_eval_s": 0.13508638001699003,
+          "error_comp_s": 0.028335220008778077,
+          "level_adjustment_s": 0.0,
+          "feature_alignment_s": 0.3280226401053369,
+          "alignment_precompute_s": 0.3280226401053369,
+          "gradient_comp_s": 0.5491049600066618,
+          "decryption_agg_s": 0.020038239937275645,
+          "total_epoch_time_s": 1.7329599600566241
+        }
+      },
+      "C-cache": {
+        "schedule_name": "Condition C (Deg-5, Grad L2, Cached)",
+        "condition": "C",
+        "alignment_strategy": "cached",
+        "predicted_step_s": 1.4049373199512871,
+        "predicted_epoch1_s": 1.7329599600566241,
+        "predicted_10ep_s": 14.37739583961821,
+        "components_s": {
+          "weight_enc_s": 0.17980507999891415,
+          "forward_linear_s": 0.49256743998266755,
+          "poly_eval_s": 0.13508638001699003,
+          "error_comp_s": 0.028335220008778077,
+          "level_adjustment_s": 0.0,
+          "feature_alignment_s": 0.3280226401053369,
+          "alignment_precompute_s": 0.3280226401053369,
+          "gradient_comp_s": 0.5491049600066618,
+          "decryption_agg_s": 0.020038239937275645,
+          "total_epoch_time_s": 1.7329599600566241
+        }
+      },
+      "recommended_primary_schedule": "B-cache"
+    }
+  },
+  "VB4": {
+    "workload_id": "VB4",
+    "N": 8193,
+    "D": 48,
+    "B": 2,
+    "desc": "B=2 boundary transition (+1 record)",
+    "persistent_worker": {
+      "A-repeat": {
+        "schedule_name": "Condition A (Deg-3, Grad L3, Repeated)",
+        "condition": "A",
+        "alignment_strategy": "repeated",
+        "predicted_step_s": 8.313845732932288,
+        "predicted_epoch1_s": 8.313845732932288,
+        "predicted_10ep_s": 83.13845732932288,
+        "components_s": {
+          "weight_enc_s": 0.683531679911539,
+          "forward_linear_s": 2.017502720002085,
+          "poly_eval_s": 0.08857681332637246,
+          "error_comp_s": 0.024935960004261386,
+          "level_adjustment_s": 0.0,
+          "feature_alignment_s": 1.1489260802045465,
+          "alignment_precompute_s": 1.1489260802045465,
+          "gradient_comp_s": 4.191999359801411,
+          "decryption_agg_s": 0.15837311968207357,
+          "total_epoch_time_s": 8.313845732932288
+        }
+      },
+      "B-repeat": {
+        "schedule_name": "Condition B (Deg-3, Grad L2, Repeated)",
+        "condition": "B",
+        "alignment_strategy": "repeated",
+        "predicted_step_s": 6.348266233020695,
+        "predicted_epoch1_s": 6.348266233020695,
+        "predicted_10ep_s": 63.48266233020695,
+        "components_s": {
+          "weight_enc_s": 0.683531679911539,
+          "forward_linear_s": 2.017502720002085,
+          "poly_eval_s": 0.08857681332637246,
+          "error_comp_s": 0.024935960004261386,
+          "level_adjustment_s": 0.0033913800007818887,
+          "feature_alignment_s": 1.302413760032505,
+          "alignment_precompute_s": 1.302413760032505,
+          "gradient_comp_s": 2.1534665598534044,
+          "decryption_agg_s": 0.07444735988974571,
+          "total_epoch_time_s": 6.348266233020695
+        }
+      },
+      "A-cache": {
+        "schedule_name": "Condition A (Deg-3, Grad L3, Cached)",
+        "condition": "A",
+        "alignment_strategy": "cached",
+        "predicted_step_s": 7.1649196527277415,
+        "predicted_epoch1_s": 8.313845732932288,
+        "predicted_10ep_s": 72.79812260748196,
+        "components_s": {
+          "weight_enc_s": 0.683531679911539,
+          "forward_linear_s": 2.017502720002085,
+          "poly_eval_s": 0.08857681332637246,
+          "error_comp_s": 0.024935960004261386,
+          "level_adjustment_s": 0.0,
+          "feature_alignment_s": 1.1489260802045465,
+          "alignment_precompute_s": 1.1489260802045465,
+          "gradient_comp_s": 4.191999359801411,
+          "decryption_agg_s": 0.15837311968207357,
+          "total_epoch_time_s": 8.313845732932288
+        }
+      },
+      "B-cache": {
+        "schedule_name": "Condition B (Deg-3, Grad L2, Cached)",
+        "condition": "B",
+        "alignment_strategy": "cached",
+        "predicted_step_s": 5.04585247298819,
+        "predicted_epoch1_s": 6.348266233020695,
+        "predicted_10ep_s": 51.7609384899144,
+        "components_s": {
+          "weight_enc_s": 0.683531679911539,
+          "forward_linear_s": 2.017502720002085,
+          "poly_eval_s": 0.08857681332637246,
+          "error_comp_s": 0.024935960004261386,
+          "level_adjustment_s": 0.0033913800007818887,
+          "feature_alignment_s": 1.302413760032505,
+          "alignment_precompute_s": 1.302413760032505,
+          "gradient_comp_s": 2.1534665598534044,
+          "decryption_agg_s": 0.07444735988974571,
+          "total_epoch_time_s": 6.348266233020695
+        }
+      },
+      "C-repeat": {
+        "schedule_name": "Condition C (Deg-5, Grad L2, Repeated)",
+        "condition": "C",
+        "alignment_strategy": "repeated",
+        "predicted_step_s": 6.386371773016639,
+        "predicted_epoch1_s": 6.386371773016639,
+        "predicted_10ep_s": 63.863717730166385,
+        "components_s": {
+          "weight_enc_s": 0.683531679911539,
+          "forward_linear_s": 2.017502720002085,
+          "poly_eval_s": 0.12687607332668266,
+          "error_comp_s": 0.028133620000677186,
+          "level_adjustment_s": 0.0,
+          "feature_alignment_s": 1.302413760032505,
+          "alignment_precompute_s": 1.302413760032505,
+          "gradient_comp_s": 2.1534665598534044,
+          "decryption_agg_s": 0.07444735988974571,
+          "total_epoch_time_s": 6.386371773016639
+        }
+      },
+      "C-cache": {
+        "schedule_name": "Condition C (Deg-5, Grad L2, Cached)",
+        "condition": "C",
+        "alignment_strategy": "cached",
+        "predicted_step_s": 5.083958012984134,
+        "predicted_epoch1_s": 6.386371773016639,
+        "predicted_10ep_s": 52.141993889873845,
+        "components_s": {
+          "weight_enc_s": 0.683531679911539,
+          "forward_linear_s": 2.017502720002085,
+          "poly_eval_s": 0.12687607332668266,
+          "error_comp_s": 0.028133620000677186,
+          "level_adjustment_s": 0.0,
+          "feature_alignment_s": 1.302413760032505,
+          "alignment_precompute_s": 1.302413760032505,
+          "gradient_comp_s": 2.1534665598534044,
+          "decryption_agg_s": 0.07444735988974571,
+          "total_epoch_time_s": 6.386371773016639
+        }
+      },
+      "recommended_primary_schedule": "B-cache"
+    },
+    "fresh_worker": {
+      "A-repeat": {
+        "schedule_name": "Condition A (Deg-3, Grad L3, Repeated)",
+        "condition": "A",
+        "alignment_strategy": "repeated",
+        "predicted_step_s": 8.256237433631515,
+        "predicted_epoch1_s": 8.256237433631515,
+        "predicted_10ep_s": 82.56237433631514,
+        "components_s": {
+          "weight_enc_s": 0.7192203199956566,
+          "forward_linear_s": 1.9702697599306702,
+          "poly_eval_s": 0.09761562000587584,
+          "error_comp_s": 0.025895573327861104,
+          "level_adjustment_s": 0.0,
+          "feature_alignment_s": 1.194987519737333,
+          "alignment_precompute_s": 1.194987519737333,
+          "gradient_comp_s": 4.0841888002119955,
+          "decryption_agg_s": 0.16405984042212368,
+          "total_epoch_time_s": 8.256237433631515
+        }
+      },
+      "B-repeat": {
+        "schedule_name": "Condition B (Deg-3, Grad L2, Repeated)",
+        "condition": "B",
+        "alignment_strategy": "repeated",
+        "predicted_step_s": 6.405110833464035,
+        "predicted_epoch1_s": 6.405110833464035,
+        "predicted_10ep_s": 64.05110833464035,
+        "components_s": {
+          "weight_enc_s": 0.7192203199956566,
+          "forward_linear_s": 1.9702697599306702,
+          "poly_eval_s": 0.09761562000587584,
+          "error_comp_s": 0.025895573327861104,
+          "level_adjustment_s": 0.003446200006874278,
+          "feature_alignment_s": 1.3120905604213475,
+          "alignment_precompute_s": 1.3120905604213475,
+          "gradient_comp_s": 2.196419840026647,
+          "decryption_agg_s": 0.08015295974910258,
+          "total_epoch_time_s": 6.405110833464035
+        }
+      },
+      "A-cache": {
+        "schedule_name": "Condition A (Deg-3, Grad L3, Cached)",
+        "condition": "A",
+        "alignment_strategy": "cached",
+        "predicted_step_s": 7.061249913894182,
+        "predicted_epoch1_s": 8.256237433631515,
+        "predicted_10ep_s": 71.80748665867915,
+        "components_s": {
+          "weight_enc_s": 0.7192203199956566,
+          "forward_linear_s": 1.9702697599306702,
+          "poly_eval_s": 0.09761562000587584,
+          "error_comp_s": 0.025895573327861104,
+          "level_adjustment_s": 0.0,
+          "feature_alignment_s": 1.194987519737333,
+          "alignment_precompute_s": 1.194987519737333,
+          "gradient_comp_s": 4.0841888002119955,
+          "decryption_agg_s": 0.16405984042212368,
+          "total_epoch_time_s": 8.256237433631515
+        }
+      },
+      "B-cache": {
+        "schedule_name": "Condition B (Deg-3, Grad L2, Cached)",
+        "condition": "B",
+        "alignment_strategy": "cached",
+        "predicted_step_s": 5.093020273042688,
+        "predicted_epoch1_s": 6.405110833464035,
+        "predicted_10ep_s": 52.242293290848224,
+        "components_s": {
+          "weight_enc_s": 0.7192203199956566,
+          "forward_linear_s": 1.9702697599306702,
+          "poly_eval_s": 0.09761562000587584,
+          "error_comp_s": 0.025895573327861104,
+          "level_adjustment_s": 0.003446200006874278,
+          "feature_alignment_s": 1.3120905604213475,
+          "alignment_precompute_s": 1.3120905604213475,
+          "gradient_comp_s": 2.196419840026647,
+          "decryption_agg_s": 0.08015295974910258,
+          "total_epoch_time_s": 6.405110833464035
+        }
+      },
+      "C-repeat": {
+        "schedule_name": "Condition C (Deg-5, Grad L2, Repeated)",
+        "condition": "C",
+        "alignment_strategy": "repeated",
+        "predicted_step_s": 6.441575040149193,
+        "predicted_epoch1_s": 6.441575040149193,
+        "predicted_10ep_s": 64.41575040149192,
+        "components_s": {
+          "weight_enc_s": 0.7192203199956566,
+          "forward_linear_s": 1.9702697599306702,
+          "poly_eval_s": 0.13508638001699003,
+          "error_comp_s": 0.028335220008778077,
+          "level_adjustment_s": 0.0,
+          "feature_alignment_s": 1.3120905604213475,
+          "alignment_precompute_s": 1.3120905604213475,
+          "gradient_comp_s": 2.196419840026647,
+          "decryption_agg_s": 0.08015295974910258,
+          "total_epoch_time_s": 6.441575040149193
+        }
+      },
+      "C-cache": {
+        "schedule_name": "Condition C (Deg-5, Grad L2, Cached)",
+        "condition": "C",
+        "alignment_strategy": "cached",
+        "predicted_step_s": 5.129484479727845,
+        "predicted_epoch1_s": 6.441575040149193,
+        "predicted_10ep_s": 52.6069353576998,
+        "components_s": {
+          "weight_enc_s": 0.7192203199956566,
+          "forward_linear_s": 1.9702697599306702,
+          "poly_eval_s": 0.13508638001699003,
+          "error_comp_s": 0.028335220008778077,
+          "level_adjustment_s": 0.0,
+          "feature_alignment_s": 1.3120905604213475,
+          "alignment_precompute_s": 1.3120905604213475,
+          "gradient_comp_s": 2.196419840026647,
+          "decryption_agg_s": 0.08015295974910258,
+          "total_epoch_time_s": 6.441575040149193
+        }
+      },
+      "recommended_primary_schedule": "B-cache"
+    }
+  },
+  "VB5": {
+    "workload_id": "VB5",
+    "N": 16384,
+    "D": 12,
+    "B": 2,
+    "desc": "B=2 boundary, full capacity",
+    "persistent_worker": {
+      "A-repeat": {
+        "schedule_name": "Condition A (Deg-3, Grad L3, Repeated)",
+        "condition": "A",
+        "alignment_strategy": "repeated",
+        "predicted_step_s": 2.1635960132310474,
+        "predicted_epoch1_s": 2.1635960132310474,
+        "predicted_10ep_s": 21.635960132310473,
+        "components_s": {
+          "weight_enc_s": 0.17088291997788474,
+          "forward_linear_s": 0.5043756800005212,
+          "poly_eval_s": 0.08857681332637246,
+          "error_comp_s": 0.024935960004261386,
+          "level_adjustment_s": 0.0,
+          "feature_alignment_s": 0.2872315200511366,
+          "alignment_precompute_s": 0.2872315200511366,
+          "gradient_comp_s": 1.0479998399503527,
+          "decryption_agg_s": 0.03959327992051839,
+          "total_epoch_time_s": 2.1635960132310474
+        }
+      },
+      "B-repeat": {
+        "schedule_name": "Condition B (Deg-3, Grad L2, Repeated)",
+        "condition": "B",
+        "alignment_strategy": "repeated",
+        "predicted_step_s": 1.6747446732537354,
+        "predicted_epoch1_s": 1.6747446732537354,
+        "predicted_10ep_s": 16.747446732537355,
+        "components_s": {
+          "weight_enc_s": 0.17088291997788474,
+          "forward_linear_s": 0.5043756800005212,
+          "poly_eval_s": 0.08857681332637246,
+          "error_comp_s": 0.024935960004261386,
+          "level_adjustment_s": 0.0033913800007818887,
+          "feature_alignment_s": 0.32560344000812624,
+          "alignment_precompute_s": 0.32560344000812624,
+          "gradient_comp_s": 0.5383666399633511,
+          "decryption_agg_s": 0.018611839972436428,
+          "total_epoch_time_s": 1.6747446732537354
+        }
+      },
+      "A-cache": {
+        "schedule_name": "Condition A (Deg-3, Grad L3, Cached)",
+        "condition": "A",
+        "alignment_strategy": "cached",
+        "predicted_step_s": 1.8763644931799108,
+        "predicted_epoch1_s": 2.1635960132310474,
+        "predicted_10ep_s": 19.050876451850243,
+        "components_s": {
+          "weight_enc_s": 0.17088291997788474,
+          "forward_linear_s": 0.5043756800005212,
+          "poly_eval_s": 0.08857681332637246,
+          "error_comp_s": 0.024935960004261386,
+          "level_adjustment_s": 0.0,
+          "feature_alignment_s": 0.2872315200511366,
+          "alignment_precompute_s": 0.2872315200511366,
+          "gradient_comp_s": 1.0479998399503527,
+          "decryption_agg_s": 0.03959327992051839,
+          "total_epoch_time_s": 2.1635960132310474
+        }
+      },
+      "B-cache": {
+        "schedule_name": "Condition B (Deg-3, Grad L2, Cached)",
+        "condition": "B",
+        "alignment_strategy": "cached",
+        "predicted_step_s": 1.3491412332456092,
+        "predicted_epoch1_s": 1.6747446732537354,
+        "predicted_10ep_s": 13.817015772464218,
+        "components_s": {
+          "weight_enc_s": 0.17088291997788474,
+          "forward_linear_s": 0.5043756800005212,
+          "poly_eval_s": 0.08857681332637246,
+          "error_comp_s": 0.024935960004261386,
+          "level_adjustment_s": 0.0033913800007818887,
+          "feature_alignment_s": 0.32560344000812624,
+          "alignment_precompute_s": 0.32560344000812624,
+          "gradient_comp_s": 0.5383666399633511,
+          "decryption_agg_s": 0.018611839972436428,
+          "total_epoch_time_s": 1.6747446732537354
+        }
+      },
+      "C-repeat": {
+        "schedule_name": "Condition C (Deg-5, Grad L2, Repeated)",
+        "condition": "C",
+        "alignment_strategy": "repeated",
+        "predicted_step_s": 1.7128502132496797,
+        "predicted_epoch1_s": 1.7128502132496797,
+        "predicted_10ep_s": 17.1285021324968,
+        "components_s": {
+          "weight_enc_s": 0.17088291997788474,
+          "forward_linear_s": 0.5043756800005212,
+          "poly_eval_s": 0.12687607332668266,
+          "error_comp_s": 0.028133620000677186,
+          "level_adjustment_s": 0.0,
+          "feature_alignment_s": 0.32560344000812624,
+          "alignment_precompute_s": 0.32560344000812624,
+          "gradient_comp_s": 0.5383666399633511,
+          "decryption_agg_s": 0.018611839972436428,
+          "total_epoch_time_s": 1.7128502132496797
+        }
+      },
+      "C-cache": {
+        "schedule_name": "Condition C (Deg-5, Grad L2, Cached)",
+        "condition": "C",
+        "alignment_strategy": "cached",
+        "predicted_step_s": 1.3872467732415534,
+        "predicted_epoch1_s": 1.7128502132496797,
+        "predicted_10ep_s": 14.19807117242366,
+        "components_s": {
+          "weight_enc_s": 0.17088291997788474,
+          "forward_linear_s": 0.5043756800005212,
+          "poly_eval_s": 0.12687607332668266,
+          "error_comp_s": 0.028133620000677186,
+          "level_adjustment_s": 0.0,
+          "feature_alignment_s": 0.32560344000812624,
+          "alignment_precompute_s": 0.32560344000812624,
+          "gradient_comp_s": 0.5383666399633511,
+          "decryption_agg_s": 0.018611839972436428,
+          "total_epoch_time_s": 1.7128502132496797
+        }
+      },
+      "recommended_primary_schedule": "B-cache"
+    },
+    "fresh_worker": {
+      "A-repeat": {
+        "schedule_name": "Condition A (Deg-3, Grad L3, Repeated)",
+        "condition": "A",
+        "alignment_strategy": "repeated",
+        "predicted_step_s": 2.1566927534081817,
+        "predicted_epoch1_s": 2.1566927534081817,
+        "predicted_10ep_s": 21.566927534081817,
+        "components_s": {
+          "weight_enc_s": 0.17980507999891415,
+          "forward_linear_s": 0.49256743998266755,
+          "poly_eval_s": 0.09761562000587584,
+          "error_comp_s": 0.025895573327861104,
+          "level_adjustment_s": 0.0,
+          "feature_alignment_s": 0.29874687993433324,
+          "alignment_precompute_s": 0.29874687993433324,
+          "gradient_comp_s": 1.0210472000529989,
+          "decryption_agg_s": 0.04101496010553092,
+          "total_epoch_time_s": 2.1566927534081817
+        }
+      },
+      "B-repeat": {
+        "schedule_name": "Condition B (Deg-3, Grad L2, Repeated)",
+        "condition": "B",
+        "alignment_strategy": "repeated",
+        "predicted_step_s": 1.696495753371467,
+        "predicted_epoch1_s": 1.696495753371467,
+        "predicted_10ep_s": 16.96495753371467,
+        "components_s": {
+          "weight_enc_s": 0.17980507999891415,
+          "forward_linear_s": 0.49256743998266755,
+          "poly_eval_s": 0.09761562000587584,
+          "error_comp_s": 0.025895573327861104,
+          "level_adjustment_s": 0.003446200006874278,
+          "feature_alignment_s": 0.3280226401053369,
+          "alignment_precompute_s": 0.3280226401053369,
+          "gradient_comp_s": 0.5491049600066618,
+          "decryption_agg_s": 0.020038239937275645,
+          "total_epoch_time_s": 1.696495753371467
+        }
+      },
+      "A-cache": {
+        "schedule_name": "Condition A (Deg-3, Grad L3, Cached)",
+        "condition": "A",
+        "alignment_strategy": "cached",
+        "predicted_step_s": 1.8579458734738483,
+        "predicted_epoch1_s": 2.1566927534081817,
+        "predicted_10ep_s": 18.87820561467282,
+        "components_s": {
+          "weight_enc_s": 0.17980507999891415,
+          "forward_linear_s": 0.49256743998266755,
+          "poly_eval_s": 0.09761562000587584,
+          "error_comp_s": 0.025895573327861104,
+          "level_adjustment_s": 0.0,
+          "feature_alignment_s": 0.29874687993433324,
+          "alignment_precompute_s": 0.29874687993433324,
+          "gradient_comp_s": 1.0210472000529989,
+          "decryption_agg_s": 0.04101496010553092,
+          "total_epoch_time_s": 2.1566927534081817
+        }
+      },
+      "B-cache": {
+        "schedule_name": "Condition B (Deg-3, Grad L2, Cached)",
+        "condition": "B",
+        "alignment_strategy": "cached",
+        "predicted_step_s": 1.36847311326613,
+        "predicted_epoch1_s": 1.696495753371467,
+        "predicted_10ep_s": 14.01275377276664,
+        "components_s": {
+          "weight_enc_s": 0.17980507999891415,
+          "forward_linear_s": 0.49256743998266755,
+          "poly_eval_s": 0.09761562000587584,
+          "error_comp_s": 0.025895573327861104,
+          "level_adjustment_s": 0.003446200006874278,
+          "feature_alignment_s": 0.3280226401053369,
+          "alignment_precompute_s": 0.3280226401053369,
+          "gradient_comp_s": 0.5491049600066618,
+          "decryption_agg_s": 0.020038239937275645,
+          "total_epoch_time_s": 1.696495753371467
+        }
+      },
+      "C-repeat": {
+        "schedule_name": "Condition C (Deg-5, Grad L2, Repeated)",
+        "condition": "C",
+        "alignment_strategy": "repeated",
+        "predicted_step_s": 1.7329599600566241,
+        "predicted_epoch1_s": 1.7329599600566241,
+        "predicted_10ep_s": 17.32959960056624,
+        "components_s": {
+          "weight_enc_s": 0.17980507999891415,
+          "forward_linear_s": 0.49256743998266755,
+          "poly_eval_s": 0.13508638001699003,
+          "error_comp_s": 0.028335220008778077,
+          "level_adjustment_s": 0.0,
+          "feature_alignment_s": 0.3280226401053369,
+          "alignment_precompute_s": 0.3280226401053369,
+          "gradient_comp_s": 0.5491049600066618,
+          "decryption_agg_s": 0.020038239937275645,
+          "total_epoch_time_s": 1.7329599600566241
+        }
+      },
+      "C-cache": {
+        "schedule_name": "Condition C (Deg-5, Grad L2, Cached)",
+        "condition": "C",
+        "alignment_strategy": "cached",
+        "predicted_step_s": 1.4049373199512871,
+        "predicted_epoch1_s": 1.7329599600566241,
+        "predicted_10ep_s": 14.37739583961821,
+        "components_s": {
+          "weight_enc_s": 0.17980507999891415,
+          "forward_linear_s": 0.49256743998266755,
+          "poly_eval_s": 0.13508638001699003,
+          "error_comp_s": 0.028335220008778077,
+          "level_adjustment_s": 0.0,
+          "feature_alignment_s": 0.3280226401053369,
+          "alignment_precompute_s": 0.3280226401053369,
+          "gradient_comp_s": 0.5491049600066618,
+          "decryption_agg_s": 0.020038239937275645,
+          "total_epoch_time_s": 1.7329599600566241
+        }
+      },
+      "recommended_primary_schedule": "B-cache"
+    }
+  },
+  "VB6": {
+    "workload_id": "VB6",
+    "N": 16384,
+    "D": 48,
+    "B": 2,
+    "desc": "B=2 boundary, full capacity",
+    "persistent_worker": {
+      "A-repeat": {
+        "schedule_name": "Condition A (Deg-3, Grad L3, Repeated)",
+        "condition": "A",
+        "alignment_strategy": "repeated",
+        "predicted_step_s": 8.313845732932288,
+        "predicted_epoch1_s": 8.313845732932288,
+        "predicted_10ep_s": 83.13845732932288,
+        "components_s": {
+          "weight_enc_s": 0.683531679911539,
+          "forward_linear_s": 2.017502720002085,
+          "poly_eval_s": 0.08857681332637246,
+          "error_comp_s": 0.024935960004261386,
+          "level_adjustment_s": 0.0,
+          "feature_alignment_s": 1.1489260802045465,
+          "alignment_precompute_s": 1.1489260802045465,
+          "gradient_comp_s": 4.191999359801411,
+          "decryption_agg_s": 0.15837311968207357,
+          "total_epoch_time_s": 8.313845732932288
+        }
+      },
+      "B-repeat": {
+        "schedule_name": "Condition B (Deg-3, Grad L2, Repeated)",
+        "condition": "B",
+        "alignment_strategy": "repeated",
+        "predicted_step_s": 6.348266233020695,
+        "predicted_epoch1_s": 6.348266233020695,
+        "predicted_10ep_s": 63.48266233020695,
+        "components_s": {
+          "weight_enc_s": 0.683531679911539,
+          "forward_linear_s": 2.017502720002085,
+          "poly_eval_s": 0.08857681332637246,
+          "error_comp_s": 0.024935960004261386,
+          "level_adjustment_s": 0.0033913800007818887,
+          "feature_alignment_s": 1.302413760032505,
+          "alignment_precompute_s": 1.302413760032505,
+          "gradient_comp_s": 2.1534665598534044,
+          "decryption_agg_s": 0.07444735988974571,
+          "total_epoch_time_s": 6.348266233020695
+        }
+      },
+      "A-cache": {
+        "schedule_name": "Condition A (Deg-3, Grad L3, Cached)",
+        "condition": "A",
+        "alignment_strategy": "cached",
+        "predicted_step_s": 7.1649196527277415,
+        "predicted_epoch1_s": 8.313845732932288,
+        "predicted_10ep_s": 72.79812260748196,
+        "components_s": {
+          "weight_enc_s": 0.683531679911539,
+          "forward_linear_s": 2.017502720002085,
+          "poly_eval_s": 0.08857681332637246,
+          "error_comp_s": 0.024935960004261386,
+          "level_adjustment_s": 0.0,
+          "feature_alignment_s": 1.1489260802045465,
+          "alignment_precompute_s": 1.1489260802045465,
+          "gradient_comp_s": 4.191999359801411,
+          "decryption_agg_s": 0.15837311968207357,
+          "total_epoch_time_s": 8.313845732932288
+        }
+      },
+      "B-cache": {
+        "schedule_name": "Condition B (Deg-3, Grad L2, Cached)",
+        "condition": "B",
+        "alignment_strategy": "cached",
+        "predicted_step_s": 5.04585247298819,
+        "predicted_epoch1_s": 6.348266233020695,
+        "predicted_10ep_s": 51.7609384899144,
+        "components_s": {
+          "weight_enc_s": 0.683531679911539,
+          "forward_linear_s": 2.017502720002085,
+          "poly_eval_s": 0.08857681332637246,
+          "error_comp_s": 0.024935960004261386,
+          "level_adjustment_s": 0.0033913800007818887,
+          "feature_alignment_s": 1.302413760032505,
+          "alignment_precompute_s": 1.302413760032505,
+          "gradient_comp_s": 2.1534665598534044,
+          "decryption_agg_s": 0.07444735988974571,
+          "total_epoch_time_s": 6.348266233020695
+        }
+      },
+      "C-repeat": {
+        "schedule_name": "Condition C (Deg-5, Grad L2, Repeated)",
+        "condition": "C",
+        "alignment_strategy": "repeated",
+        "predicted_step_s": 6.386371773016639,
+        "predicted_epoch1_s": 6.386371773016639,
+        "predicted_10ep_s": 63.863717730166385,
+        "components_s": {
+          "weight_enc_s": 0.683531679911539,
+          "forward_linear_s": 2.017502720002085,
+          "poly_eval_s": 0.12687607332668266,
+          "error_comp_s": 0.028133620000677186,
+          "level_adjustment_s": 0.0,
+          "feature_alignment_s": 1.302413760032505,
+          "alignment_precompute_s": 1.302413760032505,
+          "gradient_comp_s": 2.1534665598534044,
+          "decryption_agg_s": 0.07444735988974571,
+          "total_epoch_time_s": 6.386371773016639
+        }
+      },
+      "C-cache": {
+        "schedule_name": "Condition C (Deg-5, Grad L2, Cached)",
+        "condition": "C",
+        "alignment_strategy": "cached",
+        "predicted_step_s": 5.083958012984134,
+        "predicted_epoch1_s": 6.386371773016639,
+        "predicted_10ep_s": 52.141993889873845,
+        "components_s": {
+          "weight_enc_s": 0.683531679911539,
+          "forward_linear_s": 2.017502720002085,
+          "poly_eval_s": 0.12687607332668266,
+          "error_comp_s": 0.028133620000677186,
+          "level_adjustment_s": 0.0,
+          "feature_alignment_s": 1.302413760032505,
+          "alignment_precompute_s": 1.302413760032505,
+          "gradient_comp_s": 2.1534665598534044,
+          "decryption_agg_s": 0.07444735988974571,
+          "total_epoch_time_s": 6.386371773016639
+        }
+      },
+      "recommended_primary_schedule": "B-cache"
+    },
+    "fresh_worker": {
+      "A-repeat": {
+        "schedule_name": "Condition A (Deg-3, Grad L3, Repeated)",
+        "condition": "A",
+        "alignment_strategy": "repeated",
+        "predicted_step_s": 8.256237433631515,
+        "predicted_epoch1_s": 8.256237433631515,
+        "predicted_10ep_s": 82.56237433631514,
+        "components_s": {
+          "weight_enc_s": 0.7192203199956566,
+          "forward_linear_s": 1.9702697599306702,
+          "poly_eval_s": 0.09761562000587584,
+          "error_comp_s": 0.025895573327861104,
+          "level_adjustment_s": 0.0,
+          "feature_alignment_s": 1.194987519737333,
+          "alignment_precompute_s": 1.194987519737333,
+          "gradient_comp_s": 4.0841888002119955,
+          "decryption_agg_s": 0.16405984042212368,
+          "total_epoch_time_s": 8.256237433631515
+        }
+      },
+      "B-repeat": {
+        "schedule_name": "Condition B (Deg-3, Grad L2, Repeated)",
+        "condition": "B",
+        "alignment_strategy": "repeated",
+        "predicted_step_s": 6.405110833464035,
+        "predicted_epoch1_s": 6.405110833464035,
+        "predicted_10ep_s": 64.05110833464035,
+        "components_s": {
+          "weight_enc_s": 0.7192203199956566,
+          "forward_linear_s": 1.9702697599306702,
+          "poly_eval_s": 0.09761562000587584,
+          "error_comp_s": 0.025895573327861104,
+          "level_adjustment_s": 0.003446200006874278,
+          "feature_alignment_s": 1.3120905604213475,
+          "alignment_precompute_s": 1.3120905604213475,
+          "gradient_comp_s": 2.196419840026647,
+          "decryption_agg_s": 0.08015295974910258,
+          "total_epoch_time_s": 6.405110833464035
+        }
+      },
+      "A-cache": {
+        "schedule_name": "Condition A (Deg-3, Grad L3, Cached)",
+        "condition": "A",
+        "alignment_strategy": "cached",
+        "predicted_step_s": 7.061249913894182,
+        "predicted_epoch1_s": 8.256237433631515,
+        "predicted_10ep_s": 71.80748665867915,
+        "components_s": {
+          "weight_enc_s": 0.7192203199956566,
+          "forward_linear_s": 1.9702697599306702,
+          "poly_eval_s": 0.09761562000587584,
+          "error_comp_s": 0.025895573327861104,
+          "level_adjustment_s": 0.0,
+          "feature_alignment_s": 1.194987519737333,
+          "alignment_precompute_s": 1.194987519737333,
+          "gradient_comp_s": 4.0841888002119955,
+          "decryption_agg_s": 0.16405984042212368,
+          "total_epoch_time_s": 8.256237433631515
+        }
+      },
+      "B-cache": {
+        "schedule_name": "Condition B (Deg-3, Grad L2, Cached)",
+        "condition": "B",
+        "alignment_strategy": "cached",
+        "predicted_step_s": 5.093020273042688,
+        "predicted_epoch1_s": 6.405110833464035,
+        "predicted_10ep_s": 52.242293290848224,
+        "components_s": {
+          "weight_enc_s": 0.7192203199956566,
+          "forward_linear_s": 1.9702697599306702,
+          "poly_eval_s": 0.09761562000587584,
+          "error_comp_s": 0.025895573327861104,
+          "level_adjustment_s": 0.003446200006874278,
+          "feature_alignment_s": 1.3120905604213475,
+          "alignment_precompute_s": 1.3120905604213475,
+          "gradient_comp_s": 2.196419840026647,
+          "decryption_agg_s": 0.08015295974910258,
+          "total_epoch_time_s": 6.405110833464035
+        }
+      },
+      "C-repeat": {
+        "schedule_name": "Condition C (Deg-5, Grad L2, Repeated)",
+        "condition": "C",
+        "alignment_strategy": "repeated",
+        "predicted_step_s": 6.441575040149193,
+        "predicted_epoch1_s": 6.441575040149193,
+        "predicted_10ep_s": 64.41575040149192,
+        "components_s": {
+          "weight_enc_s": 0.7192203199956566,
+          "forward_linear_s": 1.9702697599306702,
+          "poly_eval_s": 0.13508638001699003,
+          "error_comp_s": 0.028335220008778077,
+          "level_adjustment_s": 0.0,
+          "feature_alignment_s": 1.3120905604213475,
+          "alignment_precompute_s": 1.3120905604213475,
+          "gradient_comp_s": 2.196419840026647,
+          "decryption_agg_s": 0.08015295974910258,
+          "total_epoch_time_s": 6.441575040149193
+        }
+      },
+      "C-cache": {
+        "schedule_name": "Condition C (Deg-5, Grad L2, Cached)",
+        "condition": "C",
+        "alignment_strategy": "cached",
+        "predicted_step_s": 5.129484479727845,
+        "predicted_epoch1_s": 6.441575040149193,
+        "predicted_10ep_s": 52.6069353576998,
+        "components_s": {
+          "weight_enc_s": 0.7192203199956566,
+          "forward_linear_s": 1.9702697599306702,
+          "poly_eval_s": 0.13508638001699003,
+          "error_comp_s": 0.028335220008778077,
+          "level_adjustment_s": 0.0,
+          "feature_alignment_s": 1.3120905604213475,
+          "alignment_precompute_s": 1.3120905604213475,
+          "gradient_comp_s": 2.196419840026647,
+          "decryption_agg_s": 0.08015295974910258,
+          "total_epoch_time_s": 6.441575040149193
+        }
+      },
+      "recommended_primary_schedule": "B-cache"
+    }
+  },
+  "VB7": {
+    "workload_id": "VB7",
+    "N": 16385,
+    "D": 12,
+    "B": 3,
+    "desc": "B=3 boundary transition (+1 record)",
+    "persistent_worker": {
+      "A-repeat": {
+        "schedule_name": "Condition A (Deg-3, Grad L3, Repeated)",
+        "condition": "A",
+        "alignment_strategy": "repeated",
+        "predicted_step_s": 3.1599525598576292,
+        "predicted_epoch1_s": 3.1599525598576292,
+        "predicted_10ep_s": 31.599525598576292,
+        "components_s": {
+          "weight_enc_s": 0.17088291997788474,
+          "forward_linear_s": 0.7565635200007819,
+          "poly_eval_s": 0.1328652199895587,
+          "error_comp_s": 0.03740394000639208,
+          "level_adjustment_s": 0.0,
+          "feature_alignment_s": 0.4308472800767049,
+          "alignment_precompute_s": 0.4308472800767049,
+          "gradient_comp_s": 1.571999759925529,
+          "decryption_agg_s": 0.05938991988077759,
+          "total_epoch_time_s": 3.1599525598576292
+        }
+      },
+      "B-repeat": {
+        "schedule_name": "Condition B (Deg-3, Grad L2, Repeated)",
+        "condition": "B",
+        "alignment_strategy": "repeated",
+        "predicted_step_s": 2.426675549891661,
+        "predicted_epoch1_s": 2.426675549891661,
+        "predicted_10ep_s": 24.26675549891661,
+        "components_s": {
+          "weight_enc_s": 0.17088291997788474,
+          "forward_linear_s": 0.7565635200007819,
+          "poly_eval_s": 0.1328652199895587,
+          "error_comp_s": 0.03740394000639208,
+          "level_adjustment_s": 0.0050870700011728335,
+          "feature_alignment_s": 0.4884051600121893,
+          "alignment_precompute_s": 0.4884051600121893,
+          "gradient_comp_s": 0.8075499599450267,
+          "decryption_agg_s": 0.027917759958654642,
+          "total_epoch_time_s": 2.426675549891661
+        }
+      },
+      "A-cache": {
+        "schedule_name": "Condition A (Deg-3, Grad L3, Cached)",
+        "condition": "A",
+        "alignment_strategy": "cached",
+        "predicted_step_s": 2.7291052797809243,
+        "predicted_epoch1_s": 3.1599525598576292,
+        "predicted_10ep_s": 27.721900077885948,
+        "components_s": {
+          "weight_enc_s": 0.17088291997788474,
+          "forward_linear_s": 0.7565635200007819,
+          "poly_eval_s": 0.1328652199895587,
+          "error_comp_s": 0.03740394000639208,
+          "level_adjustment_s": 0.0,
+          "feature_alignment_s": 0.4308472800767049,
+          "alignment_precompute_s": 0.4308472800767049,
+          "gradient_comp_s": 1.571999759925529,
+          "decryption_agg_s": 0.05938991988077759,
+          "total_epoch_time_s": 3.1599525598576292
+        }
+      },
+      "B-cache": {
+        "schedule_name": "Condition B (Deg-3, Grad L2, Cached)",
+        "condition": "B",
+        "alignment_strategy": "cached",
+        "predicted_step_s": 1.9382703898794718,
+        "predicted_epoch1_s": 2.426675549891661,
+        "predicted_10ep_s": 19.87110905880691,
+        "components_s": {
+          "weight_enc_s": 0.17088291997788474,
+          "forward_linear_s": 0.7565635200007819,
+          "poly_eval_s": 0.1328652199895587,
+          "error_comp_s": 0.03740394000639208,
+          "level_adjustment_s": 0.0050870700011728335,
+          "feature_alignment_s": 0.4884051600121893,
+          "alignment_precompute_s": 0.4884051600121893,
+          "gradient_comp_s": 0.8075499599450267,
+          "decryption_agg_s": 0.027917759958654642,
+          "total_epoch_time_s": 2.426675549891661
+        }
+      },
+      "C-repeat": {
+        "schedule_name": "Condition C (Deg-5, Grad L2, Repeated)",
+        "condition": "C",
+        "alignment_strategy": "repeated",
+        "predicted_step_s": 2.4838338598855767,
+        "predicted_epoch1_s": 2.4838338598855767,
+        "predicted_10ep_s": 24.838338598855767,
+        "components_s": {
+          "weight_enc_s": 0.17088291997788474,
+          "forward_linear_s": 0.7565635200007819,
+          "poly_eval_s": 0.190314109990024,
+          "error_comp_s": 0.04220043000101578,
+          "level_adjustment_s": 0.0,
+          "feature_alignment_s": 0.4884051600121893,
+          "alignment_precompute_s": 0.4884051600121893,
+          "gradient_comp_s": 0.8075499599450267,
+          "decryption_agg_s": 0.027917759958654642,
+          "total_epoch_time_s": 2.4838338598855767
+        }
+      },
+      "C-cache": {
+        "schedule_name": "Condition C (Deg-5, Grad L2, Cached)",
+        "condition": "C",
+        "alignment_strategy": "cached",
+        "predicted_step_s": 1.9954286998733874,
+        "predicted_epoch1_s": 2.4838338598855767,
+        "predicted_10ep_s": 20.442692158746066,
+        "components_s": {
+          "weight_enc_s": 0.17088291997788474,
+          "forward_linear_s": 0.7565635200007819,
+          "poly_eval_s": 0.190314109990024,
+          "error_comp_s": 0.04220043000101578,
+          "level_adjustment_s": 0.0,
+          "feature_alignment_s": 0.4884051600121893,
+          "alignment_precompute_s": 0.4884051600121893,
+          "gradient_comp_s": 0.8075499599450267,
+          "decryption_agg_s": 0.027917759958654642,
+          "total_epoch_time_s": 2.4838338598855767
+        }
+      },
+      "recommended_primary_schedule": "B-cache"
+    },
+    "fresh_worker": {
+      "A-repeat": {
+        "schedule_name": "Condition A (Deg-3, Grad L3, Repeated)",
+        "condition": "A",
+        "alignment_strategy": "repeated",
+        "predicted_step_s": 3.1451365901128154,
+        "predicted_epoch1_s": 3.1451365901128154,
+        "predicted_10ep_s": 31.451365901128156,
+        "components_s": {
+          "weight_enc_s": 0.17980507999891415,
+          "forward_linear_s": 0.7388511599740013,
+          "poly_eval_s": 0.14642343000881375,
+          "error_comp_s": 0.03884335999179166,
+          "level_adjustment_s": 0.0,
+          "feature_alignment_s": 0.44812031990149986,
+          "alignment_precompute_s": 0.44812031990149986,
+          "gradient_comp_s": 1.5315708000794983,
+          "decryption_agg_s": 0.06152244015829638,
+          "total_epoch_time_s": 3.1451365901128154
+        }
+      },
+      "B-repeat": {
+        "schedule_name": "Condition B (Deg-3, Grad L2, Repeated)",
+        "condition": "B",
+        "alignment_strategy": "repeated",
+        "predicted_step_s": 2.4548410900577435,
+        "predicted_epoch1_s": 2.4548410900577435,
+        "predicted_10ep_s": 24.548410900577437,
+        "components_s": {
+          "weight_enc_s": 0.17980507999891415,
+          "forward_linear_s": 0.7388511599740013,
+          "poly_eval_s": 0.14642343000881375,
+          "error_comp_s": 0.03884335999179166,
+          "level_adjustment_s": 0.005169300010311417,
+          "feature_alignment_s": 0.4920339601580054,
+          "alignment_precompute_s": 0.4920339601580054,
+          "gradient_comp_s": 0.8236574400099925,
+          "decryption_agg_s": 0.030057359905913468,
+          "total_epoch_time_s": 2.4548410900577435
+        }
+      },
+      "A-cache": {
+        "schedule_name": "Condition A (Deg-3, Grad L3, Cached)",
+        "condition": "A",
+        "alignment_strategy": "cached",
+        "predicted_step_s": 2.6970162702113156,
+        "predicted_epoch1_s": 3.1451365901128154,
+        "predicted_10ep_s": 27.418283022014656,
+        "components_s": {
+          "weight_enc_s": 0.17980507999891415,
+          "forward_linear_s": 0.7388511599740013,
+          "poly_eval_s": 0.14642343000881375,
+          "error_comp_s": 0.03884335999179166,
+          "level_adjustment_s": 0.0,
+          "feature_alignment_s": 0.44812031990149986,
+          "alignment_precompute_s": 0.44812031990149986,
+          "gradient_comp_s": 1.5315708000794983,
+          "decryption_agg_s": 0.06152244015829638,
+          "total_epoch_time_s": 3.1451365901128154
+        }
+      },
+      "B-cache": {
+        "schedule_name": "Condition B (Deg-3, Grad L2, Cached)",
+        "condition": "B",
+        "alignment_strategy": "cached",
+        "predicted_step_s": 1.9628071298997383,
+        "predicted_epoch1_s": 2.4548410900577435,
+        "predicted_10ep_s": 20.120105259155388,
+        "components_s": {
+          "weight_enc_s": 0.17980507999891415,
+          "forward_linear_s": 0.7388511599740013,
+          "poly_eval_s": 0.14642343000881375,
+          "error_comp_s": 0.03884335999179166,
+          "level_adjustment_s": 0.005169300010311417,
+          "feature_alignment_s": 0.4920339601580054,
+          "alignment_precompute_s": 0.4920339601580054,
+          "gradient_comp_s": 0.8236574400099925,
+          "decryption_agg_s": 0.030057359905913468,
+          "total_epoch_time_s": 2.4548410900577435
+        }
+      },
+      "C-repeat": {
+        "schedule_name": "Condition C (Deg-5, Grad L2, Repeated)",
+        "condition": "C",
+        "alignment_strategy": "repeated",
+        "predicted_step_s": 2.5095374000854784,
+        "predicted_epoch1_s": 2.5095374000854784,
+        "predicted_10ep_s": 25.095374000854783,
+        "components_s": {
+          "weight_enc_s": 0.17980507999891415,
+          "forward_linear_s": 0.7388511599740013,
+          "poly_eval_s": 0.20262957002548504,
+          "error_comp_s": 0.04250283001316711,
+          "level_adjustment_s": 0.0,
+          "feature_alignment_s": 0.4920339601580054,
+          "alignment_precompute_s": 0.4920339601580054,
+          "gradient_comp_s": 0.8236574400099925,
+          "decryption_agg_s": 0.030057359905913468,
+          "total_epoch_time_s": 2.5095374000854784
+        }
+      },
+      "C-cache": {
+        "schedule_name": "Condition C (Deg-5, Grad L2, Cached)",
+        "condition": "C",
+        "alignment_strategy": "cached",
+        "predicted_step_s": 2.017503439927473,
+        "predicted_epoch1_s": 2.5095374000854784,
+        "predicted_10ep_s": 20.66706835943274,
+        "components_s": {
+          "weight_enc_s": 0.17980507999891415,
+          "forward_linear_s": 0.7388511599740013,
+          "poly_eval_s": 0.20262957002548504,
+          "error_comp_s": 0.04250283001316711,
+          "level_adjustment_s": 0.0,
+          "feature_alignment_s": 0.4920339601580054,
+          "alignment_precompute_s": 0.4920339601580054,
+          "gradient_comp_s": 0.8236574400099925,
+          "decryption_agg_s": 0.030057359905913468,
+          "total_epoch_time_s": 2.5095374000854784
+        }
+      },
+      "recommended_primary_schedule": "B-cache"
+    }
+  },
+  "VB8": {
+    "workload_id": "VB8",
+    "N": 16385,
+    "D": 48,
+    "B": 3,
+    "desc": "B=3 boundary transition (+1 record)",
+    "persistent_worker": {
+      "A-repeat": {
+        "schedule_name": "Condition A (Deg-3, Grad L3, Repeated)",
+        "condition": "A",
+        "alignment_strategy": "repeated",
+        "predicted_step_s": 12.129002759442665,
+        "predicted_epoch1_s": 12.129002759442665,
+        "predicted_10ep_s": 121.29002759442665,
+        "components_s": {
+          "weight_enc_s": 0.683531679911539,
+          "forward_linear_s": 3.0262540800031275,
+          "poly_eval_s": 0.1328652199895587,
+          "error_comp_s": 0.03740394000639208,
+          "level_adjustment_s": 0.0,
+          "feature_alignment_s": 1.7233891203068197,
+          "alignment_precompute_s": 1.7233891203068197,
+          "gradient_comp_s": 6.287999039702116,
+          "decryption_agg_s": 0.23755967952311036,
+          "total_epoch_time_s": 12.129002759442665
+        }
+      },
+      "B-repeat": {
+        "schedule_name": "Condition B (Deg-3, Grad L2, Repeated)",
+        "condition": "B",
+        "alignment_strategy": "repeated",
+        "predicted_step_s": 9.180633509575273,
+        "predicted_epoch1_s": 9.180633509575273,
+        "predicted_10ep_s": 91.80633509575273,
+        "components_s": {
+          "weight_enc_s": 0.683531679911539,
+          "forward_linear_s": 3.0262540800031275,
+          "poly_eval_s": 0.1328652199895587,
+          "error_comp_s": 0.03740394000639208,
+          "level_adjustment_s": 0.0050870700011728335,
+          "feature_alignment_s": 1.9536206400487572,
+          "alignment_precompute_s": 1.9536206400487572,
+          "gradient_comp_s": 3.2301998397801066,
+          "decryption_agg_s": 0.11167103983461857,
+          "total_epoch_time_s": 9.180633509575273
+        }
+      },
+      "A-cache": {
+        "schedule_name": "Condition A (Deg-3, Grad L3, Cached)",
+        "condition": "A",
+        "alignment_strategy": "cached",
+        "predicted_step_s": 10.405613639135845,
+        "predicted_epoch1_s": 12.129002759442665,
+        "predicted_10ep_s": 105.77952551166527,
+        "components_s": {
+          "weight_enc_s": 0.683531679911539,
+          "forward_linear_s": 3.0262540800031275,
+          "poly_eval_s": 0.1328652199895587,
+          "error_comp_s": 0.03740394000639208,
+          "level_adjustment_s": 0.0,
+          "feature_alignment_s": 1.7233891203068197,
+          "alignment_precompute_s": 1.7233891203068197,
+          "gradient_comp_s": 6.287999039702116,
+          "decryption_agg_s": 0.23755967952311036,
+          "total_epoch_time_s": 12.129002759442665
+        }
+      },
+      "B-cache": {
+        "schedule_name": "Condition B (Deg-3, Grad L2, Cached)",
+        "condition": "B",
+        "alignment_strategy": "cached",
+        "predicted_step_s": 7.227012869526516,
+        "predicted_epoch1_s": 9.180633509575273,
+        "predicted_10ep_s": 74.22374933531391,
+        "components_s": {
+          "weight_enc_s": 0.683531679911539,
+          "forward_linear_s": 3.0262540800031275,
+          "poly_eval_s": 0.1328652199895587,
+          "error_comp_s": 0.03740394000639208,
+          "level_adjustment_s": 0.0050870700011728335,
+          "feature_alignment_s": 1.9536206400487572,
+          "alignment_precompute_s": 1.9536206400487572,
+          "gradient_comp_s": 3.2301998397801066,
+          "decryption_agg_s": 0.11167103983461857,
+          "total_epoch_time_s": 9.180633509575273
+        }
+      },
+      "C-repeat": {
+        "schedule_name": "Condition C (Deg-5, Grad L2, Repeated)",
+        "condition": "C",
+        "alignment_strategy": "repeated",
+        "predicted_step_s": 9.237791819569189,
+        "predicted_epoch1_s": 9.237791819569189,
+        "predicted_10ep_s": 92.37791819569189,
+        "components_s": {
+          "weight_enc_s": 0.683531679911539,
+          "forward_linear_s": 3.0262540800031275,
+          "poly_eval_s": 0.190314109990024,
+          "error_comp_s": 0.04220043000101578,
+          "level_adjustment_s": 0.0,
+          "feature_alignment_s": 1.9536206400487572,
+          "alignment_precompute_s": 1.9536206400487572,
+          "gradient_comp_s": 3.2301998397801066,
+          "decryption_agg_s": 0.11167103983461857,
+          "total_epoch_time_s": 9.237791819569189
+        }
+      },
+      "C-cache": {
+        "schedule_name": "Condition C (Deg-5, Grad L2, Cached)",
+        "condition": "C",
+        "alignment_strategy": "cached",
+        "predicted_step_s": 7.284171179520432,
+        "predicted_epoch1_s": 9.237791819569189,
+        "predicted_10ep_s": 74.79533243525307,
+        "components_s": {
+          "weight_enc_s": 0.683531679911539,
+          "forward_linear_s": 3.0262540800031275,
+          "poly_eval_s": 0.190314109990024,
+          "error_comp_s": 0.04220043000101578,
+          "level_adjustment_s": 0.0,
+          "feature_alignment_s": 1.9536206400487572,
+          "alignment_precompute_s": 1.9536206400487572,
+          "gradient_comp_s": 3.2301998397801066,
+          "decryption_agg_s": 0.11167103983461857,
+          "total_epoch_time_s": 9.237791819569189
+        }
+      },
+      "recommended_primary_schedule": "B-cache"
+    },
+    "fresh_worker": {
+      "A-repeat": {
+        "schedule_name": "Condition A (Deg-3, Grad L3, Repeated)",
+        "condition": "A",
+        "alignment_strategy": "repeated",
+        "predicted_step_s": 12.024745990449446,
+        "predicted_epoch1_s": 12.024745990449446,
+        "predicted_10ep_s": 120.24745990449446,
+        "components_s": {
+          "weight_enc_s": 0.7192203199956566,
+          "forward_linear_s": 2.955404639896005,
+          "poly_eval_s": 0.14642343000881375,
+          "error_comp_s": 0.03884335999179166,
+          "level_adjustment_s": 0.0,
+          "feature_alignment_s": 1.7924812796059995,
+          "alignment_precompute_s": 1.7924812796059995,
+          "gradient_comp_s": 6.126283200317993,
+          "decryption_agg_s": 0.24608976063318552,
+          "total_epoch_time_s": 12.024745990449446
+        }
+      },
+      "B-repeat": {
+        "schedule_name": "Condition B (Deg-3, Grad L2, Repeated)",
+        "condition": "B",
+        "alignment_strategy": "repeated",
+        "predicted_step_s": 9.248056090198222,
+        "predicted_epoch1_s": 9.248056090198222,
+        "predicted_10ep_s": 92.48056090198222,
+        "components_s": {
+          "weight_enc_s": 0.7192203199956566,
+          "forward_linear_s": 2.955404639896005,
+          "poly_eval_s": 0.14642343000881375,
+          "error_comp_s": 0.03884335999179166,
+          "level_adjustment_s": 0.005169300010311417,
+          "feature_alignment_s": 1.9681358406320215,
+          "alignment_precompute_s": 1.9681358406320215,
+          "gradient_comp_s": 3.29462976003997,
+          "decryption_agg_s": 0.12022943962365387,
+          "total_epoch_time_s": 9.248056090198222
+        }
+      },
+      "A-cache": {
+        "schedule_name": "Condition A (Deg-3, Grad L3, Cached)",
+        "condition": "A",
+        "alignment_strategy": "cached",
+        "predicted_step_s": 10.232264710843447,
+        "predicted_epoch1_s": 12.024745990449446,
+        "predicted_10ep_s": 104.11512838804047,
+        "components_s": {
+          "weight_enc_s": 0.7192203199956566,
+          "forward_linear_s": 2.955404639896005,
+          "poly_eval_s": 0.14642343000881375,
+          "error_comp_s": 0.03884335999179166,
+          "level_adjustment_s": 0.0,
+          "feature_alignment_s": 1.7924812796059995,
+          "alignment_precompute_s": 1.7924812796059995,
+          "gradient_comp_s": 6.126283200317993,
+          "decryption_agg_s": 0.24608976063318552,
+          "total_epoch_time_s": 12.024745990449446
+        }
+      },
+      "B-cache": {
+        "schedule_name": "Condition B (Deg-3, Grad L2, Cached)",
+        "condition": "B",
+        "alignment_strategy": "cached",
+        "predicted_step_s": 7.279920249566201,
+        "predicted_epoch1_s": 9.248056090198222,
+        "predicted_10ep_s": 74.76733833629405,
+        "components_s": {
+          "weight_enc_s": 0.7192203199956566,
+          "forward_linear_s": 2.955404639896005,
+          "poly_eval_s": 0.14642343000881375,
+          "error_comp_s": 0.03884335999179166,
+          "level_adjustment_s": 0.005169300010311417,
+          "feature_alignment_s": 1.9681358406320215,
+          "alignment_precompute_s": 1.9681358406320215,
+          "gradient_comp_s": 3.29462976003997,
+          "decryption_agg_s": 0.12022943962365387,
+          "total_epoch_time_s": 9.248056090198222
+        }
+      },
+      "C-repeat": {
+        "schedule_name": "Condition C (Deg-5, Grad L2, Repeated)",
+        "condition": "C",
+        "alignment_strategy": "repeated",
+        "predicted_step_s": 9.302752400225959,
+        "predicted_epoch1_s": 9.302752400225959,
+        "predicted_10ep_s": 93.02752400225958,
+        "components_s": {
+          "weight_enc_s": 0.7192203199956566,
+          "forward_linear_s": 2.955404639896005,
+          "poly_eval_s": 0.20262957002548504,
+          "error_comp_s": 0.04250283001316711,
+          "level_adjustment_s": 0.0,
+          "feature_alignment_s": 1.9681358406320215,
+          "alignment_precompute_s": 1.9681358406320215,
+          "gradient_comp_s": 3.29462976003997,
+          "decryption_agg_s": 0.12022943962365387,
+          "total_epoch_time_s": 9.302752400225959
+        }
+      },
+      "C-cache": {
+        "schedule_name": "Condition C (Deg-5, Grad L2, Cached)",
+        "condition": "C",
+        "alignment_strategy": "cached",
+        "predicted_step_s": 7.334616559593938,
+        "predicted_epoch1_s": 9.302752400225959,
+        "predicted_10ep_s": 75.3143014365714,
+        "components_s": {
+          "weight_enc_s": 0.7192203199956566,
+          "forward_linear_s": 2.955404639896005,
+          "poly_eval_s": 0.20262957002548504,
+          "error_comp_s": 0.04250283001316711,
+          "level_adjustment_s": 0.0,
+          "feature_alignment_s": 1.9681358406320215,
+          "alignment_precompute_s": 1.9681358406320215,
+          "gradient_comp_s": 3.29462976003997,
+          "decryption_agg_s": 0.12022943962365387,
+          "total_epoch_time_s": 9.302752400225959
+        }
+      },
+      "recommended_primary_schedule": "B-cache"
+    }
+  }
+}
