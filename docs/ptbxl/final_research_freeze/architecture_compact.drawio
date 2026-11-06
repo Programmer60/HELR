@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxGraphModel dx="1200" dy="720" grid="0" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1180" pageHeight="720" background="#FFFFFF" math="0" shadow="0">
+  <root>
+    <mxCell id="0" />
+    <mxCell id="1" parent="0" />
+
+    <!-- ========================================== -->
+    <!-- TITLE                                      -->
+    <!-- ========================================== -->
+    <mxCell id="title" value="Fig. 1. Architecture of the Workload-Aware CKKS Privacy-Preserving Logistic Regression Training Pipeline"
+      style="text;html=1;align=center;verticalAlign=middle;strokeColor=none;fillColor=none;fontSize=14;fontStyle=1;fontColor=#0F172A;" vertex="1" parent="1">
+      <mxGeometry x="40" y="15" width="1100" height="30" as="geometry" />
+    </mxCell>
+
+    <!-- ========================================== -->
+    <!-- HOSPITAL CONTAINER (CLIENT REALM)          -->
+    <!-- ========================================== -->
+    <mxCell id="hosp_box" value="Trusted Hospital Realm (Client)&#xa;Holds Secret Key (sk) | Plaintext Data &amp; Optimizer Updates"
+      style="swimlane;startSize=36;fillColor=#F4F8FC;strokeColor=#1E40AF;strokeWidth=2;fontStyle=1;fontSize=12;fontColor=#1E40AF;align=left;spacingLeft=10;rounded=1;arcSize=4;" vertex="1" parent="1">
+      <mxGeometry x="40" y="55" width="440" height="620" as="geometry" />
+    </mxCell>
+
+    <!-- H1: Key Management -->
+    <mxCell id="h1_keys" value="&lt;b&gt;1. Key Generation &amp;amp; Security Context&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#334155&quot; style=&quot;font-size:10px;&quot;&gt;• CKKS Context: N = 16,384, scale = 2⁴⁰, 8 RNS primes&lt;br&gt;• Generates &amp;amp; retains secret key (sk)&lt;br&gt;• Exports public evaluation keys (pk, relin_k, galois_k)&lt;/font&gt;"
+      style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#93C5FD;strokeWidth=1.2;fontSize=11;align=left;spacingLeft=8;verticalAlign=middle;" vertex="1" parent="hosp_box">
+      <mxGeometry x="15" y="45" width="410" height="75" as="geometry" />
+    </mxCell>
+
+    <!-- H2: Data Preprocessing & Encryption -->
+    <mxCell id="h2_data" value="&lt;b&gt;2. Preprocessing &amp;amp; Data Encryption&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#334155&quot; style=&quot;font-size:10px;&quot;&gt;• PTB-XL ECG: 17,084 training records (Folds 1–8)&lt;br&gt;• 12 leads × 4 statistics (mean, std, min, max) = 48 features&lt;br&gt;• StandardScaler fitted on training folds 1–8 only&lt;br&gt;• SIMD slot packing (8,192 records/ct → B = 3 batches)&lt;br&gt;• Feature ciphertexts enc(X) enter at Level 7&lt;br&gt;• Label ciphertexts enc(y_aligned) aligned to Level 3&lt;/font&gt;"
+      style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#93C5FD;strokeWidth=1.2;fontSize=11;align=left;spacingLeft=8;verticalAlign=middle;" vertex="1" parent="hosp_box">
+      <mxGeometry x="15" y="130" width="410" height="120" as="geometry" />
+    </mxCell>
+
+    <!-- H3: Decryption & Plaintext Optimizer -->
+    <mxCell id="h3_opt" value="&lt;b&gt;3. Decryption &amp;amp; Plaintext Optimizer Update&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#334155&quot; style=&quot;font-size:10px;&quot;&gt;• Decrypts 144 batch-gradient ciphertexts (B × D = 3 × 48) using sk&lt;br&gt;• Aggregates batch contributions → 48 feature gradients ∇w&lt;br&gt;• Normalization: ∇w = (1/N) ∑ ∇w_batch  (N = 17,084)&lt;br&gt;• Plaintext regularized SGD with gradient clipping:&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;b&gt;w_{t+1} = w_t - η (∇w + λ w_t)&lt;/b&gt;  (η = 0.05, λ = 0.01, clip = 1.0)&lt;br&gt;• Re-encrypts updated weights enc(w_{t+1}) for epoch t+1&lt;/font&gt;"
+      style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#93C5FD;strokeWidth=1.2;fontSize=11;align=left;spacingLeft=8;verticalAlign=middle;" vertex="1" parent="hosp_box">
+      <mxGeometry x="15" y="260" width="410" height="135" as="geometry" />
+    </mxCell>
+
+    <!-- H4: Validation -->
+    <mxCell id="h4_val" value="&lt;b&gt;4. Validation (Fold 9, Plaintext)&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#475569&quot; style=&quot;font-size:10px;&quot;&gt;• Exact sigmoid evaluation on 2,146 validation records&lt;br&gt;• Fold 10 strictly reserved for final test evaluation after experimental freeze&lt;/font&gt;"
+      style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8FAFC;strokeColor=#CBD5E1;strokeWidth=1;fontSize=11;align=left;spacingLeft=8;verticalAlign=middle;" vertex="1" parent="hosp_box">
+      <mxGeometry x="15" y="405" width="410" height="65" as="geometry" />
+    </mxCell>
+
+    <!-- Internal Re-encryption loop arrow -->
+    <mxCell id="re_enc_loop" value="Re-encrypt updated w_{t+1}"
+      style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#4338CA;strokeWidth=1.8;dashed=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;fontSize=9.5;fontStyle=2;fontColor=#4338CA;" edge="1" parent="hosp_box" source="h3_opt" target="h2_data">
+      <mxGeometry relative="1" as="geometry">
+        <Array as="points">
+          <mxPoint x="5" y="328" />
+          <mxPoint x="5" y="220" />
+        </Array>
+      </mxGeometry>
+    </mxCell>
+
+
+    <!-- ========================================== -->
+    <!-- CLOUD SERVER CONTAINER (CSP REALM)         -->
+    <!-- ========================================== -->
+    <mxCell id="csp_box" value="Untrusted Cloud Service Provider (Server Realm)&#xa;Holds Public Keys (pk, evk, gal_k) | Ciphertext-Only Execution"
+      style="swimlane;startSize=36;fillColor=#F8FAFC;strokeColor=#334155;strokeWidth=2;fontStyle=1;fontSize=12;fontColor=#0F172A;align=left;spacingLeft=10;rounded=1;arcSize=4;" vertex="1" parent="1">
+      <mxGeometry x="660" y="55" width="480" height="620" as="geometry" />
+    </mxCell>
+
+    <!-- S1: Workload-Aware Scheduler -->
+    <mxCell id="csp_sched" value="&lt;b&gt;Workload-Aware Circuit Scheduler (CostModel_v2)&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#78350F&quot; style=&quot;font-size:10px;&quot;&gt;• Inputs: dimensions N=17084, D=48, B=3, E=10, memory budget&lt;br&gt;• CostModel_v2 evaluates four candidate schedules (A/B × rep/cache)&lt;br&gt;• Selected plan: &lt;b&gt;B-cache&lt;/b&gt; (Level 2 gradient entry + cached feature alignment)&lt;/font&gt;"
+      style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFBEB;strokeColor=#D97706;strokeWidth=1.4;fontSize=11;align=left;spacingLeft=8;verticalAlign=middle;" vertex="1" parent="csp_box">
+      <mxGeometry x="15" y="45" width="450" height="75" as="geometry" />
+    </mxCell>
+
+    <!-- Pipeline Group Box -->
+    <mxCell id="csp_pipe" value="Homomorphic Training Circuit (Per Epoch)"
+      style="swimlane;startSize=24;fillColor=#FFFFFF;strokeColor=#CBD5E1;strokeWidth=1.2;fontStyle=1;fontSize=10.5;fontColor=#334155;align=center;rounded=1;" vertex="1" parent="csp_box">
+      <mxGeometry x="15" y="130" width="450" height="470" as="geometry" />
+    </mxCell>
+
+    <!-- C1: Forward Linear -->
+    <mxCell id="c1_fwd" value="&lt;b&gt;Step 1: Forward Linear Combination&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#334155&quot; style=&quot;font-size:9.5px;&quot;&gt;enc(z) = ∑_{j=1}^D enc(X_j) ⊗ enc(w_j)   (D=48 Ct-Ct muls, Level 7 → 6)&lt;/font&gt;"
+      style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EFF6FF;strokeColor=#93C5FD;strokeWidth=1;fontSize=10.5;align=center;verticalAlign=middle;" vertex="1" parent="csp_pipe">
+      <mxGeometry x="15" y="32" width="420" height="45" as="geometry" />
+    </mxCell>
+
+    <!-- C2: Sigmoid -->
+    <mxCell id="c2_poly" value="&lt;b&gt;Step 2: Degree-3 Chebyshev Polynomial Sigmoid&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#334155&quot; style=&quot;font-size:9.5px;&quot;&gt;enc(ŷ) = P_3(enc(z)) = 0.5 + 0.15012 z - 0.001593 z³   (Level 6 → 3)&lt;br&gt;Chebyshev approximation calibrated to empirical logit bounds&lt;/font&gt;"
+      style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EFF6FF;strokeColor=#93C5FD;strokeWidth=1;fontSize=10.5;align=center;verticalAlign=middle;" vertex="1" parent="csp_pipe">
+      <mxGeometry x="15" y="95" width="420" height="52" as="geometry" />
+    </mxCell>
+
+    <!-- C3: Error & Level Drop -->
+    <mxCell id="c3_err" value="&lt;b&gt;Step 3: Error Computation &amp;amp; Condition B Level Adjustment&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#78350F&quot; style=&quot;font-size:9.5px;&quot;&gt;• enc(e) = enc(ŷ) - enc(y_aligned)   (ciphertext subtraction at Level 3)&lt;br&gt;• Condition B Intervention: enc(e) ⊗ 1.0   (automatic rescale: Level 3 → 2)&lt;br&gt;• Cached Alignment: precomputed enc(X_aligned) reused across all epochs&lt;/font&gt;"
+      style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFBEB;strokeColor=#FCD34D;strokeWidth=1.2;fontSize=10.5;align=left;spacingLeft=8;verticalAlign=middle;" vertex="1" parent="csp_pipe">
+      <mxGeometry x="15" y="165" width="420" height="75" as="geometry" />
+    </mxCell>
+
+    <!-- C4: Gradient Dot Product -->
+    <mxCell id="c4_grad" value="&lt;b&gt;Step 4: Homomorphic Gradient Dot Product (Level 2)&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#166534&quot; style=&quot;font-size:9.5px;&quot;&gt;• enc(∇w_{b,j}) = slot_sum(enc(e_b) ⊗ enc(X_{b,j}^{aligned})) at Level 2&lt;br&gt;• Generates B × D = 3 × 48 = 144 batch-gradient ciphertexts&lt;/font&gt;"
+      style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F0FDF4;strokeColor=#86EFAC;strokeWidth=1.2;fontSize=10.5;align=left;spacingLeft=8;verticalAlign=middle;" vertex="1" parent="csp_pipe">
+      <mxGeometry x="15" y="258" width="420" height="60" as="geometry" />
+    </mxCell>
+
+    <!-- Internal Flow Arrows inside Pipeline -->
+    <mxCell id="pipe_a1" style="edgeStyle=straight;strokeColor=#64748B;strokeWidth=1.5;endArrow=block;endFill=1;" edge="1" parent="csp_pipe" source="c1_fwd" target="c2_poly">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="pipe_a2" style="edgeStyle=straight;strokeColor=#64748B;strokeWidth=1.5;endArrow=block;endFill=1;" edge="1" parent="csp_pipe" source="c2_poly" target="c3_err">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="pipe_a3" style="edgeStyle=straight;strokeColor=#64748B;strokeWidth=1.5;endArrow=block;endFill=1;" edge="1" parent="csp_pipe" source="c3_err" target="c4_grad">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- Scheduler control link to pipeline -->
+    <mxCell id="sched_ctrl" style="edgeStyle=straight;strokeColor=#D97706;strokeWidth=1.4;dashed=1;endArrow=block;endFill=1;" edge="1" parent="csp_box" source="csp_sched" target="csp_pipe">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+
+    <!-- ========================================== -->
+    <!-- COMMUNICATION ARROWS (STRICTLY SEPARATED)  -->
+    <!-- ========================================== -->
+
+    <!-- Comm 1: Public Keys (Setup, Dashed) -->
+    <mxCell id="comm_keys" value="&lt;b&gt;[1] Public Keys&lt;/b&gt;&lt;br&gt;pk, evk, gal_k&lt;br&gt;&lt;i&gt;Once at Setup&lt;/i&gt;"
+      style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#0D9488;strokeWidth=1.8;dashed=1;endArrow=block;endFill=1;fontSize=10;fontColor=#0F766E;align=center;" edge="1" parent="1" source="h1_keys" target="csp_sched">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- Comm 2: Encrypted Data (Setup, Solid) -->
+    <mxCell id="comm_data" value="&lt;b&gt;[2] Encrypted Data&lt;/b&gt;&lt;br&gt;enc(X) [L7], enc(y_aligned) [L3]&lt;br&gt;&lt;i&gt;Once at Setup (Retained in RAM)&lt;/i&gt;"
+      style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#1D4ED8;strokeWidth=2.2;endArrow=block;endFill=1;fontSize=10;fontColor=#1E40AF;align=center;" edge="1" parent="1" source="h2_data" target="c3_err">
+      <mxGeometry relative="1" as="geometry">
+        <Array as="points">
+          <mxPoint x="570" y="225" />
+          <mxPoint x="570" y="360" />
+        </Array>
+      </mxGeometry>
+    </mxCell>
+
+    <!-- Comm 3: Encrypted Weights (Per Epoch, Solid) -->
+    <mxCell id="comm_weights" value="&lt;b&gt;[3] Encrypted Weights&lt;/b&gt;&lt;br&gt;enc(w_t) [48 ciphertexts]&lt;br&gt;&lt;i&gt;Every Epoch&lt;/i&gt;"
+      style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#4338CA;strokeWidth=2.2;endArrow=block;endFill=1;fontSize=10;fontColor=#4338CA;align=center;" edge="1" parent="1" source="h2_data" target="c1_fwd">
+      <mxGeometry relative="1" as="geometry">
+        <Array as="points">
+          <mxPoint x="550" y="200" />
+          <mxPoint x="550" y="240" />
+        </Array>
+      </mxGeometry>
+    </mxCell>
+
+    <!-- Comm 4: Encrypted Gradients (Per Epoch Return, Solid) -->
+    <mxCell id="comm_grad" value="&lt;b&gt;[4] Encrypted Gradients&lt;/b&gt;&lt;br&gt;enc(∇w) [144 ciphertexts: B × D = 3 × 48]&lt;br&gt;&lt;i&gt;Returned Every Epoch&lt;/i&gt;"
+      style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#B91C1C;strokeWidth=2.2;endArrow=block;endFill=1;fontSize=10;fontColor=#991B1B;align=center;" edge="1" parent="1" source="c4_grad" target="h3_opt">
+      <mxGeometry relative="1" as="geometry">
+        <Array as="points">
+          <mxPoint x="570" y="475" />
+          <mxPoint x="570" y="380" />
+        </Array>
+      </mxGeometry>
+    </mxCell>
+
+  </root>
+</mxGraphModel>
